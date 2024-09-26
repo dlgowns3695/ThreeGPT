@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import TopNav from './components/topNav'; // topNav.js 불러오기 
+import TopNav from './components/topNav/topNav'; // topNav.js 불러오기 
 
 
 function App() {
