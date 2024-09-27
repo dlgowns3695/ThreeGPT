@@ -66,9 +66,16 @@ export const TopNav = () => {
               <li key={index} className={`relative flex-1 flex justify-center group`}>
                 {index === 0 ? (
                   <div className="relative flex items-center justify-start px-12 border-r border-[#353539] box-border">
-                    <span className='text-nowrap mr-2'>{title}</span>
-                    <div className='absolute top-0 left-0 right-0 h-[.125rem] topNav-gradient'></div>
+                  {/* 아이콘 */}
+                  <div className="relative w-[1rem] h-[1rem] mr-2 group-hover:rotate-45 group-hover:scale-125 transition-transform duration-200">
+                    <div className="ourNavIcon top-left"></div>
+                    <div className="ourNavIcon top-right"></div>
+                    <div className="ourNavIcon bottom-left"></div>
+                    <div className="ourNavIcon bottom-right"></div>
                   </div>
+                  <span className='text-nowrap mr-2'>{title}</span> {/* 오른쪽에 마진 추가 */}
+                  <div className='absolute top-0 left-0 right-0 h-[.125rem] topNav-gradient'></div>
+                </div>
                 ) : index === titles.length - 1 ? (
                   <span className='py-6 violetFont'>{title}</span>
                 ) : (
