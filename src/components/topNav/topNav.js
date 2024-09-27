@@ -4,7 +4,7 @@ import './topNav.css'; // CSS 파일 import
 
 export const TopNav = () => {
   // 초기 타이틀 배열 상태 설정
-  const [titles, setTitles] = useState(['OUR ECOSYSTEM', 'Solutions', 'Developers', 'Learn', '$CGPT', 'Community', 'Contact us']); // 기본 타이틀
+  const [titles, setTitles] = useState(['OUR ECOSYSTEM', 'Home ', 'About GPT', 'Research', 'Products']); // 기본 타이틀
 
   // 스크램블 함수
   const scrambleText = (text) => {
@@ -26,7 +26,7 @@ export const TopNav = () => {
 
       // 마우스가 요소에 들어갈 때 scramble 효과 적용
       const handleMouseEnter = () => {
-        console.log('호버 신호 발생:', originalText); // 기존 타이틀 출력
+        // console.log('호버 신호 발생:', originalText); // 기존 타이틀 출력
 
         // 스크램블 효과 적용
         let iterations = 0;
@@ -52,12 +52,14 @@ export const TopNav = () => {
   }, [titles]); // titles 배열이 변경될 때마다 재실행
 
   return (
-    <div className='w-full h-auto text-lg border border-[#353539;] relative'>
+    <div className='w-full h-auto text-lg border-b border-[#353539;] relative z-50 bg-[#0a090f]'>
       <div className='w-full h-full flex items-center px-[2%]'>
         {/* 왼쪽 로고 영역 */}
-        <div className='flex-shrink-0 w-[15%]'>
-          <img src={`${process.env.PUBLIC_URL}/gptLogo.svg`} alt='Logo' />
+        <div className='flex-shrink-0 w-[15%] flex items-center  gap-6'>
+          <img className='w-[42px] h-[44px]' src={`${process.env.PUBLIC_URL}/ChatGPTLogo.svg`} alt='ChatGPTLogo' />
+          <span className='text-3xl'> ChatGPT</span>
         </div>
+        
 
         {/* 가운데 네브바 내용들 */}
         <div className='w-full'>
