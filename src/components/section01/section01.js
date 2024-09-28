@@ -1,87 +1,111 @@
-import React from 'react'
+import React from 'react';
 import '../../App.css';
 import './section01.css'; // CSS 파일 import
-// import '../topNav/topNav.css' ; // topNav.css에 line요소 사용하기 위해 가져옴
 
-export const section01 = () => {
-  return (
-    <>
+export const Section01 = () => {
+    // Q&A 데이터 배열
+    const qaData = [
+      { question: "When was ChatGPT released?", answer: "ChatGPT was first released in November 2020." },
+    //   { question: "What is blockchain?", answer: "Blockchain is a distributed ledger technology." },
+    //   { question: "Next question?", answer: "This is a placeholder for the next question." },
+      // 추가 질문과 답변을 여기에 추가할 수 있습니다.
+    ];
+  
+    // 오른쪽 텍스트 배열
+    const nextQuestions = [
+      "ChatGPT ?",
+      "AI",
+      "Momey ?",
+      // 추가 질문을 여기에 추가할 수 있습니다.
+    ];
+  
+    return (
+      <>
         {/* 전체 */}
-        <div className='w-full h-[91.5vh] bg-green-900 px-[2%] '>
-            {/*  전체 + 패딩값을 줌 flex로 위 아래 나뉠 예정 */}
-            <div className='w-full bg-blue-600 flex flex-col   items-center'>
-                {/* Q&A 공간감 */}
-                <div className='w-[70%]'>
-                    {/* 컨탠츠 영역 */}
-                    <div className='flex bg-red-500 mt-[20vh] mb-[25vh]'>
-
-                        {/* 왼 */}
-                        <div className='w-[50%] border border-[#efefe5]  '>
-
-
-
-                        <div className='bg-violet-900 h-[6rem]'>
-                            {/* 사각형 */}
-                            <div className='  absolute  top-[203px] z-10 border border-[#efefe5]  w-[66px] h-[66px] flex items-center justify-center'>
-                                <img src={`${process.env.PUBLIC_URL}/invertedCommas.svg`} alt='invertedCommas' />
-                                <div className=' absolute top-[-30px] left-[-30px] '>
-                                    <img src={`${process.env.PUBLIC_URL}/leftTop.svg`} alt='leftTop' />
-                                </div>
-                            </div>
-
-                             {/* 글귀들 위에 Q 아래에 A  -> 2개씩 올라가게*/}
-                             <div className='bg-green-800 h-[12rem] flex flex-col  items-center border border-[#efefe5] overflow-hidden text-4xl text-center'>
-                                <div className='p-4'>
-                                    Q. When was ChatGPT released ?
-                                </div>
-                                <div className='p-4'>
-                                    A. ChatGPT was first released in November 2020.
-                                </div>
-
-
-                                <div className='p-4'>
-                                    Q. Is there any way to use ChatGPT ??
-                                </div>
-                                <div className='p-4'>
-                                    Q. Is there any way to use ChatGPT ??
-                                </div>
-                                <div className='p-4'>
-                                    Q. Is there any way to use ChatGPT ??
-                                </div>
-                            
-                            </div>
+        <div className="w-full h-[91.5vh]  px-[2%]">
+          {/* 전체 + 패딩값을 줌 flex로 위 아래 나뉠 예정 */}
+          <div className="w-full  flex flex-col items-center">
+            {/* Q&A 공간감 */}
+            <div className="w-[70%] z-10">
+              {/* 컨탠츠 영역 */}
+              <div className="flex mt-[20vh] mb-[10%]">
+                {/* 왼쪽 Q&A */}
+                <div className="w-[50%]">
+                  <div className=" h-[6rem] relative">
+                    {/* 사각형 */}
+                    <div className="absolute top-[-66px]  border-t border-l border-r border-[#efefe5] w-[66px] h-[66px] flex items-center justify-center">
+                      <img
+                        src={`${process.env.PUBLIC_URL}/invertedCommas.svg`}
+                        alt="invertedCommas"
+                      />
+                      <div className="absolute top-[-30px] left-[-30px]">
+                        <img
+                          src={`${process.env.PUBLIC_URL}/leftTop.svg`}
+                          alt="leftTop"
+                        />
+                      </div>
+                      <div className="absolute top-[260px] left-[-30px] scale-y-[-1]">
+                        <img
+                          src={`${process.env.PUBLIC_URL}/leftTop.svg`}
+                          alt="leftTop"
+                        />
+                      </div>
+                    </div>
+  
+                    {/* 글귀들 Q&A */}
+                    <div className="flex flex-col  overflow-hidden text-lg  ">
+                      {qaData.map((qa, index) => (
+                        <div key={index} className="">
+                          <div className="p-8 border border-[#efefe5] ">
+                            Q. {qa.question}
+                          </div>
+                          <div className='p-8'>A. {qa.answer}</div>
                         </div>
-
-                        </div>
-
-                       
-
-                        {/* 그림자 예정 */}
-
-
-
-                        {/* 오른쪽 해당 질문의 카테고리로 채우기 */}
-                        <div className='w-[50%]'>
-                            <div className='h-[100px] flex pl-8 items-center border border-[#efefe5]'>
-                                <div>   
-                                    <img className='w-[12px] ' src={`${process.env.PUBLIC_URL}/arrowDown.svg`} alt='arrowDown'/>
-                                </div>
-                                <div className='flex'>
-                                    <p>Q&A</p>
-                                    <div>00</div>
-                                </div>
-
-                                
+                      ))}
+                    </div>
+                  </div>
+                </div>
                 
-                            </div>
-                        </div>
+                {/* 오른쪽 질문 카테고리 */}
+                <div className="w-[50%]">
+                    <div className="flex text-right items-center justify-end border-t border-b border-r border-[#efefe5] mb-4 pl-[42%]">
+                        {/* 화살표 */}
+                        <img
+                        className="w-[12px] rotate-90 " // 왼쪽 여백을 설정하여 화살표를 중앙으로 배치
+                        src={`${process.env.PUBLIC_URL}/arrowDown.svg`}
+                        alt="arrowDown"
+                        />
+                        
+                        {/* 오른쪽 텍스트 감싸는 div */}
+                    
+                        <p className=" flex-1 px-2  ">#$$00</p> {/* 오른쪽 텍스트에 왼쪽 패딩 및 보더 추가 */}
+                        <p className=" p-4 border-l border-[#efefe5] ">#$$00</p> {/* 오른쪽 텍스트에 왼쪽 패딩 및 보더 추가 */}
+                        
                     </div>
 
+                    {nextQuestions.map((nextQuestion, index) => (
+                        // pt-2 pr-4 pb-[0.4375rem] pl-[42%]
+                        <div key={index} className="text-right flex justify-end border-t border-[#353539] pt-2 pr-4 pb-[0.4375rem] pl-[42%] ">
+                            {/* 텍스트 */}
+                            <img
+                                className="w-[12px] rotate-90"
+                                src={`${process.env.PUBLIC_URL}/arrowDown.svg`}
+                                alt="arrowDown"
+                            />
+                            {/* flex-1 */}
+                            <p className=' flex-1 '>{nextQuestion}</p>
+                        </div>
+                    ))}
                 </div>
 
-                <div className='w-full flex justify-between  '>
-                <div className='bg-red-500 '>
-                    <h4 className='text-4xl roboFont'>GPT for Everyone</h4>
+
+              </div>
+            </div>
+
+            {/* 하단 */}
+            <div className='w-full flex items-end '>
+                <div className=' '>
+                    <h4 className='text-lg roboFont'>GPT for Everyone</h4>
 
                     <div className='violetFont relative'>
                      
@@ -123,107 +147,61 @@ export const section01 = () => {
 
                 </div>
 
+                <div className='w-[40%] text-2xl text-right'>
+                    <p>Your personal expert in all crypto<br/>
+                    & blockchain related topics.</p>
+                </div>
+
+                <div className='w-[28%] flex  justify-end items-center'>
+                    {/* 링크 */}
+                    <div className='pr-6'>SCROLL</div>
+                    <div className=' relative flex items-center justify-center w-[76px] h-[76px] '>
+                        <div className="absolute bottom-[0px] left-[0px] scale-y-[-1]">
+                            <img
+                            src={`${process.env.PUBLIC_URL}/leftTop.svg`}
+                            alt="leftTop"
+                            />
+                        </div>
+                        <div className="">
+                            <img
+                            src={`${process.env.PUBLIC_URL}/scollArrow-down.svg`}
+                            alt="scollArrow-down"
+                            />
+                        </div>
+                        <div className="absolute  top-0 right-[0px] rotate-90">
+                            <img
+                            src={`${process.env.PUBLIC_URL}/leftTop.svg`}
+                            alt="leftTop"
+                            />
+                        </div>
+                    </div>
+
+
+                </div>
+
 
 
             </div>
 
             </div>
-
-
-
-            
+  
+            {/* Vertical lines */}
             <div className="vertical-line vertical-line--left"></div>
             <div className="vertical-line vertical-line--center"></div>
             <div className="vertical-line vertical-line--right"></div>
-        </div>
-    </>
-    
-  )
-}
-export default section01;
+          </div>
+        
+      </>
+    );
+  };
 
 
+  
+  
+  
+  
 
-// <div class="container-middle">
-//   <div class="hero-info">
-//     <div class="hero-info-left">
-//       <div class="hero-slider-wrap js-hero-text-slides">
-//         <div class="hero-slider-quote">
-            
-//           <img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/643550c922d6d37de6ffd28c_ico-quote.svg" 
-//                loading="lazy" width="20" height="16" alt="">
+export default Section01;
+
+
            
-//           <div class="corner corner--top-left hero-corer">
-//             <img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/643550c922d6d34b8dffd28d_corner.svg" 
-//                  loading="lazy" alt="" class="corner-img">
-//           </div>
-//         </div>
-//         <div class="hero-slider-inner">
-//           <div class="hero-slide">
-//             <p class="paragraph-3">Create a smart contract for a token named CGPT on Ethereum.</p>
-//           </div>
-//           <div class="hero-slide">
-//             <p class="paragraph-3">Provide me with a daily crypto market analysis report.</p>
-//           </div>
-//           <div class="hero-slide active">
-//             <p class="paragraph-3">How to deploy a Smart Contract on the Ethereum blockchain?</p>
-//           </div>
-//           <div class="hero-slide">
-//             <p class="paragraph-3">How do I run a Bitcoin wallet locally?</p>
-//           </div>
-//           <div class="hero-slide">
-//             <p class="paragraph-3">Summarize the latest Crypto-related news.</p>
-//           </div>
-//           <div class="hero-slide">
-//             <p class="paragraph-3">Create a smart contract for a token named CGPT on Ethereum.</p>
-//           </div>
-//         </div>
-//         <div class="hero-slide-fade"></div>
-//         <div class="corner corner--bottom-left hero-corner">
-//           <img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/643550c922d6d34b8dffd28d_corner.svg" 
-//                loading="lazy" alt="" class="corner-img corner-img--bottom-left">
-//         </div>
-//       </div>
-//     </div>
-//     <div class="hero-info-right">
-//       <div class="hero-feature-prime">
-//         <img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6436bdb39b7ca6101e1a307d_ico-indicator-light.svg" 
-//              loading="lazy" alt="" class="hero-feature-ico">
-//         <div class="hero-feature-slide-pseudo">
-//           <p class="paragraph hero-feature-paragraph">A</p>
-//           <div class="hero-feature-score">0</div>
-//         </div>
-//         <div hero-feature-slide="" class="hero-feature-slide active">
-//           <p class="paragraph hero-feature-paragraph">AI TOOLS</p>
-//           <div class="hero-feature-score">10</div>
-//         </div>
-//         <div hero-feature-slide="" class="hero-feature-slide">
-//           <p class="paragraph hero-feature-paragraph">MAUs</p>
-//           <div class="hero-feature-score">550k</div>
-//         </div>
-//         <div hero-feature-slide="" class="hero-feature-slide">
-//           <p class="paragraph hero-feature-paragraph">TVL</p>
-//           <div class="hero-feature-score">$30m+</div>
-//         </div>
-//       </div>
-//       <div class="hero-feature">
-//         <img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/643550c922d6d3e0dcffd28b_ico-indicator.svg" 
-//              loading="lazy" alt="" class="hero-feature-ico">
-//         <p class="paragraph hero-feature-paragraph">DEVELOPMENT</p>
-//       </div>
-//       <div class="hero-feature">
-//         <img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/643550c922d6d3e0dcffd28b_ico-indicator.svg" 
-//              loading="lazy" alt="" class="hero-feature-ico">
-//         <p class="paragraph hero-feature-paragraph">MARKET ANALYSIS</p>
-//       </div>
-//       <div class="hero-feature">
-//         <img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/643550c922d6d3e0dcffd28b_ico-indicator.svg" 
-//              loading="lazy" alt="" class="hero-feature-ico">
-//         <p class="paragraph hero-feature-paragraph">AI TRADING</p>
-//       </div>
-//       <div class="hero-feature transparent">
-//         <p class="paragraph hero-feature-paragraph">AND MUCH MORE</p>
-//       </div>
-//     </div>
-//   </div>
-// </div>
