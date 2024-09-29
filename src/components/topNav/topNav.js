@@ -52,7 +52,7 @@ export const TopNav = () => {
   }, [titles]); // titles 배열이 변경될 때마다 재실행
 
   return (
-    <div className='w-full h-auto text-lg border-b border-[#353539;] relative z-50 bg-[#0a090f]'>
+    <div className='w-full h-auto text-lg border-b border-[#353539;] relative z-[9999] bg-[f5f6f0]'>
       <div className='w-full h-full flex items-center px-[2%]'>
         {/* 왼쪽 로고 영역 */}
         <div className='flex-shrink-0 w-[15%] flex items-center  gap-6'>
