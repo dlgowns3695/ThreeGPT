@@ -11,7 +11,7 @@ import { Pagination, Autoplay } from 'swiper/modules';
 export const Section01 = () => {
     // Q&A 데이터 배열
     const qaData = [
-      { question: "When was ChatGPT released?", answer: "ChatGPT was first released in November 2020." },
+      { question: "When was ChatGPT released?", answer: "ChatGPT was first released in November 2020. ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020." },
       { question: "What is blockchain?", answer: "Blockchain is a distributed ledger technology." },
     //   { question: "Next question?", answer: "This is a placeholder for the next question." },
     //   { question: "What is blockchain?", answer: "Blockchain is a distributed ledger technology." },
@@ -59,49 +59,43 @@ export const Section01 = () => {
                         />
                     </div>
                 </div>
-                {/* 왼쪽 Q&A  overflow-hidden */}
-                <div className="w-[calc(50%-1px)] h-[220px]">
-                    {/*  */}
-                    <div className=" relative border border-[#efefe5] h-[110px]  ">
+{/* 왼쪽 Q&A  overflow-hidden */}
+<div className="w-[calc(50%-1px)] ">
+    {/* 상단 보더 유지 */}
+    <div className="relative border border-[#efefe5] h-[128px] ">
+        {/* 글귀들 담는 박스 Q&A hero-slider-inner */}
+        <div className="relative h-[520px] ">
 
-                         {/* 글귀들 담는박스 Q&A hero-slider-inner */}
-                        <div className='relative '>
-
-                            <Swiper
-                            direction={'vertical'}
-
-                            autoplay={{ delay: 3000, disableOnInteraction: false }} // 자동 재생 설정
-                            loop={true} // 반복 재생 설정
-                            modules={[Pagination,  ]} // Autoplay
-                            className="mySwiper"
-                            style={{ height: '220px' }} // Swiper 높이를 100%로 설정
-                            >
-                           
-                                {/* Q&A 합친 div박스 flex col */}
-                                <div className="flex flex-col  text-lg  ">
-                                    {qaData.map((qa, index) => (
-                                        // hero-slide 들 , 정렬 필
-                                        <SwiperSlide>
-                                        <div key={index} className="">
-                                            <div className={`p-8 text-5xl `}>
-                                                <span className='violetFont'> Q.</span> {qa.question}
-                                            </div>
-                                            <div className={`p-8 opacity-50 `}>
-                                                <span className='violetFont'> A.</span>  {qa.answer}
-                                            </div>
-                                        </div>
-                                        </SwiperSlide>
-                                    ))}
+            <Swiper
+                direction={'vertical'}
+                autoplay={{ delay: 3000, disableOnInteraction: false }} // 자동 재생 설정
+                loop={true} // 반복 재생 설정
+                modules={[Pagination]} // Autoplay
+                className="mySwiper"
+                style={{ height: '100%' }} // Swiper 높이를 100%로 설정
+            >
+                {/* Q&A 합친 div박스 flex col */}
+                <div className="text-lg">
+                    {qaData.map((qa, index) => (
+                        // hero-slide 들 , 정렬 필
+                        <SwiperSlide key={index}> {/* key 추가 */}
+                            <div className="flex flex-col ">
+                                <div className="p-4 flex items-center justify-start text-5xl h-[128px] "> {/* 보더값 128안에 정렬이쁘게하기 위해 사이즈 맞춤 */}
+                                    <span className="violetFont mr-[10px]"> Q.</span> {qa.question}
                                 </div>
-                                
-
-                            </Swiper>
-                        </div>
-                        
-                        
-
-                    </div>
+                                <div className="p-4 flex items-center justify-start opacity-50 "> {/* 왼쪽 정렬 */}
+                                    <span className="violetFont mr-[10px]"> A.</span> {qa.answer}
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
                 </div>
+
+            </Swiper>
+        </div>
+    </div>
+</div>
+
 
 
 
