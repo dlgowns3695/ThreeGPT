@@ -52,8 +52,8 @@ export const TopNav = () => {
   }, [titles]); // titles 배열이 변경될 때마다 재실행
 
   return (
-    <div className='w-full h-auto text-lg border-b border-[#353539;] relative z-[9999] bg-[f5f6f0]'>
-      <div className='w-full h-full flex items-center px-[2%]'>
+    <div className='w-full h-auto text-lg border-b border-[#353539] relative z-[9999] '>
+      <div className='w-full h-full flex items-center px-[2%] bg-[#0a090f]'>
         {/* 왼쪽 로고 영역 */}
         <div className='flex-shrink-0 w-[15%] flex items-center  gap-6'>
           <img className='w-[42px] h-[44px]' src={`${process.env.PUBLIC_URL}/ChatGPTLogo.svg`} alt='ChatGPTLogo' />
@@ -83,7 +83,7 @@ export const TopNav = () => {
                 ) : (
                   <>
                     <span data-text={title} className='scramble-text py-6 mr-2 violetFont'>{title}</span>
-                    <img className='w-[6px]' src={`${process.env.PUBLIC_URL}/arrowDown.svg`} alt='arrowDown'/>
+                    
                   </>
                 )}
               </li>
