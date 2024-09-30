@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import '../../App.css';
 import './section01.css'; // CSS 파일 import
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+import { Pagination, Autoplay } from 'swiper/modules';
 
 export const Section01 = () => {
     // Q&A 데이터 배열
     const qaData = [
       { question: "When was ChatGPT released?", answer: "ChatGPT was first released in November 2020." },
       { question: "What is blockchain?", answer: "Blockchain is a distributed ledger technology." },
-      { question: "Next question?", answer: "This is a placeholder for the next question." },
-      { question: "What is blockchain?", answer: "Blockchain is a distributed ledger technology." },
+    //   { question: "Next question?", answer: "This is a placeholder for the next question." },
+    //   { question: "What is blockchain?", answer: "Blockchain is a distributed ledger technology." },
       // 추가 질문과 답변을 여기에 추가할 수 있습니다.
     ];
 
@@ -20,6 +26,9 @@ export const Section01 = () => {
 
       // 추가 질문을 여기에 추가할 수 있습니다.
     ];
+
+    const leftSwiperRef = useRef(null);
+    const rightSwiperRef = useRef(null);
   
     return (
       <>
@@ -50,65 +59,92 @@ export const Section01 = () => {
                         />
                     </div>
                 </div>
-                {/* 왼쪽 Q&A */}
-                <div className="w-[calc(50%-1px)] overflow-hidden">
-                <div className="h-[6rem] relative  ">
+                {/* 왼쪽 Q&A  overflow-hidden */}
+                <div className="w-[calc(50%-1px)] h-[220px]">
+                    {/*  */}
+                    <div className=" relative border border-[#efefe5] h-[110px]  ">
 
+                         {/* 글귀들 담는박스 Q&A hero-slider-inner */}
+                        <div className='relative '>
 
-                    {/* 글귀들 Q&A */}
-                    <div className="flex flex-col  text-lg ">
-                    {qaData.map((qa, index) => (
-                        <div key={index} className="">
-                        <div className={`p-8  ${index === 0 ? 'border border-[#efefe5] ' : ''}`}>
-                            Q. {qa.question}
+                            <Swiper
+                            direction={'vertical'}
+
+                            autoplay={{ delay: 3000, disableOnInteraction: false }} // 자동 재생 설정
+                            loop={true} // 반복 재생 설정
+                            modules={[Pagination,  ]} // Autoplay
+                            className="mySwiper"
+                            style={{ height: '220px' }} // Swiper 높이를 100%로 설정
+                            >
+                           
+                                {/* Q&A 합친 div박스 flex col */}
+                                <div className="flex flex-col  text-lg  ">
+                                    {qaData.map((qa, index) => (
+                                        // hero-slide 들 , 정렬 필
+                                        <SwiperSlide>
+                                        <div key={index} className="">
+                                            <div className={`p-8 text-5xl `}>
+                                                <span className='violetFont'> Q.</span> {qa.question}
+                                            </div>
+                                            <div className={`p-8 opacity-50 `}>
+                                                <span className='violetFont'> A.</span>  {qa.answer}
+                                            </div>
+                                        </div>
+                                        </SwiperSlide>
+                                    ))}
+                                </div>
+                                
+
+                            </Swiper>
                         </div>
-                        <div className={`p-8 opacity-50 ${index === 0 ? 'border-t-0 ' : ''}`}>
-                            A. {qa.answer}
-                        </div>
-                        </div>
-                    ))}
+                        
+                        
+
                     </div>
                 </div>
+
+
+
+
+                {/* 오른쪽 */}
+                <div className="w-[calc(50%+1px)]">
+                <ul className="text-right">
+                    {rightText.map((item, index) => (
+                    <li
+                        key={index}
+                        className={`flex  justify-between   ${index === 0 ? ' border-r border-b border-t border-[#efefe5]  mb-4 ' :
+                            'border-t border-b border-r border-[#353539] pt-2 pr-4 pb-[0.4375rem]'} pl-[42%]`}
+                    >
+                        {/* 화살표 */}
+                        <img
+                        className="w-[12px] rotate-90 "
+                        src={`${process.env.PUBLIC_URL}/arrowDown.svg`}
+                        alt="arrowDown"
+                        />
+                        {/* 최상단 아이템 처리 */}
+                        {index === 0 ? (
+                        <div className="flex items-center   pl-[42%]">
+                            <p className="px-2  ">{item.maintext}</p> {/* 서브텍스트 */}
+                            <p className="px-2  "></p> {/* 서브텍스트 */}
+                            <p className="p-4 border-l border-[#efefe5]  ">{item.subtext}</p> {/* 메인텍스트 */}
+                            <p className="p-4 border-l border-[#efefe5]  ">{item.maintext}</p> {/* 메인텍스트 */}
+                        </div>
+                        ) : (
+                        // 하단 아이템 처리
+                        <p className='flex-1'>{item.maintext}</p>
+                        )}
+                    </li>
+                    ))}
+                </ul>
                 </div>
-
-
-
-
-{/* 오른쪽 */}
-<div className="w-[calc(50%+1px)]">
-  <ul className="text-right">
-    {rightText.map((item, index) => (
-      <li
-        key={index}
-        className={`flex  justify-between   ${index === 0 ? ' border-r border-b border-t border-[#efefe5]  mb-4 ' :
-             'border-t border-b border-r border-[#353539] pt-2 pr-4 pb-[0.4375rem]'} pl-[42%]`}
-      >
-        {/* 화살표 */}
-        <img
-          className="w-[12px] rotate-90 "
-          src={`${process.env.PUBLIC_URL}/arrowDown.svg`}
-          alt="arrowDown"
-        />
-        {/* 최상단 아이템 처리 */}
-        {index === 0 ? (
-          <div className="flex items-center   pl-[42%]">
-            <p className="px-2  ">{item.maintext}</p> {/* 서브텍스트 */}
-            <p className="px-2  "></p> {/* 서브텍스트 */}
-            <p className="p-4 border-l border-[#efefe5]  ">{item.subtext}</p> {/* 메인텍스트 */}
-            <p className="p-4 border-l border-[#efefe5]  ">{item.maintext}</p> {/* 메인텍스트 */}
-          </div>
-        ) : (
-          // 하단 아이템 처리
-          <p className='flex-1'>{item.maintext}</p>
-        )}
-      </li>
-    ))}
-  </ul>
-</div>
 
 
               </div>
             </div>
+
+
+
+
             {/* 하단 */}
             <div className='w-full flex items-end'>
                 <div>
