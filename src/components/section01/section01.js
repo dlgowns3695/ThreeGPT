@@ -9,23 +9,33 @@ import 'swiper/css/autoplay';
 import { Pagination, Autoplay } from 'swiper/modules';
 
 export const Section01 = () => {
-    // Q&A 데이터 배열
-    const qaData = [
-      { question: "When was ChatGPT released?", answer: "ChatGPT was first released in November 2020. ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020.ChatGPT was first released in November 2020." },
-      { question: "What is blockchain?", answer: "Blockchain is a distributed ledger technology." },
-    //   { question: "Next question?", answer: "This is a placeholder for the next question." },
-    //   { question: "What is blockchain?", answer: "Blockchain is a distributed ledger technology." },
-      // 추가 질문과 답변을 여기에 추가할 수 있습니다.
-    ];
+   // Q&A 데이터 배열
+   const qaData = [
+    { question: "When was ChatGPT released?", answer: "ChatGPT was first released in November 2020. Since then, it has gone through several updates and improvements, with more advanced versions like GPT-4 being developed to enhance its capabilities." },
+    { question: "How does ChatGPT work?", answer: "ChatGPT is based on a language model trained using vast amounts of text data. It uses machine learning to generate human-like responses by predicting the next word in a sentence. This allows it to answer questions, hold conversations, and assist with various tasks." },
+    { question: "What is ChatGPT used for?", answer: "ChatGPT is commonly used for customer support, content generation, programming assistance, and as a learning tool. It helps businesses automate tasks and individuals get quick, accurate answers to a wide range of topics." },
+    { question: "How does ChatGPT protect privacy?", answer: "ChatGPT is designed to prioritize user privacy by not retaining personal conversation data after interactions. While it processes data to generate responses, it doesn’t store any personal information for future use." },
+    // 추가 질문과 답변을 여기에 추가할 수 있습니다.
+  ];
 
-    const rightText = [
-      {subtext:"#$$001", maintext:"HJ"},
-      {subtext:"#$$002", maintext:"ChatGPT ?"},
-      {subtext:"#$$003", maintext:"AI"},
-      {subtext:"#$$004", maintext:"Momey ?"},
+  // 오른쪽 슬라이드 기능 
+  const rightText = [
+    {subtext:"#01", maintext:"ChatGPT Release"},
+    {subtext:"#02", maintext:"How ChatGPT Works"},
+    {subtext:"#03", maintext:"Uses of ChatGPT"},
+    {subtext:"#04", maintext:"Privacy and ChatGPT"},
 
-      // 추가 질문을 여기에 추가할 수 있습니다.
-    ];
+    // 추가 질문을 여기에 추가할 수 있습니다.
+  ];
+
+
+  // 모델명들 
+const modleName = [
+  { model: "ChatGPT-4" },
+  { model: "DALL-E" },
+  { model: "Whisper" },
+];
+
 
     const leftSwiperRef = useRef(null);
     const rightSwiperRef = useRef(null);
@@ -59,19 +69,21 @@ export const Section01 = () => {
                         />
                     </div>
                 </div>
+
 {/* 왼쪽 Q&A  overflow-hidden */}
 <div className="w-[calc(50%-1px)] ">
     {/* 상단 보더 유지 */}
     <div className="relative border border-[#efefe5] h-[128px] ">
         {/* 글귀들 담는 박스 Q&A hero-slider-inner */}
-        <div className="relative h-[520px] ">
+        <div className="relative h-[320px]  ">
 
             <Swiper
                 direction={'vertical'}
                 autoplay={{ delay: 3000, disableOnInteraction: false }} // 자동 재생 설정
                 loop={true} // 반복 재생 설정
-                modules={[Pagination]} // Autoplay
+                modules={[Pagination, Autoplay]} // Autoplay
                 className="mySwiper"
+                allowTouchMove={false} // 터치 이동 비활성화
                 style={{ height: '100%' }} // Swiper 높이를 100%로 설정
             >
                 {/* Q&A 합친 div박스 flex col */}
@@ -101,35 +113,55 @@ export const Section01 = () => {
 
 
                 {/* 오른쪽 */}
-                <div className="w-[calc(50%+1px)]">
-                <ul className="text-right">
+                <div className="w-[calc(50%+1px)] relative">
+                  <div className='w-full h-[56px] border border-[#efefe5] absolute'></div>
+                  <div className='w-[59.82px] h-[56px] border border-[#efefe5] absolute right-0'></div>
+                  <div className='w-full h-[56px] pl-[42%] flex items-center  absolute '>
+                    <img
+                    className="w-[12px] rotate-90"
+                    src={`${process.env.PUBLIC_URL}/arrowDown.svg`}
+                    alt="arrowDown"
+                  />
+
+                  </div>
+
+                                   {/* 상단 슬라이드 영역 */}
+                                   <Swiper
+                    direction={'vertical'}
+                    autoplay={{ delay: 3000, disableOnInteraction: false }} // 자동 재생 설정
+                    loop={true} // 반복 재생 설정
+                    modules={[Pagination, Autoplay]} // Autoplay
+                    className="mySwiper"
+                    allowTouchMove={false} // 터치 이동 비활성화
+                    style={{ height: '57px' }} // Swiper 높이를 100%로 설정
+                  >
                     {rightText.map((item, index) => (
-                    <li
-                        key={index}
-                        className={`flex  justify-between   ${index === 0 ? ' border-r border-b border-t border-[#efefe5]  mb-4 ' :
-                            'border-t border-b border-r border-[#353539] pt-2 pr-4 pb-[0.4375rem]'} pl-[42%]`}
-                    >
+                      <SwiperSlide key={index}>
+                        <li className="flex  justify-end">
+                          
+                          <div className="flex items-center  ">
+                            <p className=" pr-4 ">{item.maintext}</p> {/* 메인 텍스트 */}
+                            <p className=" p-4 ">{item.subtext}</p> {/* 서브 텍스트 */}
+                          </div>
+                        </li>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                  
+                  {/* 하단 모델명 리스트 */}
+                  <ul className="text-right mt-4">
+                    {modleName.map((item, index) => (
+                      <li key={index} className={` flex justify-between border-t border-[#353539] pl-[42%] `}>
                         {/* 화살표 */}
                         <img
-                        className="w-[12px] rotate-90 "
-                        src={`${process.env.PUBLIC_URL}/arrowDown.svg`}
-                        alt="arrowDown"
+                          className="w-[12px] rotate-90 opacity-50"
+                          src={`${process.env.PUBLIC_URL}/arrowDown.svg`}
+                          alt="arrowDown"
                         />
-                        {/* 최상단 아이템 처리 */}
-                        {index === 0 ? (
-                        <div className="flex items-center   pl-[42%]">
-                            <p className="px-2  ">{item.maintext}</p> {/* 서브텍스트 */}
-                            <p className="px-2  "></p> {/* 서브텍스트 */}
-                            <p className="p-4 border-l border-[#efefe5]  ">{item.subtext}</p> {/* 메인텍스트 */}
-                            <p className="p-4 border-l border-[#efefe5]  ">{item.maintext}</p> {/* 메인텍스트 */}
-                        </div>
-                        ) : (
-                        // 하단 아이템 처리
-                        <p className='flex-1'>{item.maintext}</p>
-                        )}
-                    </li>
+                        <p className=" p-2">{item.model}</p> {/* 모델명 */}
+                      </li>
                     ))}
-                </ul>
+                  </ul>
                 </div>
 
 
@@ -181,12 +213,12 @@ export const Section01 = () => {
                     </div>
                 </div>
 
-                <div className='w-[40%] text-2xl text-right'>
+                <div className='w-[50%] text-2xl text-right'>
                     <p>Your personal expert in all crypto<br />
                     & blockchain related topics.</p>
                 </div>
 
-                <div className='w-[28%] flex justify-end items-center'>
+                <div className='w-[21%] flex justify-end items-center'>
                     {/* 링크 */}
                     <div className='pr-6'>SCROLL</div>
                     <div className='relative flex items-center justify-center w-[76px] h-[76px]'>

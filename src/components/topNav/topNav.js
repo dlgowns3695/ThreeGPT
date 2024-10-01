@@ -101,7 +101,7 @@ export const TopNav = () => {
           >
             <div className="btn-primary-lines btn-primary-lines-1"></div>
             <div className="btn-primary-lines btn-primary-lines-2"></div>
-            <div className="btn-primary-text p-4 ml-4">launch dapp</div>
+            <div className="btn-primary-text p-4 ml-4">Three GPT</div>
           </a>
         </div>
 
