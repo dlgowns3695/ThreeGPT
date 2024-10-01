@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+
 import '../../App.css';
 import './section01.css'; // CSS 파일 import
 
@@ -9,6 +10,9 @@ import 'swiper/css/autoplay';
 import { Pagination, Autoplay } from 'swiper/modules';
 
 export const Section01 = () => {
+    
+        
+
    // Q&A 데이터 배열
    const qaData = [
     { question: "When was ChatGPT released?", answer: "ChatGPT was first released in November 2020. Since then, it has gone through several updates and improvements, with more advanced versions like GPT-4 being developed to enhance its capabilities." },
@@ -36,7 +40,8 @@ const modleName = [
   { model: "Whisper" },
 ];
 
-
+    const [isHovered, setIsHovered] = useState(false);
+    
     const leftSwiperRef = useRef(null);
     const rightSwiperRef = useRef(null);
   
@@ -45,7 +50,7 @@ const modleName = [
         {/* 전체 */}
         <div className="w-full h-[91.5vh]  px-[2%]">
           {/* 전체 + 패딩값을 줌 flex로 위 아래 나뉠 예정 */}
-          <div className="w-full  flex flex-col items-center">
+          <div className="w-full  flex flex-col items-center gap-10">
             {/* Q&A 공간감 */}
             <div className="w-[70%] z-10">
               {/* 컨탠츠 영역 */}
@@ -62,7 +67,7 @@ const modleName = [
                         alt="leftTop"
                         />
                     </div>
-                    <div className="absolute top-[260px] left-[-30px] scale-y-[-1]">
+                    <div className="absolute top-[320px] left-[-30px] scale-y-[-1]">
                         <img
                         src={`${process.env.PUBLIC_URL}/leftTop.svg`}
                         alt="leftTop"
@@ -70,43 +75,43 @@ const modleName = [
                     </div>
                 </div>
 
-{/* 왼쪽 Q&A  overflow-hidden */}
-<div className="w-[calc(50%-1px)] ">
-    {/* 상단 보더 유지 */}
-    <div className="relative border border-[#efefe5] h-[128px] ">
-        {/* 글귀들 담는 박스 Q&A hero-slider-inner */}
-        <div className="relative h-[320px]  ">
+                {/* 왼쪽 Q&A  overflow-hidden */}
+                <div className="w-[calc(50%-1px)] ">
+                    {/* 상단 보더 유지 */}
+                    <div className="relative border border-[#efefe5] h-[128px] ">
+                        {/* 글귀들 담는 박스 Q&A hero-slider-inner */}
+                        <div className="relative h-[320px]  ">
 
-            <Swiper
-                direction={'vertical'}
-                autoplay={{ delay: 3000, disableOnInteraction: false }} // 자동 재생 설정
-                loop={true} // 반복 재생 설정
-                modules={[Pagination, Autoplay]} // Autoplay
-                className="mySwiper"
-                allowTouchMove={false} // 터치 이동 비활성화
-                style={{ height: '100%' }} // Swiper 높이를 100%로 설정
-            >
-                {/* Q&A 합친 div박스 flex col */}
-                <div className="text-lg">
-                    {qaData.map((qa, index) => (
-                        // hero-slide 들 , 정렬 필
-                        <SwiperSlide key={index}> {/* key 추가 */}
-                            <div className="flex flex-col ">
-                                <div className="p-4 flex items-center justify-start text-5xl h-[128px] "> {/* 보더값 128안에 정렬이쁘게하기 위해 사이즈 맞춤 */}
-                                    <span className="violetFont mr-[10px]"> Q.</span> {qa.question}
+                            <Swiper
+                                direction={'vertical'}
+                                autoplay={{ delay: 3000, disableOnInteraction: false }} // 자동 재생 설정
+                                loop={true} // 반복 재생 설정
+                                modules={[Pagination, Autoplay]} // Autoplay
+                                className="mySwiper"
+                                allowTouchMove={false} // 터치 이동 비활성화
+                                style={{ height: '100%' }} // Swiper 높이를 100%로 설정
+                            >
+                                {/* Q&A 합친 div박스 flex col */}
+                                <div className="text-lg">
+                                    {qaData.map((qa, index) => (
+                                        // hero-slide 들 , 정렬 필
+                                        <SwiperSlide key={index}> {/* key 추가 */}
+                                            <div className="flex flex-col ">
+                                                <div className="p-4 flex items-center justify-start text-5xl h-[128px] "> {/* 보더값 128안에 정렬이쁘게하기 위해 사이즈 맞춤 */}
+                                                    <span className="violetFont mr-[10px]"> Q.</span> {qa.question}
+                                                </div>
+                                                <div className="p-4 flex items-center justify-start opacity-50 "> {/* 왼쪽 정렬 */}
+                                                    <span className="violetFont mr-[10px]"> A.</span> {qa.answer}
+                                                </div>
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
                                 </div>
-                                <div className="p-4 flex items-center justify-start opacity-50 "> {/* 왼쪽 정렬 */}
-                                    <span className="violetFont mr-[10px]"> A.</span> {qa.answer}
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                    ))}
+
+                            </Swiper>
+                        </div>
+                    </div>
                 </div>
-
-            </Swiper>
-        </div>
-    </div>
-</div>
 
 
 
@@ -114,7 +119,7 @@ const modleName = [
 
                 {/* 오른쪽 */}
                 <div className="w-[calc(50%+1px)] relative">
-                  <div className='w-full h-[56px] border border-[#efefe5] absolute'></div>
+                  <div className='w-full h-[56px] border-t border-r border-b border-[#efefe5] absolute'></div>
                   <div className='w-[59.82px] h-[56px] border border-[#efefe5] absolute right-0'></div>
                   <div className='w-full h-[56px] pl-[42%] flex items-center  absolute '>
                     <img
@@ -158,7 +163,7 @@ const modleName = [
                           src={`${process.env.PUBLIC_URL}/arrowDown.svg`}
                           alt="arrowDown"
                         />
-                        <p className=" p-2">{item.model}</p> {/* 모델명 */}
+                        <p className=" p-2 mx-2">{item.model}</p> {/* 모델명 */}
                       </li>
                     ))}
                   </ul>
@@ -172,12 +177,12 @@ const modleName = [
 
 
             {/* 하단 */}
-            <div className='w-full flex items-end'>
+            <div className='w-full flex items-end relative z-10 '>
                 <div>
-                    <h4 className='text-lg roboFont'>GPT for Everyone</h4>
+                    <h4 className='text-lg roboFont '>GPT for Everyone</h4>
 
                     <div className='violetFont relative'>
-                    <svg className='absolute' width="450" height="125" viewBox="0 0 421 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className='absolute z-10' width="450" height="125" viewBox="0 0 421 96" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path className="path-anim path-anim-2" d="M157.5 94H402.257C403.053 94 403.816 93.6839 404.379 93.1213L419 78.5" stroke="url(#paint0_linear_2309_6568)" strokeWidth="2.5" strokeLinecap="round"></path>
                         <path className="path-anim path-anim-1" d="M2 77V19.2426C2 18.447 2.31607 17.6839 2.87868 17.1213L17.1213 2.87868C17.6839 2.31607 18.447 2 19.2426 2H417" stroke="url(#paint1_linear_2309_6568)" strokeWidth="2.5" strokeLinecap="round"></path>
                         <defs>
@@ -221,14 +226,18 @@ const modleName = [
                 <div className='w-[21%] flex justify-end items-center'>
                     {/* 링크 */}
                     <div className='pr-6'>SCROLL</div>
-                    <div className='relative flex items-center justify-center w-[76px] h-[76px]'>
+                    <div
+                            className='relative flex items-center justify-center w-[76px] h-[76px]'
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                        >
                     <div className="absolute bottom-[0px] left-[0px] scale-y-[-1]">
                         <img
                         src={`${process.env.PUBLIC_URL}/leftTop.svg`}
                         alt="leftTop"
                         />
                     </div>
-                    <div>
+                    <div className={`relative transition-transform duration-300 ease-in-out ${isHovered ? 'translate-y-4' : ''}`}>
                         <img
                         src={`${process.env.PUBLIC_URL}/scollArrow-down.svg`}
                         alt="scollArrow-down"
