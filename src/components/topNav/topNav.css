@@ -1,14 +1,19 @@
 
-.topNav-gradient {
+/* .topNav-gradient {
+    기존  어두운 배경일 
     background-image: linear-gradient(90deg, #fc6756, #f8cf3e 38%, #26f4d0 52%, #724ce8);
-  }
+  } */
 
+  .topNav-gradient {
+    background-image: linear-gradient(90deg, #0398a9, #0730c1 38%, #d90b2f 52%, #8db317);
+  }
+  
 /* topNav.css */
 .ourNavIcon {
   position: absolute;
   width: 0.25rem;
   height: 0.25rem;
-  background-color: white;
+  background-color: black; /* 반전된 색상 */
   border-radius: 50%; /* 둥근 형태로 만들기 */
   transition: transform 0.2s; /* 애니메이션 효과 */
 }
@@ -38,120 +43,126 @@
   transform: translate(-0.125rem, -0.125rem);
 }
 
+.btn-primary { 
+  position: relative; 
+}
 
-.btn-primary{position: relative;}
-
-
-.btn-primary-lines.btn-primary-lines-2{
+.btn-primary-lines.btn-primary-lines-2 {
   justify-content: center;
   display: flex;
 }
-.btn-primary:before, .btn-primary:after{
+
+.btn-primary:before, .btn-primary:after {
   position: absolute;
   width: 10px;
   height: 1px;
   content: "";
 }
-.btn-primary:before{
+
+.btn-primary:before {
   top: 0;
   left: -3px;
   transform: rotate(-45deg);
   transform-origin: top right;
-  background: linear-gradient(to right, #fb6e53 0%, #fb7454 100%);
+  background: linear-gradient(to right, #0491ac 0%, #048bad 100%); /* 반전된 색상 */
 }
-.btn-primary:after{
+
+.btn-primary:after {
   bottom: 0;
   right: -3px;
   transform: rotate(-45deg);
   transform-origin: bottom left;
-  background: linear-gradient(to right, #74e79a 0%, #74e79a 100%);
+  background: linear-gradient(to right, #8b1865 0%, #8b1865 100%); /* 반전된 색상 */
 }
 
-.btn-primary-lines-1:before, .btn-primary-lines-1:after{
+.btn-primary-lines-1:before, .btn-primary-lines-1:after {
   position: absolute;
   width: calc(100% - 8px);
-    height: 1px;
-    content: "";
-}
-.btn-primary-lines-1:before{
-  
-  top: 0;
-  left: 7px;
-  background: linear-gradient(to right, #fb7454 0%, #bcda68 100%);
-}
-.btn-primary-lines-1:after{
-    bottom: 0;
-    right: 7px;
-    background: linear-gradient(to right, #6072e2 0%, #74e79a 100%);
+  height: 1px;
+  content: "";
 }
 
-.btn-primary-lines-2:before, .btn-primary-lines-2:after{
+.btn-primary-lines-1:before {
+  top: 0;
+  left: 7px;
+  background: linear-gradient(to right, #048bad 0%, #432597 100%); /* 반전된 색상 */
+}
+
+.btn-primary-lines-1:after {
+  bottom: 0;
+  right: 7px;
+  background: linear-gradient(to right, #9f8d1d 0%, #8b1865 100%); /* 반전된 색상 */
+}
+
+.btn-primary-lines-2:before, .btn-primary-lines-2:after {
   position: absolute;
   width: 1px;
   content: "";
 }
 
-.btn-primary-lines-2:before{
-    bottom: 0;
-    left: 0;
-    height: 56%;
-    background: linear-gradient(to bottom, #6e52e5 0%, #6072e2 100%);
-}
-.btn-primary-lines-2:after{
-    height: calc(100% - 7px);
-    background: linear-gradient(to bottom, #bcda68 0%, #74e79a 100%);
-    top: 0;
-    right: 0;
-  
+.btn-primary-lines-2:before {
+  bottom: 0;
+  left: 0;
+  height: 56%;
+  background: linear-gradient(to bottom, #91ad1a 0%, #9f8d1d 100%); /* 반전된 색상 */
 }
 
-
-
-
-.btn-primary-text{
-color: #efefe5;
-text-transform: uppercase;
-padding-left: 1.4375rem;
-line-height: 1;
-text-decoration: none;
-
-position: relative;
+.btn-primary-lines-2:after {
+  height: calc(100% - 7px);
+  background: linear-gradient(to bottom, #432597 0%, #8b1865 100%); /* 반전된 색상 */
+  top: 0;
+  right: 0;
 }
-.btn-primary-text:before{left: 0;}
-.btn-primary-text:after{left: 0.4375rem}
-.btn-primary-text:before, .btn-primary-text:after{
+
+.btn-primary-text {
+  color: #10101a; /* 반전된 색상 */
+  text-transform: uppercase;
+  padding-left: 1.4375rem;
+  line-height: 1;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn-primary-text:before { left: 0; }
+.btn-primary-text:after { left: 0.4375rem; }
+.btn-primary-text:before, .btn-primary-text:after {
   position: absolute;
   top: 0;
   bottom: 0;
   margin: auto 0;
   width: 0.25rem;
   height: 0.25rem;
-  background-color: #efefe5;
+  background-color: #10101a; /* 반전된 색상 */
   border-radius: 50%;
   content: "";
-
 }
 
-
-.vertical-line{
-  background-color: #353539;
+.vertical-line {
+  background-color: #cacac6; /* 반전된 색상 */
   width: 1px;
   height: 100%;
   position: fixed;
   top: 0;
+}
 
+.vertical-line.vertical-line--left.vertical-line-header, 
+.vertical-line.vertical-line--right.vertical-line-header { 
+  display: block; 
 }
-.vertical-line.vertical-line--left.vertical-line-header, .vertical-line.vertical-line--right.vertical-line-header{display: block;}
-.vertical-line.vertical-line--left.vertical-line-header{
+
+.vertical-line.vertical-line--left.vertical-line-header {
   position: absolute;
 }
-.vertical-line.vertical-line--right.vertical-line-header{
+
+.vertical-line.vertical-line--right.vertical-line-header {
   position: absolute;
 }
-.vertical-line.vertical-line--left{
+
+.vertical-line.vertical-line--left {
   z-index: 1;
   left: 16.42%;
 }
-.vertical-line.vertical-line--right{
+
+.vertical-line.vertical-line--right {
   right: 16.42%;
 }

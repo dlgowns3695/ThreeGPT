@@ -56,29 +56,31 @@ const modleName = [
               {/* 컨탠츠 영역 */}
               <div className="flex mt-[20vh] mb-[10%] relative ">
                 {/* 사각형 */}
-                <div className="absolute top-[-66px] border-t border-l border-r border-[#efefe5] w-[66px] h-[66px] flex items-center justify-center">
+                <div className="absolute top-[-66px] border-t border-l border-r border-[#10101a] w-[66px] h-[66px] flex items-center justify-center">
                     <img
                         src={`${process.env.PUBLIC_URL}/invertedCommas.svg`}
                         alt="invertedCommas"
                     />
                     <div className="absolute top-[-30px] left-[-30px]">
-                        <img
-                        src={`${process.env.PUBLIC_URL}/leftTop.svg`}
-                        alt="leftTop"
-                        />
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 15V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H15" stroke="#10101A"/>
+                        </svg>
+
+
                     </div>
-                    <div className="absolute top-[320px] left-[-30px] scale-y-[-1]">
-                        <img
-                        src={`${process.env.PUBLIC_URL}/leftTop.svg`}
-                        alt="leftTop"
-                        />
+                    <div className="absolute top-[320px] left-[-30px] scale-y-[-1] fill-black">
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 15V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H15" stroke="#10101A"/>
+                        </svg>
+
+
                     </div>
                 </div>
 
                 {/* 왼쪽 Q&A  overflow-hidden */}
                 <div className="w-[calc(50%-1px)] ">
                     {/* 상단 보더 유지 */}
-                    <div className="relative border border-[#efefe5] h-[128px] ">
+                    <div className="relative border border-[#10101a] h-[128px] ">
                         {/* 글귀들 담는 박스 Q&A hero-slider-inner */}
                         <div className="relative h-[320px]  ">
 
@@ -119,14 +121,18 @@ const modleName = [
 
                 {/* 오른쪽 */}
                 <div className="w-[calc(50%+1px)] relative">
-                  <div className='w-full h-[56px] border-t border-r border-b border-[#efefe5] absolute'></div>
-                  <div className='w-[59.82px] h-[56px] border border-[#efefe5] absolute right-0'></div>
+                  <div className='w-full h-[56px] border-t border-r border-b border-[#10101a] absolute'></div>
+                  <div className='w-[59.82px] h-[56px] border border-[#10101a] absolute right-0'></div>
                   <div className='w-full h-[56px] pl-[42%] flex items-center  absolute '>
-                    <img
+                    <svg className="w-[12px] rotate-90" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.1982 3.90328C3.09659 4.03224 2.90341 4.03224 2.8018 3.90328L0.0565376 0.419105C-0.0920827 0.230483 0.0735936 -0.0434377 0.306501 0.00582836L2.94823 0.564624C2.98238 0.571847 3.01762 0.571847 3.05177 0.564624L5.6935 0.00582791C5.92641 -0.0434382 6.09208 0.230482 5.94346 0.419105L3.1982 3.90328Z" fill="#10101A"/>
+                    </svg>
+
+                    {/* <img
                     className="w-[12px] rotate-90"
                     src={`${process.env.PUBLIC_URL}/arrowDown.svg`}
                     alt="arrowDown"
-                  />
+                  /> */}
 
                   </div>
 
@@ -156,13 +162,10 @@ const modleName = [
                   {/* 하단 모델명 리스트 */}
                   <ul className="text-right mt-4">
                     {modleName.map((item, index) => (
-                      <li key={index} className={` flex justify-between border-t border-[#353539] pl-[42%] `}>
-                        {/* 화살표 */}
-                        <img
-                          className="w-[12px] rotate-90 opacity-50"
-                          src={`${process.env.PUBLIC_URL}/arrowDown.svg`}
-                          alt="arrowDown"
-                        />
+                      <li key={index} className={` flex justify-between border-t border-[#cacac6] pl-[42%] `}>
+                        <svg className="w-[12px] rotate-90" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.1982 3.90328C3.09659 4.03224 2.90341 4.03224 2.8018 3.90328L0.0565376 0.419105C-0.0920827 0.230483 0.0735936 -0.0434377 0.306501 0.00582836L2.94823 0.564624C2.98238 0.571847 3.01762 0.571847 3.05177 0.564624L5.6935 0.00582791C5.92641 -0.0434382 6.09208 0.230482 5.94346 0.419105L3.1982 3.90328Z" fill="#10101A"/>
+                        </svg>
                         <p className=" p-2 mx-2">{item.model}</p> {/* 모델명 */}
                       </li>
                     ))}
@@ -187,13 +190,16 @@ const modleName = [
                         <path className="path-anim path-anim-1" d="M2 77V19.2426C2 18.447 2.31607 17.6839 2.87868 17.1213L17.1213 2.87868C17.6839 2.31607 18.447 2 19.2426 2H417" stroke="url(#paint1_linear_2309_6568)" strokeWidth="2.5" strokeLinecap="round"></path>
                         <defs>
                         <linearGradient id="paint0_linear_2309_6568" x1="67.5" y1="101" x2="428.5" y2="75" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#F8CF3E"></stop>
-                            <stop offset="1" stopColor="#FC6756"></stop>
-                            <stop offset="1" stopColor="#FC6756"></stop>
+                            {/* 기존 색상: #F8CF3E -> 반전 색상: #0713C1 */}
+                            <stop stopColor="#0713C1"></stop>
+                            {/* 기존 색상: #FC6756 -> 반전 색상: #03989E */}
+                            <stop offset="1" stopColor="#03989E"></stop>
                         </linearGradient>
                         <linearGradient id="paint1_linear_2309_6568" x1="416.5" y1="-9.50001" x2="25.7657" y2="-140.863" gradientUnits="userSpaceOnUse">
-                            <stop offset="0.236372" stopColor="#724CE8"></stop>
-                            <stop offset="1" stopColor="#26F4D0"></stop>
+                            {/* 기존 색상: #724CE8 -> 반전 색상: #8DB317 */}
+                            <stop offset="0.236372" stopColor="#8DB317"></stop>
+                            {/* 기존 색상: #26F4D0 -> 반전 색상: #D90B2F */}
+                            <stop offset="1" stopColor="#D90B2F"></stop>
                         </linearGradient>
                         </defs>
                     </svg>
@@ -206,12 +212,16 @@ const modleName = [
                         <path className="path-anim path-anim-right" d="M62 86H110C111.657 86 113 84.6569 113 83V15.2426C113 14.447 112.684 13.6839 112.121 13.1213L100.5 1.5" stroke="url(#paint1_linear_2309_6569)" strokeWidth="2.5" strokeLinecap="round"></path>
                         <defs>
                         <linearGradient id="paint0_linear_2309_6569" x1="1.5" y1="-1.3292e-06" x2="123" y2="86" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#26F4D0"></stop>
-                            <stop offset="0.634676" stopColor="#F8CF3E"></stop>
+                            {/* 기존 색상: #26F4D0 -> 반전 색상: #D90B2F */}
+                            <stop stopColor="#D90B2F"></stop>
+                            {/* 기존 색상: #F8CF3E -> 반전 색상: #0713C1 */}
+                            <stop offset="0.634676" stopColor="#0713C1"></stop>
                         </linearGradient>
                         <linearGradient id="paint1_linear_2309_6569" x1="45" y1="81.5" x2="119" y2="24" gradientUnits="userSpaceOnUse">
-                            <stop offset="0.436639" stopColor="#F8CF3E"></stop>
-                            <stop offset="1" stopColor="#FC6756"></stop>
+                            {/* 기존 색상: #F8CF3E -> 반전 색상: #0713C1 */}
+                            <stop offset="0.436639" stopColor="#0713C1"></stop>
+                            {/* 기존 색상: #FC6756 -> 반전 색상: #03989E */}
+                            <stop offset="1" stopColor="#03989E"></stop>
                         </linearGradient>
                         </defs>
                     </svg>
@@ -232,26 +242,27 @@ const modleName = [
                             onMouseLeave={() => setIsHovered(false)}
                         >
                     <div className="absolute bottom-[0px] left-[0px] scale-y-[-1]">
-                        <img
-                        src={`${process.env.PUBLIC_URL}/leftTop.svg`}
-                        alt="leftTop"
-                        />
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 15V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H15" stroke="#10101A"/>
+                        </svg>
+
                     </div>
                     <div className={`relative transition-transform duration-300 ease-in-out ${isHovered ? 'translate-y-4' : ''}`}>
-                        <img
-                        src={`${process.env.PUBLIC_URL}/scollArrow-down.svg`}
-                        alt="scollArrow-down"
-                        />
+                        <svg width="46" height="52" viewBox="0 0 46 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M43.9372 26.8883L34.994 35.7042C32.562 38.2274 31.4404 40.2073 30.8171 42.7396C30.4819 44.1017 29.2774 45.1903 27.7584 45.189C26.0188 45.1876 24.5091 43.8964 24.5076 42.0785C24.5061 40.2606 24.4735 0.0683799 24.4735 0.0683799C24.4734 0.0319435 24.444 0.00238228 24.4078 0.00235337L21.5433 2.32941e-08C21.507 -3.02655e-05 21.4777 0.0294812 21.4777 0.0659162L21.5119 42.0761C21.5149 45.7736 16.0487 46.2055 15.207 42.7102C14.5769 40.0938 13.4277 38.0283 10.7562 35.3439L2.06219 26.8489C2.03671 26.824 1.99621 26.824 1.97078 26.8488L0.0198506 28.7549C-0.00674861 28.7809 -0.006594 28.8239 0.0201806 28.8498L22.9288 51.9816C22.9543 52.0061 22.9945 52.0061 23.0198 51.9816L45.98 28.8895C46.0066 28.8637 46.0067 28.8207 45.9801 28.7947L44.0289 26.8882C44.0033 26.8632 43.9626 26.8633 43.9372 26.8883Z" fill="#10101A"/>
+                        </svg>
+
                     </div>
                     <div className="absolute top-0 right-[0px] rotate-90">
-                        <img
-                        src={`${process.env.PUBLIC_URL}/leftTop.svg`}
-                        alt="leftTop"
-                        />
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 15V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H15" stroke="#10101A"/>
+                        </svg>
+
                     </div>
                     </div>
                 </div>
             </div>
+
 
 
 
