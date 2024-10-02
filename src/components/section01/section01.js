@@ -15,10 +15,10 @@ export const Section01 = () => {
 
    // Q&A 데이터 배열
    const qaData = [
-    { question: "When was ChatGPT released?", answer: "ChatGPT was first released in November 2020. Since then, it has gone through several updates and improvements, with more advanced versions like GPT-4 being developed to enhance its capabilities." },
-    { question: "How does ChatGPT work?", answer: "ChatGPT is based on a language model trained using vast amounts of text data. It uses machine learning to generate human-like responses by predicting the next word in a sentence. This allows it to answer questions, hold conversations, and assist with various tasks." },
-    { question: "What is ChatGPT used for?", answer: "ChatGPT is commonly used for customer support, content generation, programming assistance, and as a learning tool. It helps businesses automate tasks and individuals get quick, accurate answers to a wide range of topics." },
-    { question: "How does ChatGPT protect privacy?", answer: "ChatGPT is designed to prioritize user privacy by not retaining personal conversation data after interactions. While it processes data to generate responses, it doesn’t store any personal information for future use." },
+    { question: "Q. When was ChatGPT released?", answer: "A. ChatGPT was first released in November 2020. Since then, it has gone through several updates and improvements, with more advanced versions like GPT-4 being developed to enhance its capabilities." },
+    { question: "Q. How does ChatGPT work?", answer: "A. ChatGPT is based on a language model trained using vast amounts of text data. It uses machine learning to generate human-like responses by predicting the next word in a sentence. This allows it to answer questions, hold conversations, and assist with various tasks." },
+    { question: "Q. What is ChatGPT used for?", answer: "A. ChatGPT is commonly used for customer support, content generation, programming assistance, and as a learning tool. It helps businesses automate tasks and individuals get quick, accurate answers to a wide range of topics." },
+    { question: "Q. How does ChatGPT protect privacy?", answer: "A. ChatGPT is designed to prioritize user privacy by not retaining personal conversation data after interactions. While it processes data to generate responses, it doesn’t store any personal information for future use." },
     // 추가 질문과 답변을 여기에 추가할 수 있습니다.
   ];
 
@@ -98,14 +98,16 @@ const modleName = [
                                     {qaData.map((qa, index) => (
                                         // hero-slide 들 , 정렬 필
                                         <SwiperSlide key={index}> {/* key 추가 */}
+                                        {/* <span className="violetFont mr-[10px]"> Q.</span> */}
                                             <div className="flex flex-col ">
                                                 <div className="p-4 flex items-center justify-start text-5xl h-[128px] "> {/* 보더값 128안에 정렬이쁘게하기 위해 사이즈 맞춤 */}
-                                                    <span className="violetFont mr-[10px]"> Q.</span> {qa.question}
+                                                     {qa.question}
                                                 </div>
                                                 <div className="p-4 flex items-center justify-start opacity-50 "> {/* 왼쪽 정렬 */}
-                                                    <span className="violetFont mr-[10px]"> A.</span> {qa.answer}
+                                                     {qa.answer}
                                                 </div>
                                             </div>
+                                            {/* <span className="violetFont mr-[10px]"> A.</span> */}
                                         </SwiperSlide>
                                     ))}
                                 </div>
@@ -127,17 +129,10 @@ const modleName = [
                     <svg className="w-[12px] rotate-90" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3.1982 3.90328C3.09659 4.03224 2.90341 4.03224 2.8018 3.90328L0.0565376 0.419105C-0.0920827 0.230483 0.0735936 -0.0434377 0.306501 0.00582836L2.94823 0.564624C2.98238 0.571847 3.01762 0.571847 3.05177 0.564624L5.6935 0.00582791C5.92641 -0.0434382 6.09208 0.230482 5.94346 0.419105L3.1982 3.90328Z" fill="#10101A"/>
                     </svg>
-
-                    {/* <img
-                    className="w-[12px] rotate-90"
-                    src={`${process.env.PUBLIC_URL}/arrowDown.svg`}
-                    alt="arrowDown"
-                  /> */}
-
                   </div>
 
-                                   {/* 상단 슬라이드 영역 */}
-                                   <Swiper
+                  {/* 상단 슬라이드 영역 */}
+                  <Swiper
                     direction={'vertical'}
                     autoplay={{ delay: 3000, disableOnInteraction: false }} // 자동 재생 설정
                     loop={true} // 반복 재생 설정
