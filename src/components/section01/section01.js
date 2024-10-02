@@ -57,10 +57,10 @@ const modleName = [
               <div className="flex mt-[20vh] mb-[10%] relative ">
                 {/* 사각형 */}
                 <div className="absolute top-[-66px] border-t border-l border-r border-[#10101a] w-[66px] h-[66px] flex items-center justify-center">
-                    <img
-                        src={`${process.env.PUBLIC_URL}/invertedCommas.svg`}
-                        alt="invertedCommas"
-                    />
+                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.94425 0H3.20557L0 5.5149V16H7.94425V8.2383H4.73868V6.12766L7.94425 0ZM16.7944 6.12766L20 0H15.2613L12.0557 5.5149V16H20V8.2383H16.7944V6.12766Z" fill="#10101A"/>
+                    </svg>
+
                     <div className="absolute top-[-30px] left-[-30px]">
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 15V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H15" stroke="#10101A"/>
@@ -78,7 +78,7 @@ const modleName = [
                 </div>
 
                 {/* 왼쪽 Q&A  overflow-hidden */}
-                <div className="w-[calc(50%-1px)] ">
+                <div className="w-[calc(50%+4px)] ">
                     {/* 상단 보더 유지 */}
                     <div className="relative border border-[#10101a] h-[128px] ">
                         {/* 글귀들 담는 박스 Q&A hero-slider-inner */}
@@ -163,7 +163,7 @@ const modleName = [
                   <ul className="text-right mt-4">
                     {modleName.map((item, index) => (
                       <li key={index} className={` flex justify-between border-t border-[#cacac6] pl-[42%] `}>
-                        <svg className="w-[12px] rotate-90" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg className="w-[12px] rotate-90 opacity-50" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M3.1982 3.90328C3.09659 4.03224 2.90341 4.03224 2.8018 3.90328L0.0565376 0.419105C-0.0920827 0.230483 0.0735936 -0.0434377 0.306501 0.00582836L2.94823 0.564624C2.98238 0.571847 3.01762 0.571847 3.05177 0.564624L5.6935 0.00582791C5.92641 -0.0434382 6.09208 0.230482 5.94346 0.419105L3.1982 3.90328Z" fill="#10101A"/>
                         </svg>
                         <p className=" p-2 mx-2">{item.model}</p> {/* 모델명 */}
@@ -270,7 +270,7 @@ const modleName = [
   
             {/* Vertical lines */}
             <div className="vertical-line vertical-line--left"></div>
-            <div className="vertical-line vertical-line--center left-[calc(50%-2px)]"></div>
+            <div className="vertical-line vertical-line--center left-[50%]"></div>
             <div className="vertical-line vertical-line--right"></div>
 
           </div>
