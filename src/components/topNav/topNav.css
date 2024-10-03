@@ -145,6 +145,14 @@
   top: 0;
 }
 
+.horezontal-line {
+  background-color: #cacac6; /* 반전된 색상 */
+  width: 100%;
+  height: 1px;
+  /* position: fixed; */
+  
+}
+
 .vertical-line.vertical-line--left.vertical-line-header, 
 .vertical-line.vertical-line--right.vertical-line-header { 
   display: block; 
@@ -159,7 +167,7 @@
 }
 
 .vertical-line.vertical-line--left {
-  z-index: 1;
+  /* z-index: 1; */
   left: 16.42%;
 }
 

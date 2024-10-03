@@ -92,7 +92,7 @@ export const TopNav = () => {
         </div>
 
         {/* 맨 오른쪽 */}
-        <div className="header-side-part flex-shrink-0 relative flex w-[15%] justify-end">
+        <div className="flex-shrink-0 relative flex w-[15%] justify-end">
           <a
             rel="noopener noreferrer"
             href="https://app.chaingpt.org/"
