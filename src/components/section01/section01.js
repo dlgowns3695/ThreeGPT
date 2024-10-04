@@ -80,7 +80,7 @@ const modleName = [
                 {/* 왼쪽 Q&A  overflow-hidden */}
                 <div className="w-[calc(50%+4px)] ">
                     {/* 상단 보더 유지 */}
-                    <div className="relative border border-[#10101a] h-[128px] ">
+                    <div className="relative border border-[#10101a] h-[165px] ">
                         {/* 글귀들 담는 박스 Q&A hero-slider-inner */}
                         <div className="relative h-[320px]  ">
 
@@ -100,7 +100,7 @@ const modleName = [
                                         <SwiperSlide key={index}> {/* key 추가 */}
                                         {/* <span className="violetFont mr-[10px]"> Q.</span> */}
                                             <div className="flex flex-col ">
-                                                <div className="p-4 flex items-center justify-start text-5xl h-[128px] "> {/* 보더값 128안에 정렬이쁘게하기 위해 사이즈 맞춤 */}
+                                                <div className="p-4 flex items-center justify-start text-5xl h-[165px] "> {/* 보더값 128안에 정렬이쁘게하기 위해 사이즈 맞춤 */}
                                                      {qa.question}
                                                 </div>
                                                 <div className="p-4 flex items-center justify-start opacity-50 "> {/* 왼쪽 정렬 */}
@@ -125,7 +125,8 @@ const modleName = [
                 <div className="w-[calc(50%+1px)] relative">
                   <div className='w-full h-[56px] border-t border-r border-b border-[#10101a] absolute'></div>
                   <div className='w-[59.82px] h-[56px] border border-[#10101a] absolute right-0'></div>
-                  <div className='w-full h-[56px] pl-[42%] flex items-center  absolute '>
+                  
+                  <div className='w-full h-[56px] pl-[22%] xl:pl-[42%] flex items-center  absolute '>
                     <svg className="w-[12px] rotate-90" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3.1982 3.90328C3.09659 4.03224 2.90341 4.03224 2.8018 3.90328L0.0565376 0.419105C-0.0920827 0.230483 0.0735936 -0.0434377 0.306501 0.00582836L2.94823 0.564624C2.98238 0.571847 3.01762 0.571847 3.05177 0.564624L5.6935 0.00582791C5.92641 -0.0434382 6.09208 0.230482 5.94346 0.419105L3.1982 3.90328Z" fill="#10101A"/>
                     </svg>
@@ -157,7 +158,7 @@ const modleName = [
                   {/* 하단 모델명 리스트 */}
                   <ul className="text-right mt-4">
                     {modleName.map((item, index) => (
-                      <li key={index} className={` flex justify-between border-t border-[#cacac6] pl-[42%] `}>
+                      <li key={index} className={` flex justify-between border-t border-[#cacac6] pl-[22%] xl:pl-[42%] `}>
                         <svg className="w-[12px] rotate-90 opacity-50" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M3.1982 3.90328C3.09659 4.03224 2.90341 4.03224 2.8018 3.90328L0.0565376 0.419105C-0.0920827 0.230483 0.0735936 -0.0434377 0.306501 0.00582836L2.94823 0.564624C2.98238 0.571847 3.01762 0.571847 3.05177 0.564624L5.6935 0.00582791C5.92641 -0.0434382 6.09208 0.230482 5.94346 0.419105L3.1982 3.90328Z" fill="#10101A"/>
                         </svg>

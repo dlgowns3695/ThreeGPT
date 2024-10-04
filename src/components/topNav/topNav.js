@@ -55,9 +55,9 @@ export const TopNav = () => {
     <div className='w-full h-auto text-lg border-b border-[#cacac6] relative z-[9999] '>
       <div className='w-full h-full flex items-center px-[2%] bg-[#f5f6f0]'>
         {/* 왼쪽 로고 영역 */}
-        <div className='flex-shrink-0 w-[15%] flex items-center  gap-6'>
-          <img className='w-[42px] h-[44px]' src={`${process.env.PUBLIC_URL}/ChatGPTLogo.svg`} alt='ChatGPTLogo' />
-          <span className='text-3xl violetFont'> ChatGPT</span>
+        <div className='flex-shrink-0 w-[15%] flex items-center  gap-2 lg:gap-4'>
+          <img className='w-[22px] lg:w-[32px] h-[22px] lg:h-[34px] 1400size:w-[42px] 1400size:h-[44px]' src={`${process.env.PUBLIC_URL}/ChatGPTLogo.svg`} alt='ChatGPTLogo' />
+          <span className='text-lg lg:text-2xl 1400size:text-3xl violetFont'> ChatGPT</span>
         </div>
         
 
@@ -67,7 +67,7 @@ export const TopNav = () => {
             {titles.map((title, index) => (
               <li key={index} className={`relative flex-1 flex justify-center group`}>
                 {index === 0 ? (
-                  <div className="relative flex items-center justify-start px-12 border-r border-[#cacac6] box-border">
+                  <div className="relative flex items-center justify-center w-full px-6 border-r border-[#cacac6] box-border">
                   {/* 아이콘 */}
                   <div className="relative w-[1rem] h-[1rem] mr-2 group-hover:rotate-45 group-hover:scale-125 transition-transform duration-200">
                     <div className="ourNavIcon top-left"></div>

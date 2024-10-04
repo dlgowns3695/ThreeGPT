@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import '../../App.css';
 import './section02.css'; // CSS 파일 import
 
 export const Section02 = () => {
+
+  const slideRef = useRef(null); // 슬라이드 DOM 요소에 대한 ref
+  const [slideWidth, setSlideWidth] = useState(0); // 슬라이드 너비 상태
+  const [currentIndex, setCurrentIndex] = useState(0); // 현재 슬라이드 인덱스
+
+  console.log(slideWidth)
   const slidesData = [
     {
       id: 1,
@@ -10,7 +16,7 @@ export const Section02 = () => {
       number: '01',
       name: 'Sam Altman',
       position: 'The founder of ChatGPT',
-      quote: 'ChatGPT simplifies problem-solving, providing instant solutions for startupsChatGPT simplifies problem-solving, providing instant solutions for startups.',
+      quote: 'ChatGPT simplifies problem-solving, providing instant solutions for startups.',
       imgSrc: `${process.env.PUBLIC_URL}/sam.webp`,
     },
     {
@@ -41,12 +47,35 @@ export const Section02 = () => {
       imgSrc: `${process.env.PUBLIC_URL}/sam.webp`,
     },
   ];
+  const maxIndex = slidesData.length - 1; // 슬라이드 최대 인덱스
+
+  useEffect(() => {
+    // 슬라이드 너비를 업데이트
+    if (slideRef.current) {
+      setSlideWidth(slideRef.current.offsetWidth);
+    }
+  }, [currentIndex]); // currentIndex가 변경될 때마다 업데이트
+
+  // 왼쪽 화살표 클릭 핸들러
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  // 오른쪽 화살표 클릭 핸들러
+  const handleNext = () => {
+    if (currentIndex < maxIndex) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
   return (
     <>
       {/* 전체 잡고 상단, 하단 col */}
       <div className="w-full h-[100vh]  flex flex-col justify-between relative">
         
-        {/* 슬라이드 컨테이너 */}
+        {/* 상단 */}
         <div className="flex justify-between w-full  mt-[10vh]  px-[2%] z-10">
           
           {/* 원 두개 */}
@@ -76,14 +105,20 @@ export const Section02 = () => {
         </div>
 
         {/* 하단 (슬라이드 공간) */}
-        <div className='whitespace-nowrap relative  border-t border-r border-b border-[#10101a]  bg-red-600  '>
+        <div 
+          
+          style={{ transform: `translateX(-${currentIndex * slideWidth}px)` }} // 슬라이드 너비에 맞춰 이동
+          className='transition-transform duration-500 ease-in-out whitespace-nowrap relative overflow-x-visible  h-auto'
+        >
 
           {slidesData.map((slide) => (
-            <div key={slide.id} className='w-[calc(84%-8px)] inline-block z-10  '>
+            <div
+             ref={slideRef} // 슬라이드 DOM 요소에 ref 설정
+             key={slide.id}  className='w-[calc(84%-8px)] border-t border-r border-b border-[#10101a]  inline-block z-10  '>
               {/* 선 영역 + 컨텐츠 영역 */}
-              <div className='flex flex-col  pl-[2%] '>
+              <div className='flex flex-col  justify-between min-h-[30rem] pl-[2%] '>
                 {/* 상단 */}
-                <div className='flex items-center'>
+                <div className='flex  items-center'>
                   <div className='flex w-[calc(18.6%-9px)] items-center gap-8 text-lg'>
                     <div>{slide.title}</div>
                     {/* 숫자 기준 이미지 넣기 */}
@@ -129,29 +164,34 @@ export const Section02 = () => {
                 </div>
               </div>
 
-              {/* 하단 화살표 */}
-              <div className='w-[20%] h-[20%] flex gap-4 items-center px-[2%]'>
-                <div>
-                  <svg className='rotate-180' width="72" height="66" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M26.8883 2.06276L35.7042 11.006C38.2274 13.438 40.2073 14.5596 42.7396 15.1829C44.1017 15.5181 45.1903 16.7226 45.189 18.2416C45.1876 19.9812 43.8964 21.4909 42.0785 21.4924C40.2606 21.4939 0.0683799 21.5265 0.0683799 21.5265C0.0319435 21.5266 0.00238228 21.556 0.00235337 21.5922L2.3295e-08 24.4567C-3.02655e-05 24.493 0.0294812 24.5223 0.0659162 24.5223L42.0761 24.4881C45.7736 24.4851 46.2055 29.9513 42.7102 30.793C40.0938 31.4231 38.0283 32.5723 35.3439 35.2438L26.8489 43.9378C26.824 43.9633 26.824 44.0038 26.8488 44.0292L28.7549 45.9802C28.7809 46.0068 28.8239 46.0066 28.8498 45.9798L51.9816 23.0712C52.0061 23.0457 52.0061 23.0055 51.9816 22.9802L28.8895 0.0200173C28.8637 -0.00663545 28.8207 -0.00667916 28.7947 0.0199268L26.8882 1.97114C26.8632 1.9967 26.8633 2.03736 26.8883 2.06276Z" fill="#10101a"/>
-                  </svg>
-                </div>
 
-                <div>
-                  <svg width="72" height="66" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M26.8883 2.06276L35.7042 11.006C38.2274 13.438 40.2073 14.5596 42.7396 15.1829C44.1017 15.5181 45.1903 16.7226 45.189 18.2416C45.1876 19.9812 43.8964 21.4909 42.0785 21.4924C40.2606 21.4939 0.0683799 21.5265 0.0683799 21.5265C0.0319435 21.5266 0.00238228 21.556 0.00235337 21.5922L2.3295e-08 24.4567C-3.02655e-05 24.493 0.0294812 24.5223 0.0659162 24.5223L42.0761 24.4881C45.7736 24.4851 46.2055 29.9513 42.7102 30.793C40.0938 31.4231 38.0283 32.5723 35.3439 35.2438L26.8489 43.9378C26.824 43.9633 26.824 44.0038 26.8488 44.0292L28.7549 45.9802C28.7809 46.0068 28.8239 46.0066 28.8498 45.9798L51.9816 23.0712C52.0061 23.0457 52.0061 23.0055 51.9816 22.9802L28.8895 0.0200173C28.8637 -0.00663545 28.8207 -0.00667916 28.7947 0.0199268L26.8882 1.97114C26.8632 1.9967 26.8633 2.03736 26.8883 2.06276Z" fill="#10101a"/>
-                  </svg>
-                </div>
-              </div>
             </div>
           ))}
 
 
-          {/* <div className='w-[17%] h-full absolute right-0  inline-block z-20  bg-blue-400 opacity-50'>
-
-          </div> */}
 
         </div>
+
+          {/* 하단 화살표 */}
+          <div className='w-[20%] h-[20%] flex gap-4 items-center px-[2%]'>
+              <div
+                  onClick={handlePrev}
+                  className={`cursor-pointer ${currentIndex === 0 ? 'opacity-50' : 'opacity-100'}`}
+              >
+                  <svg className='rotate-180' width="72" height="66" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M26.8883 2.06276L35.7042 11.006C38.2274 13.438 40.2073 14.5596 42.7396 15.1829C44.1017 15.5181 45.1903 16.7226 45.189 18.2416C45.1876 19.9812 43.8964 21.4909 42.0785 21.4924C40.2606 21.4939 0.0683799 21.5265 0.0683799 21.5265C0.0319435 21.5266 0.00238228 21.556 0.00235337 21.5922L2.3295e-08 24.4567C-3.02655e-05 24.493 0.0294812 24.5223 0.0659162 24.5223L42.0761 24.4881C45.7736 24.4851 46.2055 29.9513 42.7102 30.793C40.0938 31.4231 38.0283 32.5723 35.3439 35.2438L26.8489 43.9378C26.824 43.9633 26.824 44.0038 26.8488 44.0292L28.7549 45.9802C28.7809 46.0068 28.8239 46.0066 28.8498 45.9798L51.9816 23.0712C52.0061 23.0457 52.0061 23.0055 51.9816 22.9802L28.8895 0.0200173C28.8637 -0.00663545 28.8207 -0.00667916 28.7947 0.0199268L26.8882 1.97114C26.8632 1.9967 26.8633 2.03736 26.8883 2.06276Z" fill="#10101a"/>
+                  </svg>
+              </div>
+
+              <div
+                  onClick={handleNext}
+                  className={`cursor-pointer ${currentIndex === maxIndex ? 'opacity-50' : 'opacity-100'}`}
+              >
+                  <svg width="72" height="66" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M26.8883 2.06276L35.7042 11.006C38.2274 13.438 40.2073 14.5596 42.7396 15.1829C44.1017 15.5181 45.1903 16.7226 45.189 18.2416C45.1876 19.9812 43.8964 21.4909 42.0785 21.4924C40.2606 21.4939 0.0683799 21.5265 0.0683799 21.5265C0.0319435 21.5266 0.00238228 21.556 0.00235337 21.5922L2.3295e-08 24.4567C-3.02655e-05 24.493 0.0294812 24.5223 0.0659162 24.5223L42.0761 24.4881C45.7736 24.4851 46.2055 29.9513 42.7102 30.793C40.0938 31.4231 38.0283 32.5723 35.3439 35.2438L26.8489 43.9378C26.824 43.9633 26.824 44.0038 26.8488 44.0292L28.7549 45.9802C28.7809 46.0068 28.8239 46.0066 28.8498 45.9798L51.9816 23.0712C52.0061 23.0457 52.0061 23.0055 51.9816 22.9802L28.8895 0.0200173C28.8637 -0.00663545 28.8207 -0.00667916 28.7947 0.0199268L26.8882 1.97114C26.8632 1.9967 26.8633 2.03736 26.8883 2.06276Z" fill="#10101a"/>
+                  </svg>
+              </div>
+          </div>
 
 
         
