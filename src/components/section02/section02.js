@@ -76,29 +76,32 @@ export const Section02 = () => {
       <div className="w-full h-[100vh]  flex flex-col justify-between relative">
         
         {/* 상단 */}
-        <div className="flex justify-between w-full  mt-[10vh]  px-[2%] z-10">
+        <div className="flex justify-between w-full  mt-[10vh] md:pl-[8%] 1500size:px-[2%] z-10">
           
           {/* 원 두개 */}
-          <div className="relative">
-            <div className="absolute top-[-20px] left-[5px] w-[0.5rem] h-[0.5rem] rounded-full bg-[#10101a]"></div>
-            <div className="absolute top-[-20px] left-[25px] w-[0.5rem] h-[0.5rem] rounded-full bg-[#10101a]"></div>
+          <div className=''>
+            <div className="relative ">
+              <div className="absolute top-[-20px] left-[5px] md:w-[0.3rem] md:h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.5rem] 1500size:h-[0.5rem] rounded-full bg-[#10101a]"></div>
+              <div className="absolute top-[-20px] left-[25px] md:w-[0.3rem] md:h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.5rem] 1500size:h-[0.5rem] rounded-full bg-[#10101a]"></div>
 
-            {/* 텍스트 */}
-            <h2 className="text-7xl p-4 text-center section-title-bordered">
-              {/* 가상 선택자: before, after */}
-              <span className="section-title-bordered-line-1">
-                <span className="section-title-bordered-line-2 mx-8">Your Gateway</span>
-              </span>
-            </h2>
+              {/* 텍스트 */}
+              <h2 className="md:text-3xl lg:text-4xl 1500size:text-5xl md:p-2 1500size:p-4 text-center section-title-bordered">
+                {/* 가상 선택자: before, after */}
+                <span className="section-title-bordered-line-1">
+                  <span className="section-title-bordered-line-2 mx-2 violetFont ">Your ChatGPT</span>
+                </span>
+              </h2>
 
-            <h2 className="text-7xl p-4 text-left">
-              {/* 가상 선택자 필요 시 주석 처리 */}
-              <span>To Web3 AI</span>
-            </h2>
+              <h2 className="md:text-3xl lg:text-4xl 1500size:text-5xl p-4 text-left violetFont">
+                {/* 가상 선택자 필요 시 주석 처리 */}
+                <span>Open AI</span>
+              </h2>
+            </div>
           </div>
 
+
           {/* 오른쪽 텍스트 */}
-          <div className="flex items-end w-[35%] text-3xl">
+          <div className="flex items-end md:justify-end 1500size:justify-start md:pr-[8%] 1500size:pr-0 py-4 w-[35%] md:sm lg:text-2xl 1500size:text-3xl">
             For individuals,<br /> developers,<br /> and businesses.
           </div>
 
@@ -114,12 +117,12 @@ export const Section02 = () => {
           {slidesData.map((slide) => (
             <div
              ref={slideRef} // 슬라이드 DOM 요소에 ref 설정
-             key={slide.id}  className='w-[calc(84%-8px)] border-t border-r border-b border-[#10101a]  inline-block z-10  '>
+             key={slide.id}  className='md:w-full 1500size:w-[calc(84%-8px)] border-t border-r border-b border-[#10101a]  inline-block z-10  '>
               {/* 선 영역 + 컨텐츠 영역 */}
-              <div className='flex flex-col  justify-between min-h-[30rem] pl-[2%] '>
+              <div className='flex flex-col  justify-between min-h-[30rem] bg-[#f5f6f0] md:pl-[5%] 1500size:pl-[2%] '>
                 {/* 상단 */}
                 <div className='flex  items-center'>
-                  <div className='flex w-[calc(18.6%-9px)] items-center gap-8 text-lg'>
+                  <div className='flex w-[calc(18.6%-9px)] items-center gap-8 text-sm 1500size:text-lg'>
                     <div>{slide.title}</div>
                     {/* 숫자 기준 이미지 넣기 */}
                     <div className='relative'>
@@ -129,7 +132,7 @@ export const Section02 = () => {
                           <path d="M1 15V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H15" stroke="#10101A"/>
                         </svg>
                       </div>
-                      <div className="absolute top-[15px] left-[10px] rotate-180 fill-black">
+                      <div className="absolute md:top-3 md:left-2 1500size:top-[15px] 1500size:left-[10px] rotate-180 fill-black">
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M1 15V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H15" stroke="#10101A"/>
                         </svg>
@@ -139,28 +142,28 @@ export const Section02 = () => {
                   {/* 창시자, 이름 */}
                   <div className='flex gap-8'>
                     <div>
-                      <img className='w-[100px] h-[100px]' src={slide.imgSrc} alt={slide.name} />
+                      <img className='md:w-[50px]  md:h-[50px] 1500size:w-[100px]  1500size:h-[100px]' src={slide.imgSrc} alt={slide.name} />
                     </div>
                     <div className='flex items-center gap-8'>
                       <svg className="w-[12px] rotate-90" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3.1982 3.90328C3.09659 4.03224 2.90341 4.03224 2.8018 3.90328L0.0565376 0.419105C-0.0920827 0.230483 0.0735936 -0.0434377 0.306501 0.00582836L2.94823 0.564624C2.98238 0.571847 3.01762 0.571847 3.05177 0.564624L5.6935 0.00582791C5.92641 -0.0434382 6.09208 0.230482 5.94346 0.419105L3.1982 3.90328Z" fill="#10101A"/>
                       </svg>
-                      <div className='text-2xl violetFont'>{slide.name}</div>
+                      <div className='md:text-lg 1500size:text-2xl violetFont'>{slide.name}</div>
                     </div>
                   </div>
 
-                  <div className='ml-[28%] text-lg uppercase'>{slide.position}</div>
+                  <div className='ml-[28%] md:text-sm 1500size:text-lg uppercase'>{slide.position}</div>
                 </div>
 
                 {/* 내용 */}
-                <div className='w-[30%]   text-5xl violetFont whitespace-normal'>
+                <div className='w-[30%]  md:text-xl 1500size:text-5xl violetFont whitespace-normal'>
                   "{slide.quote}"
                 </div>
 
                 {/* 선, 텍스트 + 링크 */}
                 <div className='flex gap-8 mb-8'>
                   <div className='w-[1px] bg-[#10101a]'></div>
-                  <div className='text-lg violetFont'>Try for yourself <span>Click Here</span></div>
+                  <div className='md:text-sm 1500size:text-lg violetFont'>Try for yourself <span>Click Here</span></div>
                 </div>
               </div>
 

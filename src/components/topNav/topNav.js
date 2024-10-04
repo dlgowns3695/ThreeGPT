@@ -56,8 +56,8 @@ export const TopNav = () => {
       <div className='w-full h-full flex items-center px-[2%] bg-[#f5f6f0]'>
         {/* 왼쪽 로고 영역 */}
         <div className='flex-shrink-0 w-[15%] flex items-center  gap-2 lg:gap-4'>
-          <img className='w-[22px] lg:w-[32px] h-[22px] lg:h-[34px] 1400size:w-[42px] 1400size:h-[44px]' src={`${process.env.PUBLIC_URL}/ChatGPTLogo.svg`} alt='ChatGPTLogo' />
-          <span className='text-lg lg:text-2xl 1400size:text-3xl violetFont'> ChatGPT</span>
+          <img className='w-[22px] 1200size:w-[32px] h-[22px] 1200size:h-[34px] 1400size:w-[42px] 1400size:h-[44px]' src={`${process.env.PUBLIC_URL}/ChatGPTLogo.svg`} alt='ChatGPTLogo' />
+          <span className='text-lg 1200size:text-2xl 1400size:text-3xl violetFont'> ChatGPT</span>
         </div>
         
 
@@ -65,7 +65,7 @@ export const TopNav = () => {
         <div className='w-full'>
           <ul className='flex justify-between'>
             {titles.map((title, index) => (
-              <li key={index} className={`relative flex-1 flex justify-center group`}>
+              <li key={index} className={`text-sm 1200size:text-lg relative flex-1 flex justify-center group`}>
                 {index === 0 ? (
                   <div className="relative flex items-center justify-center w-full px-6 border-r border-[#cacac6] box-border">
                   {/* 아이콘 */}
@@ -99,9 +99,9 @@ export const TopNav = () => {
             target="_blank"
             className="btn-primary flex items-center"
           >
-            <div className="btn-primary-lines btn-primary-lines-1"></div>
-            <div className="btn-primary-lines btn-primary-lines-2"></div>
-            <div className="btn-primary-text p-4 ml-4">Three GPT</div>
+            <div className=" btn-primary-lines btn-primary-lines-1"></div>
+            <div className=" btn-primary-lines btn-primary-lines-2"></div>
+            <div className=" btn-primary-text p-2 ml-2 1200size:p-4 1200size:ml-4 violetFont">Three GPT</div>
           </a>
         </div>
 

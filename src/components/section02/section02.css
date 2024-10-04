@@ -17,7 +17,7 @@
 
 /* 오른쪽 아래 */
 .section-title-bordered::after {
-    bottom: 101px;
+    bottom: 76px;
     right: -5px;
     transform: rotate(-45deg);
     transform-origin: bottom left;
@@ -40,7 +40,7 @@
 
 /* 아래 선 */
 .section-title-bordered-line-1::after{
-    top: 106px;
+    top: 84px;
     left: 0;
 }
 
@@ -57,10 +57,65 @@
 /* 오른쪽 선 */
 .section-title-bordered-line-2::after {
     top: 0px;
-    right: 0;
+    right: 0px;
 }
 /* 왼쪽 선 */
 .section-title-bordered-line-2::before {
     top: 13px;
     left: 0;
 }
+
+
+
+
+  
+
+
+  /* 1500px 이하일 때  */
+  @media (max-width: 1500px) {
+
+    .section-title-bordered-line-2::before, .section-title-bordered-line-2::after{
+        height: 35%;
+    }
+    
+    .section-title-bordered-line-1::after{
+        top: 57px;       
+    }
+
+   
+    .section-title-bordered::after {
+        bottom: 71px;
+    }
+
+
+
+  }
+  
+/* 1024px 이하일 때  */
+@media (max-width: 1024px) {
+
+    .section-title-bordered-line-2::before, .section-title-bordered-line-2::after{
+        height: 31%;
+    }
+    
+    .section-title-bordered-line-1::after{
+        top: 50px;       
+    }
+
+    
+    .section-title-bordered::after {
+        bottom: 70px;
+    }
+
+
+
+    }
+    
+
+  
+    /* 768px 이하일 때 모바일  */
+    @media (max-width: 768px) {
+        
+
+
+    }

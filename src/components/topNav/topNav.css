@@ -174,3 +174,36 @@
 .vertical-line.vertical-line--right {
   right: 16.42%;
 }
+
+
+  /* 1500px 이하일 때  */
+  @media (max-width: 1500px) {
+
+
+
+  }
+  
+/* 1024px 이하일 때  */
+@media (max-width: 1024px) {
+
+  .vertical-line.vertical-line--left {
+    /* z-index: 1; */
+    left: 5%;
+  }
+  
+  .vertical-line.vertical-line--right {
+    right: 5%;
+  }
+
+
+
+    }
+    
+
+  
+    /* 768px 이하일 때 모바일  */
+    @media (max-width: 768px) {
+        
+
+
+    }
