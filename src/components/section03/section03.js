@@ -58,10 +58,10 @@ const leftTexts = [
         {/* 상단 */}
         <div className=" flex justify-between w-full h-full mt-[20vh] md:pl-[8%] lg:pl-[5%] 1500size:px-[2%] z-10">
           {/* 원 두개 */}
-          <div className='bg-red-500'>
+          <div className=''>
             <div className="relative  ">
-              <div className="absolute top-[-20px] left-[5px] md:w-[0.3rem] md:h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.5rem] 1500size:h-[0.5rem] rounded-full bg-[#10101a]"></div>
-              <div className="absolute top-[-20px] left-[25px] md:w-[0.3rem] md:h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.5rem] 1500size:h-[0.5rem] rounded-full bg-[#10101a]"></div>
+              <div className="absolute top-[-20px] left-[5px] md:w-[0.3rem] md:h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.45rem] 1500size:h-[0.45rem] rounded-full bg-[#10101a]"></div>
+              <div className="absolute top-[-20px] left-[25px] md:w-[0.3rem] md:h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.45rem] 1500size:h-[0.45rem] rounded-full bg-[#10101a]"></div>
 
               {/* 텍스트 */}
               <h2 className="md:text-3xl lg:text-4xl 1500size:text-5xl md:p-2 1500size:p-4 text-center section-title-bordered">

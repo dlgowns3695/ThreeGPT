@@ -224,12 +224,12 @@ const modleName = [
                     </div>
                 </div>
 
-                <div className='w-[50%] md:text-sm lg:text-lg 1500size:text-2xl text-right'>
+                <div className='w-[55%] md:text-sm lg:text-lg 1500size:text-2xl text-right'>
                     <p>Your personal expert in all crypto<br />
                     & blockchain related topics.</p>
                 </div>
 
-                <div className='w-[21%] flex justify-end items-center'>
+                <div className='w-[16%] flex justify-end items-center'>
                     {/* 링크 */}
                     <div className='md:text-sm lg:text-lg pr-6'>SCROLL</div>
                     <div
