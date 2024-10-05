@@ -176,7 +176,7 @@ const modleName = [
 
 
             {/* 하단 */}
-            <div className='w-full flex items-end relative  z-10 '>
+            <div className='w-full flex items-end relative  md:pl-[5%]  z-10 '>
                 <div className=' '>
                     <h4 className='text-lg roboFont '>GPT for Everyone</h4>
 

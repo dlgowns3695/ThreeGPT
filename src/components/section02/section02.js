@@ -21,32 +21,33 @@ export const Section02 = () => {
     },
     {
       id: 2,
-      title: 'Investors',
+      title: 'Creators',
       number: '02',
-      name: 'Elon Musk',
-      position: 'CEO of Tesla and SpaceX',
-      quote: 'Artificial intelligence is the future, and ChatGPT is leading the way.',
-      imgSrc: `${process.env.PUBLIC_URL}/sam.webp`,
+      name: 'Greg Brockman',
+      position: 'Co-founder & CTO of OpenAI',
+      quote: 'We believe AI can enhance human capabilities and address global challenges.',
+      imgSrc: `${process.env.PUBLIC_URL}/greg.webp`,
     },
     {
       id: 3,
       title: 'Researchers',
       number: '03',
-      name: 'Yoshua Bengio',
-      position: 'AI Pioneer',
-      quote: 'ChatGPT offers a groundbreaking approach to natural language understanding.',
-      imgSrc: `${process.env.PUBLIC_URL}/sam.webp`,
+      name: 'Ilya Sutskever',
+      position: 'Co-founder & Chief Scientist of OpenAI',
+      quote: 'Our work in deep learning is transforming how machines understand and generate human language.',
+      imgSrc: `${process.env.PUBLIC_URL}/ilya.webp`,
     },
     {
       id: 4,
-      title: 'Entrepreneurs',
+      title: 'Investors',
       number: '04',
-      name: 'Sundar Pichai',
-      position: 'CEO of Google',
-      quote: 'ChatGPT represents the kind of innovation the world needs today.',
-      imgSrc: `${process.env.PUBLIC_URL}/sam.webp`,
+      name: 'Elon Musk',
+      position: 'Co-founder of OpenAI',
+      quote: 'AI can greatly improve our lives, but we must be cautious about its potential risks.',
+      imgSrc: `${process.env.PUBLIC_URL}/elon.webp`,
     },
   ];
+  
   const maxIndex = slidesData.length - 1; // 슬라이드 최대 인덱스
 
   useEffect(() => {
@@ -142,7 +143,7 @@ export const Section02 = () => {
                   {/* 창시자, 이름 */}
                   <div className='flex gap-8'>
                     <div>
-                      <img className='md:w-[50px]  md:h-[50px] 1500size:w-[100px]  1500size:h-[100px]' src={slide.imgSrc} alt={slide.name} />
+                      <img className='md:w-[50px]  md:h-[50px] lg:w-[70px]  lg:h-[70px] 1500size:w-[100px]  1500size:h-[100px]' src={slide.imgSrc} alt={slide.name} />
                     </div>
                     <div className='flex items-center gap-8'>
                       <svg className="w-[12px] rotate-90" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -156,7 +157,7 @@ export const Section02 = () => {
                 </div>
 
                 {/* 내용 */}
-                <div className='w-[30%]  md:text-xl 1500size:text-5xl violetFont whitespace-normal'>
+                <div className='w-[30%]  md:text-xl lg:text-4xl 1500size:text-5xl violetFont whitespace-normal'>
                   "{slide.quote}"
                 </div>
 
@@ -176,12 +177,12 @@ export const Section02 = () => {
         </div>
 
           {/* 하단 화살표 */}
-          <div className='w-[20%] h-[20%] flex gap-4 items-center px-[2%]'>
+          <div className=' flex gap-4 items-center md:mx-[5%] 1500size:mx-[2%] '>
               <div
                   onClick={handlePrev}
                   className={`cursor-pointer ${currentIndex === 0 ? 'opacity-50' : 'opacity-100'}`}
               >
-                  <svg className='rotate-180' width="72" height="66" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg className='md:w-[55px] md:h-[48px] 1500size:w-[72px] 1500size:h-[66px] rotate-180' width="72" height="66" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M26.8883 2.06276L35.7042 11.006C38.2274 13.438 40.2073 14.5596 42.7396 15.1829C44.1017 15.5181 45.1903 16.7226 45.189 18.2416C45.1876 19.9812 43.8964 21.4909 42.0785 21.4924C40.2606 21.4939 0.0683799 21.5265 0.0683799 21.5265C0.0319435 21.5266 0.00238228 21.556 0.00235337 21.5922L2.3295e-08 24.4567C-3.02655e-05 24.493 0.0294812 24.5223 0.0659162 24.5223L42.0761 24.4881C45.7736 24.4851 46.2055 29.9513 42.7102 30.793C40.0938 31.4231 38.0283 32.5723 35.3439 35.2438L26.8489 43.9378C26.824 43.9633 26.824 44.0038 26.8488 44.0292L28.7549 45.9802C28.7809 46.0068 28.8239 46.0066 28.8498 45.9798L51.9816 23.0712C52.0061 23.0457 52.0061 23.0055 51.9816 22.9802L28.8895 0.0200173C28.8637 -0.00663545 28.8207 -0.00667916 28.7947 0.0199268L26.8882 1.97114C26.8632 1.9967 26.8633 2.03736 26.8883 2.06276Z" fill="#10101a"/>
                   </svg>
               </div>
@@ -190,7 +191,7 @@ export const Section02 = () => {
                   onClick={handleNext}
                   className={`cursor-pointer ${currentIndex === maxIndex ? 'opacity-50' : 'opacity-100'}`}
               >
-                  <svg width="72" height="66" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg className='md:w-[55px] md:h-[48px] 1500size:w-[72px]  1500size:h-[66px]' width="72" height="66" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M26.8883 2.06276L35.7042 11.006C38.2274 13.438 40.2073 14.5596 42.7396 15.1829C44.1017 15.5181 45.1903 16.7226 45.189 18.2416C45.1876 19.9812 43.8964 21.4909 42.0785 21.4924C40.2606 21.4939 0.0683799 21.5265 0.0683799 21.5265C0.0319435 21.5266 0.00238228 21.556 0.00235337 21.5922L2.3295e-08 24.4567C-3.02655e-05 24.493 0.0294812 24.5223 0.0659162 24.5223L42.0761 24.4881C45.7736 24.4851 46.2055 29.9513 42.7102 30.793C40.0938 31.4231 38.0283 32.5723 35.3439 35.2438L26.8489 43.9378C26.824 43.9633 26.824 44.0038 26.8488 44.0292L28.7549 45.9802C28.7809 46.0068 28.8239 46.0066 28.8498 45.9798L51.9816 23.0712C52.0061 23.0457 52.0061 23.0055 51.9816 22.9802L28.8895 0.0200173C28.8637 -0.00663545 28.8207 -0.00667916 28.7947 0.0199268L26.8882 1.97114C26.8632 1.9967 26.8633 2.03736 26.8883 2.06276Z" fill="#10101a"/>
                   </svg>
               </div>
