@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <script src="dist/descrambler.js"></script>
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="input-section">
+      <input type="text" class="input" placeholder="Type Stuff. Press Enter." maxlength=15>
+      <div class="buttons-box">
+        <div class="input button" value="scramble">scramble</div>
+        <div class="input button" value="options">options</div>
+      </div>
+      <div class="options-box">
+        <div class="options-group">
+          <label for="duration">duration</label>
+          <br>
+          <input type="range" class="duration" value="3000" min="200" max="20000">
+          <br>
+          <label for="interval">interval</label>
+          <br>
+          <input type="range" class="interval" value="20" min="5" max="1000">
+          <br>
+          <form class="radio-buttons">
+            <label for="uppercase">uppercase</label>
+            <br>
+            <input type="radio" name="uppercase" value="true" checked="checked">true</br>
+            <input type="radio" name="uppercase" value="false">false</br>
+          </form>
+        </div>
+        <div class="options-group">
+          <form class="radio-buttons">
+            <label for="character-set">character set</label><br>
+            <input type="radio" name="character-set" value="all">all<br>
+            <input type="radio" name="character-set" value="allPlusEmoji">all (including emoji)<br>
+            <input type="radio" name="character-set" value="alphabet" checked="checked">alphabet<br>
+            <input type="radio" name="character-set" value="numbers">numbers<br>
+            <input type="radio" name="character-set" value="alphanumeric">alphanumeric<br>
+            <input type="radio" name="character-set" value="punctuation">punctuation<br>
+            <input type="radio" name="character-set" value="emoji">emoji<br>
+          </form>
+        </div>
+      </div>
+      <p class="notice"></p>
+    </div>
+    <p class="scramble">Text deScrambler</p>
+  </div>
+  <div class="badger-info">
+    <a class="git-fork" target="_blank" href="https://github.com/cjbarnaby/text-descrambler"><img src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+    <a class="portfolio" target="_blank" href="http://www.cjbarnaby.com.au">cjbarnaby.com.au</a>
+  </div>
+</body>
+
+</html>

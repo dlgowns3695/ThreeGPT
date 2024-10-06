@@ -2,6 +2,8 @@ import React from 'react';
 import '../../App.css';
 import './section03.css'; // CSS 파일 import
 
+
+
 export const Section03 = () => {
 // 왼쪽 텍스트 배열
 const leftTexts = [
@@ -82,7 +84,7 @@ const leftTexts = [
           {leftTexts.map((leftText, index) => (
             <div key={index} className=' border-b border-[#10101a]  '>
               {/* 숫자 */}
-              <div className='p-4 relative md:text-sm md:mx-[3%] lg:mx-0 violetFont'>0{index + 1}
+              <div className='p-4 relative md:text-sm md:mx-[3%] lg:mx-0 mb-6 violetFont'>0{index + 1}
                 <div className="absolute top-2 left-1">
                   <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 13V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H18" stroke="url(#paint0_linear_2363_1481)"/>
@@ -145,6 +147,8 @@ const leftTexts = [
             </div>
           ))}
         </div>
+
+
       </div>
     </>
   );
