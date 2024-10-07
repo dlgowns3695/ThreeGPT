@@ -56,11 +56,11 @@ const rightTexts = [
   return (
     <>
     {/* 전체 */}
-      <div className='w-full h-full mt-[20vh] md:pl-[8%] lg:pl-[5%] 1500size:px-[2%] z-10  '>
+      <div className='w-full h-full mt-[20vh] md:mt-0  md:pl-[8%] lg:pl-[5%] 1500size:px-[2%] z-10  '>
         {/* 컨텐츠 전체 */}
         {leftTexts.map((plan, index) => (
 
-            <div key={index} className='lg:w-[calc(84%-6px)] mt-[30vh] pb-[20vh] 1500size:w-[85%] flex '>
+            <div key={index} className='lg:w-[calc(84%-6px)] mt-[35vh] md:pt-[15vh]  1500size:w-[85%] flex '>
                 {/* 왼 */}
                 <div className='w-[calc(59%-1px)]  '>
                     {/* &CGPT */}

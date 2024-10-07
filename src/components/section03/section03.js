@@ -66,14 +66,14 @@ const leftTexts = [
               <div className="absolute top-[-20px] left-[25px] md:w-[0.3rem] md:h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.45rem] 1500size:h-[0.45rem] rounded-full bg-[#10101a]"></div>
 
               {/* 텍스트 */}
-              <h2 className="md:text-3xl lg:text-4xl 1500size:text-5xl md:p-2 1500size:p-4 text-center section-title-bordered">
-                <span className="section-title-bordered-line-1">
-                  <span className="section-title-bordered-line-2 mx-2 violetFont ">Your ChatGPT</span>
+              <h2 className="md:text-3xl lg:text-4xl 1500size:text-5xl md:p-2 1500size:p-4 text-center section3-title-bordered">
+                <span className="section3-title-bordered-line-1">
+                  <span className="section3-title-bordered-line-2 mx-2 violetFont ">Research</span>
                 </span>
               </h2>
 
               <h2 className="md:text-3xl lg:text-4xl 1500size:text-5xl p-4 text-left violetFont">
-                <span>Open AI</span>
+                <span>Model</span>
               </h2>
             </div>
           </div>

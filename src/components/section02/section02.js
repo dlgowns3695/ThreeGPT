@@ -77,7 +77,7 @@ export const Section02 = () => {
       <div className="w-full h-[100vh]  flex flex-col justify-between relative">
         
         {/* 상단 */}
-        <div className="flex justify-between w-full  mt-[10vh] md:pl-[8%] 1500size:px-[2%] z-10">
+        <div className="flex justify-between w-full  mt-[15vh] md:pl-[8%] 1500size:px-[2%] z-10">
           
           {/* 원 두개 */}
           <div className=''>
@@ -86,10 +86,10 @@ export const Section02 = () => {
               <div className="absolute top-[-20px] left-[25px] md:w-[0.3rem] md:h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.5rem] 1500size:h-[0.5rem] rounded-full bg-[#10101a]"></div>
 
               {/* 텍스트 */}
-              <h2 className="md:text-3xl lg:text-4xl 1500size:text-5xl md:p-2 1500size:p-4 text-center section-title-bordered">
+              <h2 className="md:text-3xl lg:text-4xl 1500size:text-5xl md:p-2 1500size:p-4 text-center section2-title-bordered">
                 {/* 가상 선택자: before, after */}
-                <span className="section-title-bordered-line-1">
-                  <span className="section-title-bordered-line-2 mx-2 violetFont ">Your ChatGPT</span>
+                <span className="section2-title-bordered-line-1">
+                  <span className="section2-title-bordered-line-2 mx-2 violetFont ">Your ChatGPT</span>
                 </span>
               </h2>
 
@@ -118,12 +118,12 @@ export const Section02 = () => {
           {slidesData.map((slide) => (
             <div
              ref={slideRef} // 슬라이드 DOM 요소에 ref 설정
-             key={slide.id}  className='md:w-full 1500size:w-[calc(84%-8px)] border-t border-r border-b border-[#10101a]  inline-block z-10  '>
+             key={slide.id}  className='md:w-full 1500size:w-[calc(84%-8px)]  border-t border-r border-b border-[#10101a]  inline-block z-10  '>
               {/* 선 영역 + 컨텐츠 영역 */}
-              <div className='flex flex-col  justify-between min-h-[30rem] bg-[#f5f6f0] md:pl-[5%] 1500size:pl-[2%] '>
+              <div className='flex flex-col  justify-between min-h-[31rem] bg-[#f5f6f0] md:pl-[5%] 1500size:pl-[2%] '>
                 {/* 상단 */}
                 <div className='flex  items-center'>
-                  <div className='flex w-[calc(18.6%-9px)] items-center gap-8 text-sm 1500size:text-lg'>
+                  <div className='flex w-[calc(18.6%-10px)] items-center gap-8 text-sm 1500size:text-lg'>
                     <div>{slide.title}</div>
                     {/* 숫자 기준 이미지 넣기 */}
                     <div className='relative'>
@@ -177,7 +177,7 @@ export const Section02 = () => {
         </div>
 
           {/* 하단 화살표 */}
-          <div className=' flex gap-4 items-center md:mx-[5%] 1500size:mx-[2%] '>
+          <div className=' flex relative top-[-35px] gap-4 items-center md:mx-[5%] 1500size:mx-[2%] '>
               <div
                   onClick={handlePrev}
                   className={`cursor-pointer ${currentIndex === 0 ? 'opacity-50' : 'opacity-100'}`}

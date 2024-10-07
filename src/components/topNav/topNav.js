@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import '../../App.css';
 import './topNav.css'; // CSS 파일 import
 
-export const TopNav = () => {
+const TopNav = ({ scrollToSection }) => {
   // 초기 타이틀 배열 상태 설정
-  const [titles, setTitles] = useState(['OUR ECOSYSTEM', 'Home ', 'About GPT', 'Research', 'Products']); // 기본 타이틀
-
+  // const [titles, setTitles] = useState(['OUR ECOSYSTEM', 'Home ', 'About GPT', 'Research', 'Products']); // 기본 타이틀
+  const titles = ['OUR ECOSYSTEM', 'Home', 'About GPT', 'Research', 'Products'];
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -14,7 +14,7 @@ export const TopNav = () => {
   };
 
   return (
-    <div className='w-full h-auto text-lg border-b border-[#cacac6]  '>
+    <div className='w-full h-auto text-lg border-b border-[#cacac6]  fixed z-[9999] '>
       <div className='w-full h-full flex items-center justify-between pt-[2%] md:pt-0 px-[5%] md:px-[2%] bg-[#f5f6f0] relative z-[9999]'>
         {/* 왼쪽 로고 영역 */}
         <div className='md:flex-shrink-0 w-[15%] flex items-center  gap-2 lg:gap-4'>
@@ -59,23 +59,23 @@ export const TopNav = () => {
               <li key={index} className={`text-sm 1200size:text-lg relative flex-1 flex justify-center group`}>
                 {index === 0 ? (
                   <div className="relative flex items-center justify-center w-full px-6 border-r border-[#cacac6] box-border">
-                  {/* 아이콘 */}
-                  <div className="relative w-[1rem] h-[1rem] mr-2 group-hover:rotate-45 group-hover:scale-125 transition-transform duration-200">
-                    <div className="ourNavIcon top-left"></div>
-                    <div className="ourNavIcon top-right"></div>
-                    <div className="ourNavIcon bottom-left"></div>
-                    <div className="ourNavIcon bottom-right"></div>
+                    {/* 아이콘 */}
+                    <div className="relative w-[1rem] h-[1rem] mr-2 group-hover:rotate-45 group-hover:scale-125 transition-transform duration-200">
+                      <div className="ourNavIcon top-left"></div>
+                      <div className="ourNavIcon top-right"></div>
+                      <div className="ourNavIcon bottom-left"></div>
+                      <div className="ourNavIcon bottom-right"></div>
+                    </div>
+                    <span className='text-nowrap mr-2'>{title}</span>
+                    <div className='absolute top-0 left-0 right-0 h-[.125rem] topNav-gradient'></div>
                   </div>
-                  <span className='text-nowrap mr-2'>{title}</span> {/* 오른쪽에 마진 추가 */}
-                  <div className='absolute top-0 left-0 right-0 h-[.125rem] topNav-gradient'></div>
-                </div>
-                ) : index === titles.length - 1 ? (
-                  <span className='py-6 violetFont'>{title}</span>
                 ) : (
-                  <>
-                    <span data-text={title} className='scramble-text py-6 mr-2 violetFont'>{title}</span>
-                    
-                  </>
+                  <button
+                    onClick={() => scrollToSection(index - 1)}  // index에 따른 섹션 이동
+                    className="scramble-text py-6 mr-2 violetFont"
+                  >
+                    {title}
+                  </button>
                 )}
               </li>
             ))}

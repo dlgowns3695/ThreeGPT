@@ -54,7 +54,7 @@ const modleName = [
             {/* Q&A 공간감 */}
             <div className="w-full md:w-[70%] z-10">
               {/* 상단 컨탠츠 영역 */}
-              <div className="flex mt-[15vh] mb-[10%] relative ">
+              <div className="flex mt-[25vh] mb-[10%] relative ">
                 {/* 사각형 */}
                 <div className="md:absolute top-[-66px] border-t border-l md:border-r border-b md:border-b-0 border-[#10101a] w-[66px] h-[66px] flex items-center justify-center">
                     <svg  width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">

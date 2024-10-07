@@ -1,0 +1,121 @@
+/* 가상선택자 공통요소 */
+.section3-title-bordered::before, .section3-title-bordered::after {
+    position: absolute;
+    width: 18px;
+    height: 1px;
+    background: #807f85;
+    content: "";
+}
+
+/* 왼쪽 위 */
+.section3-title-bordered::before {
+    top: 0;
+    left: -5px;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+}
+
+/* 오른쪽 아래 */
+.section3-title-bordered::after {
+    bottom: 77px;
+    right: -5px;
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+}
+
+
+.section3-title-bordered-line-1::before, .section3-title-bordered-line-1::after {
+    position: absolute;
+    width: calc(100% - 13px);
+    height: 1px;
+    background: #807f85;
+    content: "";
+}
+
+/* 위 선 */
+.section3-title-bordered-line-1::before {
+    top: 0;
+    left: 13px;
+}
+
+/* 아래 선 */
+.section3-title-bordered-line-1::after{
+    top: 84px;
+    left: 0;
+}
+
+
+
+.section3-title-bordered-line-2::before, .section3-title-bordered-line-2::after {
+    position: absolute;
+    width: 1px;
+    height: 45%;
+    background: #807f85;
+    content: "";
+}
+
+/* 오른쪽 선 */
+.section3-title-bordered-line-2::after {
+    top: 0px;
+    right: 0px;
+}
+/* 왼쪽 선 */
+.section3-title-bordered-line-2::before {
+    top: 13px;
+    left: 0;
+}
+
+
+
+
+  
+
+
+  /* 1500px 이하일 때  */
+  @media (max-width: 1500px) {
+
+    .section3-title-bordered-line-2::before, .section3-title-bordered-line-2::after{
+        height: 35%;
+    }
+    
+    .section3-title-bordered-line-1::after{
+        top: 57px;       
+    }
+
+   
+    .section3-title-bordered::after {
+        bottom: 71px;
+    }
+
+
+
+  }
+  
+/* 1024px 이하일 때  */
+@media (max-width: 1024px) {
+
+    .section3-title-bordered-line-2::before, .section3-title-bordered-line-2::after{
+        height: 31%;
+    }
+    
+    .section3-title-bordered-line-1::after{
+        top: 50px;       
+    }
+
+    
+    .section3-title-bordered::after {
+        bottom: 70px;
+    }
+
+
+
+    }
+    
+
+  
+    /* 768px 이하일 때 모바일  */
+    @media (max-width: 768px) {
+        
+
+
+    }

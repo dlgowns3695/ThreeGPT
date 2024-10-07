@@ -1,15 +1,21 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Lenis from '@studio-freight/lenis';
 import './App.css';
-import TopNav from './components/topNav/topNav'; // topNav.js 불러오기 
+import TopNav from './components/topNav/topNav'; // topNav.js 불러오기
 import Section01 from './components/section01/section01';
 import Section02 from './components/section02/section02';
 import Section03 from './components/section03/section03';
 import Section04 from './components/section04/section04';
 
-
 function App() {
+  // 각 섹션에 대한 useRef 설정
+  const sectionRefs = [
+    useRef(null), // Section01
+    useRef(null), // Section02
+    useRef(null), // Section03
+    useRef(null), // Section04
+  ];
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2, // 스크롤 지속시간
@@ -28,14 +34,30 @@ function App() {
       lenis.destroy(); // 컴포넌트 언마운트 시 Lenis 인스턴스 제거
     };
   }, []);
+
+  // 스크롤 이동 함수
+  const scrollToSection = (index) => {
+    sectionRefs[index]?.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
-      <TopNav></TopNav>
-      <Section01></Section01>
-      <Section02></Section02>
-      <Section03></Section03>
-      <Section04></Section04>
+      {/* TopNav에 scrollToSection 함수를 전달 */}
+      <TopNav scrollToSection={scrollToSection} />
 
+      {/* 각 섹션을 useRef로 연결 */}
+      <div ref={sectionRefs[0]} id="section01">
+        <Section01 />
+      </div>
+      <div ref={sectionRefs[1]} id="section02">
+        <Section02 />
+      </div>
+      <div ref={sectionRefs[2]} id="section03">
+        <Section03 />
+      </div>
+      <div ref={sectionRefs[3]} id="section04">
+        <Section04 />
+      </div>
     </>
   );
 }
