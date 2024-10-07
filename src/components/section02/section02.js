@@ -128,12 +128,12 @@ export const Section02 = () => {
                     {/* 숫자 기준 이미지 넣기 */}
                     <div className='relative'>
                       <div>{slide.number}</div>
-                      <div className="absolute top-[-5px] left-[-10px]">
+                      <div className="absolute top-0 left-[-10px]">
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M1 15V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H15" stroke="#10101A"/>
                         </svg>
                       </div>
-                      <div className="absolute md:top-3 md:left-2 1500size:top-[15px] 1500size:left-[10px] rotate-180 fill-black">
+                      <div className="absolute md:top-3 md:left-2 1500size:bottom-0 1500size:right-[-5px] rotate-180 fill-black">
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M1 15V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H15" stroke="#10101A"/>
                         </svg>

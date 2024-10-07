@@ -207,3 +207,37 @@
 
 
     }
+
+
+
+    /* 모바일 네비게이션 바에 애니메이션 추가 */
+.menu-enter {
+  opacity: 0;
+  transform: translateY(-20%);
+  transition: all 0.3s ease-out;
+}
+
+.menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-exit {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease-in;
+}
+
+.menu-exit-active {
+  opacity: 0;
+  transform: translateY(-20%);
+}
+
+/* 햄버거 아이콘에 대한 전환 애니메이션 */
+.hamburger-icon {
+  transition: all 0.3s ease;
+}
+
+.hamburger-icon-active {
+  transform: rotate(-90deg);
+}

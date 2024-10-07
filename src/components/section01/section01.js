@@ -48,27 +48,27 @@ const modleName = [
     return (
       <>
         {/* 전체 */}
-        <div className="w-full h-[91.5vh]  px-[2%]">
+        <div className="w-full h-[91.5vh] px-[5%] md:px-[2%]">
           {/* 전체 + 패딩값을 줌 flex로 위 아래 나뉠 예정 */}
-          <div className="w-full  flex flex-col items-center  md:gap-32 lg:gap-24 xl:gap-20 1500size:gap-8">
+          <div className="w-full  flex flex-col items-center gap-[400px] md:gap-32 lg:gap-24 xl:gap-20 1500size:gap-8">
             {/* Q&A 공간감 */}
-            <div className="w-[70%] z-10">
-              {/* 컨탠츠 영역 */}
+            <div className="w-full md:w-[70%] z-10">
+              {/* 상단 컨탠츠 영역 */}
               <div className="flex mt-[15vh] mb-[10%] relative ">
                 {/* 사각형 */}
-                <div className="absolute top-[-66px] border-t border-l border-r border-[#10101a] w-[66px] h-[66px] flex items-center justify-center">
-                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div className="md:absolute top-[-66px] border-t border-l md:border-r border-b md:border-b-0 border-[#10101a] w-[66px] h-[66px] flex items-center justify-center">
+                    <svg  width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.94425 0H3.20557L0 5.5149V16H7.94425V8.2383H4.73868V6.12766L7.94425 0ZM16.7944 6.12766L20 0H15.2613L12.0557 5.5149V16H20V8.2383H16.7944V6.12766Z" fill="#10101A"/>
                     </svg>
 
-                    <div className="absolute top-[-30px] left-[-30px]">
+                    <div className="hidden md:block absolute  top-[-30px] left-[-30px]">
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 15V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H15" stroke="#10101A"/>
                         </svg>
 
 
                     </div>
-                    <div className="absolute top-[390px] left-[-30px] scale-y-[-1] fill-black">
+                    <div className="hidden md:block absolute  top-[390px] left-[-30px] scale-y-[-1] fill-black">
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 15V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H15" stroke="#10101A"/>
                         </svg>
@@ -78,9 +78,9 @@ const modleName = [
                 </div>
 
                 {/* 왼쪽 Q&A  overflow-hidden */}
-                <div className="w-[calc(50%+4px)] ">
+                <div className="w-full md:w-[calc(50%+4px)] ">
                     {/* 상단 보더 유지 */}
-                    <div className="relative border border-[#10101a] h-[165px]  ">
+                    <div className="relative border border-[#10101a] h-[66px] md:h-[165px]  ">
                         {/* 글귀들 담는 박스 Q&A hero-slider-inner */}
                         <div className="relative h-[330px] overflow-hidden  ">
 
@@ -100,7 +100,7 @@ const modleName = [
                                         <SwiperSlide key={index}> {/* key 추가 */}
                                         {/* <span className="violetFont mr-[10px]"> Q.</span> */}
                                             <div className="flex flex-col ">
-                                                <div className="p-4 flex items-center justify-start text-3xl 1200size:text-5xl h-[165px] "> {/* 보더값 128안에 정렬이쁘게하기 위해 사이즈 맞춤 */}
+                                                <div className="p-4 flex items-center justify-start text-xl md:text-3xl 1200size:text-5xl h-[66px] md:h-[165px] "> {/* 보더값 128안에 정렬이쁘게하기 위해 사이즈 맞춤 */}
                                                      {qa.question}
                                                 </div>
                                                 <div className=" p-4 flex items-center justify-start opacity-50 text-sm 1200size:text-lg "> 
@@ -122,7 +122,7 @@ const modleName = [
 
 
                 {/* 오른쪽 */}
-                <div className="w-[calc(50%+1px)] relative">
+                <div className="hidden md:block w-[calc(50%+1px)] relative">
                   <div className='w-full h-[56px] border-t border-r border-b border-[#10101a] absolute'></div>
                   <div className='w-[59.82px] h-[56px] border border-[#10101a] absolute right-0'></div>
                   
@@ -181,7 +181,7 @@ const modleName = [
                     <h4 className='text-lg roboFont '>GPT for Everyone</h4>
 
                     <div className='violetFont relative'>
-                    <svg className='absolute md:top-[-35px] lg:top-[-130px] 1500size:top-0 z-10 md:w-[230px] md:h-[150px] lg:w-[300px] lg:h-[350px] 1500size:w-[450px] 1500size:h-[125px]'viewBox="0 0 421 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className='absolute top-[13px]  md:top-[-35px] lg:top-[-130px] 1500size:top-0 z-10 w-[190px] md:w-[230px] md:h-[150px] lg:w-[300px] lg:h-[350px] 1500size:w-[450px] 1500size:h-[125px]'viewBox="0 0 421 96" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path className="path-anim path-anim-2" d="M157.5 94H402.257C403.053 94 403.816 93.6839 404.379 93.1213L419 78.5" stroke="url(#paint0_linear_2309_6568)" strokeWidth="2.5" strokeLinecap="round"></path>
                         <path className="path-anim path-anim-1" d="M2 77V19.2426C2 18.447 2.31607 17.6839 2.87868 17.1213L17.1213 2.87868C17.6839 2.31607 18.447 2 19.2426 2H417" stroke="url(#paint1_linear_2309_6568)" strokeWidth="2.5" strokeLinecap="round"></path>
                         <defs>
@@ -200,10 +200,10 @@ const modleName = [
                         </defs>
                     </svg>
 
-                    <div className="p-4 md:text-5xl lg:text-6xl 1500size:text-8xl">ChatGPT</div>
-                    <div className="p-4 md:text-5xl lg:text-6xl 1500size:text-8xl">AI</div>
+                    <div className="p-4 text-4xl md:text-5xl lg:text-6xl 1500size:text-8xl">ChatGPT</div>
+                    <div className="p-4 text-4xl md:text-5xl lg:text-6xl 1500size:text-8xl">AI</div>
 
-                    <svg className='absolute md:top-8 lg:top-12 1500size:top-[110px] md:w-[75px] lg:w-[90px] 1500size:w-[130px]' height="180" viewBox="0 0 115 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className='absolute top-4 md:top-8 lg:top-12 1500size:top-[110px] w-[65px] md:w-[75px] lg:w-[90px] 1500size:w-[130px]' height="180" viewBox="0 0 115 88" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path className="path-anim path-anim-left" d="M2 2V68.7574C2 69.553 2.31607 70.3161 2.87868 70.8787L17.1213 85.1213C17.6839 85.6839 18.447 86 19.2426 86H62" stroke="url(#paint0_linear_2309_6569)" strokeWidth="2.5" strokeLinecap="round"></path>
                         <path className="path-anim path-anim-right" d="M62 86H110C111.657 86 113 84.6569 113 83V15.2426C113 14.447 112.684 13.6839 112.121 13.1213L100.5 1.5" stroke="url(#paint1_linear_2309_6569)" strokeWidth="2.5" strokeLinecap="round"></path>
                         <defs>
@@ -224,12 +224,12 @@ const modleName = [
                     </div>
                 </div>
 
-                <div className='w-[55%] md:text-sm lg:text-lg 1500size:text-2xl text-right'>
+                <div className='w-auto absolute md:relative md:top-0 md:left-0 left-24 top-[93px]  md:w-[55%] md:text-sm lg:text-lg 1500size:text-2xl md:text-right'>
                     <p>Your personal expert in all crypto<br />
                     & blockchain related topics.</p>
                 </div>
 
-                <div className='w-[16%] flex justify-end items-center'>
+                <div className='hidden  w-[16%] md:flex justify-end items-center'>
                     {/* 링크 */}
                     <div className='md:text-sm lg:text-lg pr-6'>SCROLL</div>
                     <div
