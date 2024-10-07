@@ -74,10 +74,10 @@ export const Section02 = () => {
   return (
     <>
       {/* 전체 잡고 상단, 하단 col */}
-      <div className="w-full h-[100vh]  flex flex-col justify-between relative">
+      <div className="w-full h-[100vh]  flex flex-col justify-between relative overflow-x-clip">
         
         {/* 상단 */}
-        <div className="flex justify-between w-full  mt-[15vh] md:pl-[8%] 1500size:px-[2%] z-10">
+        <div className="flex justify-between w-full  mt-[15vh] md:pl-[8%] 1500size:px-[2%] z-10 ">
           
           {/* 원 두개 */}
           <div className=''>
@@ -115,10 +115,10 @@ export const Section02 = () => {
           className='transition-transform duration-500 ease-in-out whitespace-nowrap relative overflow-x-visible  h-auto'
         >
 
-          {slidesData.map((slide) => (
+          {slidesData.map((slide, index) => (
             <div
              ref={slideRef} // 슬라이드 DOM 요소에 ref 설정
-             key={slide.id}  className='md:w-full 1500size:w-[calc(84%-8px)]  border-t border-r border-b border-[#10101a]  inline-block z-10  '>
+             key={slide.id}  className={`md:w-full 1500size:w-[calc(84%-8px)] border-t border-r border-b border-[#10101a]  inline-block z-10  `}>
               {/* 선 영역 + 컨텐츠 영역 */}
               <div className='flex flex-col  justify-between min-h-[31rem] bg-[#f5f6f0] md:pl-[5%] 1500size:pl-[2%] '>
                 {/* 상단 */}

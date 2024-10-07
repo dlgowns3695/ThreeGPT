@@ -11,3 +11,8 @@ IPv4 주소 -> IP주소(192......):포트번호(3000)
 2. https://github.com/cettoana/react-scramble
 
 3. Scramble Text Plugin << 유료였음 >>
+
+
+https://framer.university/resources/text-scramble-override
+
+clsx
