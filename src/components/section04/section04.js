@@ -73,8 +73,9 @@ const rightTexts = [
                             {/* 왼쪽 타이틀 배열가져오기 */}
                             <h2 className="md:text-3xl lg:text-4xl 1500size:text-6xl violetFont p-8">{plan.title}</h2>
                             
+                            {/* 1,2: 19rem,  3: 30rem */}
                             <div className="absolute top-0 left-0">
-                                <svg className="w-[14.5rem] md:w-[12.7rem] xl:w-[29rem] h-auto" viewBox="0 0 302 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg className={index < 2 ? 'w-[19rem] h-auto' : 'w-[30rem] h-auto'} viewBox="0 0 302 79" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path className="path-anim path-anim-sm-1" d="M2 77V19.2426C2 18.447 2.31607 17.6839 2.87868 17.1213L17.1213 2.87868C17.6839 2.31607 18.447 2 19.2426 2H300" stroke="url(#paint0_linear_4345_782)" strokeWidth="2.5" strokeLinecap="round"></path>
                                     <defs>
                                         <linearGradient id="paint0_linear_4345_782" x1="416.5" y1="-9.49999" x2="25.7658" y2="-140.863" gradientUnits="userSpaceOnUse">
@@ -111,13 +112,13 @@ const rightTexts = [
                 {/* 오 */}
                 <div className='w-[41%] h-full text-right'>
                     {/* 오른쪽 타이틀 부분 반복 */}
-                    <div className='border-b border-[#10101a] p-6 opacity-60'>
+                    <div className='border-b border-[#10101a] p-4 opacity-60 text-3xl'>
                         {/* 부모쪽에서 반복문 돌리면서 가져온 index삽입 */}
                         {rightTexts[index].plan}
                     </div>
                     {/* 오른쪽 기능 항목 반복 */}
                     {rightTexts[index].features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className='border-b border-[#10101a] p-1 pr-6'>
+                        <div key={featureIndex} className='border-b border-[#10101a] py-2 pr-4'>
                             {feature}
                         </div>
                     ))}

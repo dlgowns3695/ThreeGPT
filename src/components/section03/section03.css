@@ -17,7 +17,7 @@
 
 /* 오른쪽 아래 */
 .section3-title-bordered::after {
-    bottom: 77px;
+    bottom: 131px;
     right: -5px;
     transform: rotate(-45deg);
     transform-origin: bottom left;
@@ -40,7 +40,7 @@
 
 /* 아래 선 */
 .section3-title-bordered-line-1::after{
-    top: 84px;
+    top: 129px;
     left: 0;
 }
 

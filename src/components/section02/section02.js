@@ -8,7 +8,7 @@ export const Section02 = () => {
   const [slideWidth, setSlideWidth] = useState(0); // 슬라이드 너비 상태
   const [currentIndex, setCurrentIndex] = useState(0); // 현재 슬라이드 인덱스
 
-  console.log(slideWidth)
+ 
   const slidesData = [
     {
       id: 1,
@@ -54,7 +54,10 @@ export const Section02 = () => {
     // 슬라이드 너비를 업데이트
     if (slideRef.current) {
       setSlideWidth(slideRef.current.offsetWidth);
+      console.log(slideWidth)
     }
+    console.log(currentIndex)
+    
   }, [currentIndex]); // currentIndex가 변경될 때마다 업데이트
 
   // 왼쪽 화살표 클릭 핸들러
@@ -117,13 +120,16 @@ export const Section02 = () => {
 
           {slidesData.map((slide, index) => (
             <div
-             ref={slideRef} // 슬라이드 DOM 요소에 ref 설정
-             key={slide.id}  className={`md:w-full 1500size:w-[calc(84%-8px)] border-t border-r border-b border-[#10101a]  inline-block z-10  `}>
+             ref={slideRef} // 슬라이드 DOM 요소에 ref 설정,
+             // 1:w-[calc(84%-8px)]  w-[calc(18.6%-10px)]  2: w-[calc(84%-7px)] w-[calc(18.6%-9px)] 3:w-[calc(84%-7px)] w-[calc(18.6%-9px)] 4: w-[calc(84%-6px)] w-[calc(18.6%-8px)] 
+             key={slide.id}
+             className={`md:w-full border-t border-r border-b border-[#10101a] inline-block z-10 ${index === 0 ? '1500size:w-[calc(84%-8px)]' : index === 1 ? '1500size:w-[calc(84%-5px)]' : index === 2 ? '1500size:w-[calc(84%-6px)]' : '1500size:w-[calc(84%-5.5px)]'}`}
+             >
               {/* 선 영역 + 컨텐츠 영역 */}
               <div className='flex flex-col  justify-between min-h-[31rem] bg-[#f5f6f0] md:pl-[5%] 1500size:pl-[2%] '>
                 {/* 상단 */}
                 <div className='flex  items-center'>
-                  <div className='flex w-[calc(18.6%-10px)] items-center gap-8 text-sm 1500size:text-lg'>
+                  <div className={`flex ${index === 0 ? 'w-[calc(18.6%-10px)]' : index === 1 ? 'w-[calc(18.6%-8px)]' : index === 2 ? 'w-[calc(18.6%-8px)]' : 'w-[calc(18.6%-8px)]'} items-center gap-8 text-sm 1500size:text-lg`}>
                     <div>{slide.title}</div>
                     {/* 숫자 기준 이미지 넣기 */}
                     <div className='relative'>
