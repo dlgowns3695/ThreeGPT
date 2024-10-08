@@ -14,8 +14,8 @@ const TopNav = ({ scrollToSection }) => {
   };
 
   return (
-    <div className='w-full h-auto text-lg border-b border-[#cacac6]  fixed z-[9999] '>
-      <div className='w-full h-full flex items-center justify-between pt-[2%] md:pt-0 px-[5%] md:px-[2%] bg-[#f5f6f0] relative z-[9999]'>
+    <div className='w-full h-auto text-lg border-b border-[#cacac6]  fixed z-[9999] bg-[#f5f6f0] '>
+      <div className='w-full h-full flex items-center justify-between  pt-[2%] md:pt-0 px-[5%] md:px-[2%] relative bg-[#f5f6f0]  z-[9999]'>
         {/* 왼쪽 로고 영역 */}
         <div className='md:flex-shrink-0 w-[15%] flex items-center  gap-2 lg:gap-4'>
           <img className='w-[35px] h-[35px] 1200size:w-[32px]  1200size:h-[34px] 1400size:w-[42px] 1400size:h-[44px]' src={`${process.env.PUBLIC_URL}/ChatGPTLogo.svg`} alt='ChatGPTLogo' />
@@ -53,7 +53,7 @@ const TopNav = ({ scrollToSection }) => {
         
 
         {/* 가운데 네브바 내용들 피씨 */}
-        <div className='w-full hidden md:block'>
+        <div className='w-full  hidden md:block'>
           <ul className='flex justify-between'>
             {titles.map((title, index) => (
               <li key={index} className={`text-sm 1200size:text-lg relative flex-1 flex justify-center group`}>
@@ -82,52 +82,58 @@ const TopNav = ({ scrollToSection }) => {
           </ul>
         </div>
 
-        {/* 모바일 네비게이션 */}
-        {isOpen && (
-          <div className={` w-full absolute left-0 px-[5%] block md:hidden transition- all transform duration-300 ${isOpen ? 'top-[100%]' : 'top-[-100%]'} `}>
-            <ul className='flex flex-col text-[12px]'>
-              {titles.map((title, index) => (
-                <li key={index} className={`relative flex items-center py-2 ${index === 0 ? '' : 'justify-between border-b border-[#cacac6]'}`}>
-                  {index === 0 ? (
-                    <>
-                      <div className="relative w-[1rem] h-[1rem] mr-2 group-hover:rotate-45 group-hover:scale-125 transition-transform duration-200">
-                        <div className="ourNavIcon top-left"></div>
-                        <div className="ourNavIcon top-right"></div>
-                        <div className="ourNavIcon bottom-left"></div>
-                        <div className="ourNavIcon bottom-right"></div>
-                      </div>
-                      <span>{title}</span>
-                      <div className='absolute bottom-0 left-0 right-0 h-[.125rem] topNav-gradient'></div>
-                      <div className='flex items-center absolute right-0'>
-                        <svg className="w-[10px]" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M3.1982 3.90328C3.09659 4.03224 2.90341 4.03224 2.8018 3.90328L0.0565376 0.419105C-0.0920827 0.230483 0.0735936 -0.0434377 0.306501 0.00582836L2.94823 0.564624C2.98238 0.571847 3.01762 0.571847 3.05177 0.564624L5.6935 0.00582791C5.92641 -0.0434382 6.09208 0.230482 5.94346 0.419105L3.1982 3.90328Z"
-                            fill="#10101A"
-                          />
-                        </svg>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <span>{title}</span>
-                      <div className='flex items-center absolute right-0'>
-                        <svg className="w-[10px]" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M3.1982 3.90328C3.09659 4.03224 2.90341 4.03224 2.8018 3.90328L0.0565376 0.419105C-0.0920827 0.230483 0.0735936 -0.0434377 0.306501 0.00582836L2.94823 0.564624C2.98238 0.571847 3.01762 0.571847 3.05177 0.564624L5.6935 0.00582791C5.92641 -0.0434382 6.09208 0.230482 5.94346 0.419105L3.1982 3.90328Z"
-                            fill="#10101A"
-                          />
-                        </svg>
-                      </div>
-                    </>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {/* 모바일 네비게이션  */}
+        <div
+          className={`bg-[#f5f6f0]  mt-[10%] w-full   absolute top-0 left-0 px-[5%] block md:hidden transition-all duration-500 ${isOpen ? 'h-[100vh]' : 'h-0'} overflow-hidden  `}
+        >
+          <ul className=' flex flex-col text-[12px] '>
+            {titles.map((title, index) => (
+              <li
+                key={index}
+                className={`relative flex items-center py-2 ${index === 0 ? '' : 'justify-between border-b border-[#cacac6]'}`}
+              >
+                {index === 0 ? (
+                  <>
+                    <div className="relative w-[1rem] h-[1rem] mr-2 group-hover:rotate-45 group-hover:scale-125 transition-transform duration-200">
+                      <div className="ourNavIcon top-left"></div>
+                      <div className="ourNavIcon top-right"></div>
+                      <div className="ourNavIcon bottom-left"></div>
+                      <div className="ourNavIcon bottom-right"></div>
+                    </div>
+                    <span>{title}</span>
+                    <div className='absolute bottom-0 left-0 right-0 h-[.125rem] topNav-gradient'></div>
+                    <div className='flex items-center absolute right-0'>
+                      <svg className="w-[10px]" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M3.1982 3.90328C3.09659 4.03224 2.90341 4.03224 2.8018 3.90328L0.0565376 0.419105C-0.0920827 0.230483 0.0735936 -0.0434377 0.306501 0.00582836L2.94823 0.564624C2.98238 0.571847 3.01762 0.571847 3.05177 0.564624L5.6935 0.00582791C5.92641 -0.0434382 6.09208 0.230482 5.94346 0.419105L3.1982 3.90328Z"
+                          fill="#10101A"
+                        />
+                      </svg>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <span>{title}</span>
+                    <div className='flex items-center absolute right-0'>
+                      <svg className="w-[10px]" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M3.1982 3.90328C3.09659 4.03224 2.90341 4.03224 2.8018 3.90328L0.0565376 0.419105C-0.0920827 0.230483 0.0735936 -0.0434377 0.306501 0.00582836L2.94823 0.564624C2.98238 0.571847 3.01762 0.571847 3.05177 0.564624L5.6935 0.00582791C5.92641 -0.0434382 6.09208 0.230482 5.94346 0.419105L3.1982 3.90328Z"
+                          fill="#10101A"
+                        />
+                      </svg>
+                    </div>
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+
+
 
         {/* 맨 오른쪽 */}
-        <div className="flex-shrink-0 relative flex w-auto md:w-[15%] justify-end">
+        <div className="flex-shrink-0 relative flex w-auto md:w-[15%] justify-end h-full">
           <a
             rel="noopener noreferrer"
             href="https://app.chaingpt.org/"
@@ -140,8 +146,8 @@ const TopNav = ({ scrollToSection }) => {
           </a>
         </div>
 
-        <div className="vertical-line vertical-line--left vertical-line-header"></div>
-        <div className="vertical-line vertical-line--right vertical-line-header"></div>
+        <div className=" vertical-line vertical-line--left vertical-line-header  hidden md:block"></div>
+        <div className=" vertical-line vertical-line--right vertical-line-header hidden md:block"></div>
 
       </div>
       <div className="vertical-line vertical-line--left vertical-line-header"></div>

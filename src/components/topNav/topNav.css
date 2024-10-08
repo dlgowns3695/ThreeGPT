@@ -155,7 +155,7 @@
 
 .vertical-line.vertical-line--left.vertical-line-header, 
 .vertical-line.vertical-line--right.vertical-line-header { 
-  display: block; 
+  /* display: block;  */
 }
 
 .vertical-line.vertical-line--left.vertical-line-header {

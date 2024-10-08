@@ -52,12 +52,12 @@ function App() {
       <div ref={sectionRefs[1]} id="section02">
         <Section02 />
       </div>
-      <div ref={sectionRefs[2]} id="section03">
+      {/* <div ref={sectionRefs[2]} id="section03">
         <Section03 />
-      </div>
-      <div ref={sectionRefs[3]} id="section04">
+      </div> */}
+      {/* <div ref={sectionRefs[3]} id="section04">
         <Section04 />
-      </div>
+      </div> */}
     </>
   );
 }
