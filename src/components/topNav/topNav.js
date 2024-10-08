@@ -15,7 +15,7 @@ const TopNav = ({ scrollToSection }) => {
 
   return (
     <div className='w-full h-auto text-lg border-b border-[#cacac6]  fixed z-[9999] bg-[#f5f6f0] '>
-      <div className='w-full h-full flex items-center justify-between  pt-[2%] md:pt-0 px-[5%] md:px-[2%] relative bg-[#f5f6f0]  z-[9999]'>
+      <div className='w-full h-full flex items-center justify-between  py-[2%] md:py-0 md:pt-0 px-[5%] md:px-[2%] relative bg-[#f5f6f0]  z-[9999]'>
         {/* 왼쪽 로고 영역 */}
         <div className='md:flex-shrink-0 w-[15%] flex items-center  gap-2 lg:gap-4'>
           <img className='w-[35px] h-[35px] 1200size:w-[32px]  1200size:h-[34px] 1400size:w-[42px] 1400size:h-[44px]' src={`${process.env.PUBLIC_URL}/ChatGPTLogo.svg`} alt='ChatGPTLogo' />

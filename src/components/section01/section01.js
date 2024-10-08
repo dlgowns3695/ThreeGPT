@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 
 import '../../App.css';
 import './section01.css'; // CSS 파일 import
+import Encrypt from '../encrypt/encrypt'; // 섹션04에서 한 단계 위로 올라가서 encrypt 폴더를 찾음
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -15,10 +16,10 @@ export const Section01 = () => {
 
    // Q&A 데이터 배열
    const qaData = [
-    { question: "Q. When was ChatGPT released?", answer: "A. ChatGPT was first released in November 2020. Since then, it has gone through several updates and improvements, with more advanced versions like GPT-4 being developed to enhance its capabilities." },
-    { question: "Q. How does ChatGPT work?", answer: "A. ChatGPT is based on a language model trained using vast amounts of text data. It uses machine learning to generate human-like responses by predicting the next word in a sentence. This allows it to answer questions, hold conversations, and assist with various tasks." },
-    { question: "Q. What is ChatGPT used for?", answer: "A. ChatGPT is commonly used for customer support, content generation, programming assistance, and as a learning tool. It helps businesses automate tasks and individuals get quick, accurate answers to a wide range of topics." },
-    { question: "Q. How does ChatGPT protect privacy?", answer: "A. ChatGPT is designed to prioritize user privacy by not retaining personal conversation data after interactions. While it processes data to generate responses, it doesn’t store any personal information for future use." },
+    { question: "Q.When was ChatGPT released?", answer: "A. ChatGPT was first released in November 2020. Since then, it has gone through several updates and improvements, with more advanced versions like GPT-4 being developed to enhance its capabilities." },
+    { question: "Q.How does ChatGPT work?", answer: "A. ChatGPT is based on a language model trained on vast text data. It predicts the next word to generate human-like responses, enabling it to answer questions, hold conversations, and assist with various tasks." },
+    { question: "Q.What is ChatGPT used for?", answer: "A. ChatGPT is commonly used for customer support, content generation, programming assistance, and as a learning tool. It helps businesses automate tasks and individuals get quick, accurate answers to a wide range of topics." },
+    { question: "Q.How does ChatGPT ensure?", answer: "A. ChatGPT is designed to prioritize user privacy by not retaining personal conversation data after interactions. While it processes data to generate responses, it doesn’t store any personal information for future use." },
     // 추가 질문과 답변을 여기에 추가할 수 있습니다.
   ];
 
@@ -50,7 +51,7 @@ const modleName = [
         {/* 전체 */}
         <div className="w-full h-[91.5vh] px-[5%] md:px-[2%]">
           {/* 전체 + 패딩값을 줌 flex로 위 아래 나뉠 예정 */}
-          <div className="w-full  flex flex-col items-center gap-[400px] md:gap-32 lg:gap-24 xl:gap-20 1500size:gap-8">
+          <div className="w-full  flex flex-col items-center gap-[400px] md:gap-32 lg:gap-24 xl:gap-20 1500size:gap-12">
             {/* Q&A 공간감 */}
             <div className="w-full md:w-[70%] z-10">
               {/* 상단 컨탠츠 영역 */}
@@ -80,9 +81,9 @@ const modleName = [
                 {/* 왼쪽 Q&A  overflow-hidden */}
                 <div className="w-full md:w-[calc(50%+4px)] ">
                     {/* 상단 보더 유지 */}
-                    <div className="relative border border-[#10101a] h-[66px] md:h-[165px]  ">
+                    <div className="relative border border-[#10101a] w-full h-[66px] md:h-[165px] ">
                         {/* 글귀들 담는 박스 Q&A hero-slider-inner */}
-                        <div className="relative h-[330px] overflow-hidden  ">
+                        <div className="relative h-[360px] overflow-hidden  ">
 
                             <Swiper
                                 direction={'vertical'}
@@ -91,7 +92,7 @@ const modleName = [
                                 modules={[Pagination, Autoplay]} // Autoplay
                                 className="mySwiper"
                                 allowTouchMove={false} // 터치 이동 비활성화
-                                style={{ height: '100%' }} // Swiper 높이를 100%로 설정
+                                style={ { height: '100%' }} // Swiper 높이를 100%로 설정
                             >
                                 {/* Q&A 합친 div박스 flex col */}
                                 <div className="text-lg">

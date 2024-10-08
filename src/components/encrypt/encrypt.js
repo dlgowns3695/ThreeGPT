@@ -20,7 +20,7 @@ const Encrypt = ({ text, className }) => {  // className 추가
         element.textContent = originalText.substring(0, index) + randomChar + originalText.substring(index + 1);
         index++;
       }
-    }, 50); // 50ms 간격으로 암호화
+    }, 30); // 50ms 간격으로 암호화
   };
 
   useEffect(() => {

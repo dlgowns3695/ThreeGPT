@@ -57,11 +57,13 @@ export const Section04 = () => {
     <>
       {/* 전체 */}
       <div className='w-full h-full mt-[20vh] md:mt-0  md:pl-[8%] lg:pl-[5%] 1500size:px-[2%] z-10'>
+        <div className='w-full h-full px-[5%] md:px-0'>
+
         {/* 컨텐츠 전체 */}
         {leftTexts.map((plan, index) => (
-          <div key={index} className='lg:w-[calc(84%-6px)] mt-[35vh] md:pt-[15vh] 1500size:w-[85%] flex '>
+          <div key={index} className=' lg:w-[calc(84%-6px)] mt-[35vh] md:mt-[0] md:pt-[20vh] md:mb-[15vh] 1500size:w-[85%] flex flex-col md:flex-row '>
             {/* 왼 */}
-            <div className='w-[calc(59%-1px)]'>
+            <div className='w-full md:w-[calc(59%-1px)]'>
               {/* &CGPT */}
               <div className='flex relative'>
                 <div className="absolute top-[-20px] left-[5px] md:w-[0.3rem] md:h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.45rem] 1500size:h-[0.45rem] rounded-full bg-[#10101a]"></div>
@@ -69,12 +71,12 @@ export const Section04 = () => {
 
                 <div className="relative">
                   {/* 왼쪽 타이틀 배열가져오기 */}
-                  <Encrypt className="md:text-3xl lg:text-4xl 1500size:text-6xl violetFont p-8" text={plan.title} />
+                  <Encrypt className=" text-nowrap md:text-wrap text-5xl md:text-3xl lg:text-4xl 1500size:text-6xl violetFont p-6 md:p-8" text={plan.title} />
 
                   
                   {/* 1,2: 19rem,  3: 30rem */}
                   <div className="absolute top-0 left-0">
-                    <svg className={index < 2 ? 'w-[19rem] h-auto' : 'w-[30rem] h-auto'} viewBox="0 0 302 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className={index < 2 ? 'w-[12rem] md:w-[19rem] h-auto' : 'w-[23rem] md:w-[30rem] h-auto'} viewBox="0 0 302 79" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path className="path-anim path-anim-sm-1" d="M2 77V19.2426C2 18.447 2.31607 17.6839 2.87868 17.1213L17.1213 2.87868C17.6839 2.31607 18.447 2 19.2426 2H300" stroke="url(#paint0_linear_4345_782)" strokeWidth="2.5" strokeLinecap="round"></path>
                       <defs>
                         <linearGradient id="paint0_linear_4345_782" x1="416.5" y1="-9.49999" x2="25.7658" y2="-140.863" gradientUnits="userSpaceOnUse">
@@ -85,7 +87,7 @@ export const Section04 = () => {
                     </svg>
                   </div>
                   
-                  <div className="absolute bottom-0 right-0">
+                  <div className="absolute bottom-0 right-1 md:right-0">
                     <svg className="w-[7.3125rem] md:w-[5.3125rem] xl:w-[9.3125rem] h-auto" viewBox="0 0 149 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path className="path-anim path-anim-sm-2" d="M1.5 17H130.257C131.053 17 131.816 16.6839 132.379 16.1213L147 1.5" stroke="url(#paint0_linear_4345_781)" strokeWidth="2.5" strokeLinecap="round"></path>
                       <defs>
@@ -100,27 +102,30 @@ export const Section04 = () => {
                 </div>
               </div>
               {/* 왼쪽 배열 내용 */}
-              <div className='w-[50%] min-h-[40%] pt-28'>
+              <div className='w-full md:w-[50%] md:min-h-[40%] pt-28 pb-14 md:pb-0 px-[2%] text-sm'>
                 {plan.dec}
               </div>
             </div>
 
             {/* 오 */}
-            <div className='w-[41%] h-full text-right'>
+            <div className='w-full md:w-[41%] h-full text-right'>
               {/* 오른쪽 타이틀 부분 반복 */}
-              <div className='border-b border-[#10101a] p-4 opacity-60 text-3xl'>
+              <div className='border-b border-[#10101a] p-2 md:p-4 opacity-60 text-3xl'>
                 {/* 부모쪽에서 반복문 돌리면서 가져온 index삽입 */}
                 {rightTexts[index].plan}
               </div>
               {/* 오른쪽 기능 항목 반복 */}
               {rightTexts[index].features.map((feature, featureIndex) => (
-                <div key={featureIndex} className='p-4 border-b border-[#10101a] opacity-50 text-sm'>
+                <div key={featureIndex} className='p-2 md:p-4 border-b border-[#10101a] opacity-50 text-sm'>
                   {feature}
                 </div>
               ))}
             </div>
           </div>
         ))}
+
+        </div>
+
       </div>
     </>
   );

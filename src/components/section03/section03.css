@@ -89,7 +89,7 @@
 
 
 
-  }
+}
   
 /* 1024px 이하일 때  */
 @media (max-width: 1024px) {
@@ -109,13 +109,23 @@
 
 
 
-    }
+}
     
 
   
     /* 768px 이하일 때 모바일  */
     @media (max-width: 768px) {
-        
+
+        /* 아래 선 */
+        .section3-title-bordered-line-1::after{
+            top: 53px;
+        }  
+
+        /* 오른쪽 아래 */
+        .section3-title-bordered::after {
+            bottom: 77px;
+            
+        }
 
 
     }
