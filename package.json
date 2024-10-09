@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@twistezo/react-text-scramble": "^1.0.6",
     "animejs": "^3.2.2",
+    "aos": "^2.3.4",
     "gsap": "^3.12.5",
     "jquery": "^3.7.1",
     "react": "^18.3.1",

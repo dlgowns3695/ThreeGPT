@@ -1,7 +1,8 @@
 // src/components/encrypt/Encrypt.js
 import React, { useEffect, useRef } from 'react';
 
-const Encrypt = ({ text, className }) => {  // className 추가
+
+const Encrypt = ({ text, className, dataAos }) => {
   const titleRef = useRef(null);
 
   const encryptTitle = (element) => {
@@ -45,7 +46,7 @@ const Encrypt = ({ text, className }) => {  // className 추가
   }, []);
 
   return (
-    <h2 ref={titleRef} className={className}>  {/* className 적용 */}
+    <h2 ref={titleRef} data-aos={dataAos} className={className}>  {/* className 적용 */}
       {text}
     </h2>
   );

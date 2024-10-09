@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import '../../App.css';
 import './section02.css'; // CSS 파일 import
 import Encrypt from '../encrypt/encrypt'; // 섹션04에서 한 단계 위로 올라가서 encrypt 폴더를 찾음
+import Aos from '../aos/aos';
 
 export const Section02 = () => {
 
@@ -81,38 +82,40 @@ export const Section02 = () => {
       <div className="w-full h-[100vh]  flex flex-col justify-between relative overflow-x-clip">
         
         {/* 상단 */}
-        <div className="hidden md:flex justify-between w-full  mt-[15vh] md:pl-[8%] 1500size:px-[2%] z-10 ">
-          
-          {/* 원 두개 */}
-          <div className=''>
-            <div className="relative ">
-              <div className="absolute top-[-20px] left-[5px] md:w-[0.3rem] md:h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.5rem] 1500size:h-[0.5rem] rounded-full bg-[#10101a]"></div>
-              <div className="absolute top-[-20px] left-[25px] md:w-[0.3rem] md:h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.5rem] 1500size:h-[0.5rem] rounded-full bg-[#10101a]"></div>
+        <Aos dataAos="fade-up">
+          <div className="hidden md:flex justify-between w-full  mt-[15vh] md:pl-[8%] 1500size:px-[2%] z-10 ">
+            
+            {/* 원 두개 */}
+            <div className=''>
+              <div className="relative ">
+                <div className="absolute top-[-20px] left-[5px] md:w-[0.3rem] md:h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.5rem] 1500size:h-[0.5rem] rounded-full bg-[#10101a]"></div>
+                <div className="absolute top-[-20px] left-[25px] md:w-[0.3rem] md:h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.5rem] 1500size:h-[0.5rem] rounded-full bg-[#10101a]"></div>
 
-              {/* 텍스트 */}
-              <div className=" md:text-3xl lg:text-4xl 1500size:text-5xl md:p-2 1500size:p-4 text-center section2-title-bordered">
-                {/* 가상 선택자: before, after */}
-                <span className="section2-title-bordered-line-1">
-                  <Encrypt className="section2-title-bordered-line-2 mx-2 violetFont " text={'Your ChatGPT'} />
-                  {/* <span className="section2-title-bordered-line-2 mx-2 violetFont ">Your ChatGPT</span> */}
-                </span>
-              </div>
+                {/* 텍스트 */}
+                <div className=" md:text-3xl lg:text-4xl 1500size:text-5xl md:p-2 1500size:p-4 text-center section2-title-bordered">
+                  {/* 가상 선택자: before, after */}
+                  <span className="section2-title-bordered-line-1">
+                    <Encrypt className="section2-title-bordered-line-2 mx-2 violetFont " text={'Your ChatGPT'} />
+                    {/* <span className="section2-title-bordered-line-2 mx-2 violetFont ">Your ChatGPT</span> */}
+                  </span>
+                </div>
 
-              <div className="md:text-3xl lg:text-4xl 1500size:text-5xl p-4 text-left violetFont">
-                {/* 가상 선택자 필요 시 주석 처리 */}
-                <Encrypt className="" text={'Open AI'} />
-                {/* <span>Open AI</span> */}
+                <div className="md:text-3xl lg:text-4xl 1500size:text-5xl p-4 text-left violetFont">
+                  {/* 가상 선택자 필요 시 주석 처리 */}
+                  <Encrypt className="" text={'Open AI'} />
+                  {/* <span>Open AI</span> */}
+                </div>
               </div>
             </div>
+
+
+            {/* 오른쪽 텍스트 */}
+            <div className="flex items-end md:justify-end 1500size:justify-start md:pr-[8%] 1500size:pr-0 py-4 w-[35%] md:sm lg:text-2xl 1500size:text-3xl">
+              For individuals,<br /> developers,<br /> and businesses.
+            </div>
+
           </div>
-
-
-          {/* 오른쪽 텍스트 */}
-          <div className="flex items-end md:justify-end 1500size:justify-start md:pr-[8%] 1500size:pr-0 py-4 w-[35%] md:sm lg:text-2xl 1500size:text-3xl">
-            For individuals,<br /> developers,<br /> and businesses.
-          </div>
-
-        </div>
+        </Aos>
 
         {/* 하단 (슬라이드 공간) */}
         <div 
@@ -126,10 +129,10 @@ export const Section02 = () => {
              ref={slideRef} // 슬라이드 DOM 요소에 ref 설정,
              // 1:w-[calc(84%-8px)]  w-[calc(18.6%-10px)]  2: w-[calc(84%-7px)] w-[calc(18.6%-9px)] 3:w-[calc(84%-7px)] w-[calc(18.6%-9px)] 4: w-[calc(84%-6px)] w-[calc(18.6%-8px)] 
              key={slide.id}
-             className={`w-full md:border-t md:border-r md:border-b border-[#10101a] inline-block z-10 ${index === 0 ? '1500size:w-[calc(84%-8px)]' : index === 1 ? '1500size:w-[calc(84%-5px)]' : index === 2 ? '1500size:w-[calc(84%-6px)]' : '1500size:w-[calc(84%-5.5px)]'}`}
+             className={` w-full md:border-t md:border-r md:border-b border-[#10101a] inline-block z-10 ${index === 0 ? '1500size:w-[calc(84%-8px)]' : index === 1 ? '1500size:w-[calc(84%-5px)]' : index === 2 ? '1500size:w-[calc(84%-6px)]' : '1500size:w-[calc(84%-5.5px)]'}`}
              >
               {/* 선 영역 + 컨텐츠 영역 */}
-              <div className='flex flex-col  justify-between min-h-[31rem] md:bg-[#f5f6f0] px-[5%] md:px-0 1500size:pl-[2%] '>
+              <div className='flex flex-col  justify-between min-h-[31rem] md:bg-[#f5f6f0] px-[5%] md:px-0 md:pl-[5%] 1500size:pl-[2%] '>
                 {/* 상단 */}
                 <div className='flex-none md:flex  items-center border-[#cacac6] border-b md:border-none  bg-[#f5f6f0] md:bg-none'>
                   <div className={`flex ${index === 0 ? 'w-[calc(18.6%-10px)]' : index === 1 ? 'w-[calc(18.6%-8px)]' : index === 2 ? 'w-[calc(18.6%-8px)]' : 'w-[calc(18.6%-8px)]'} items-center gap-8 text-sm 1500size:text-lg`}>
@@ -192,7 +195,7 @@ export const Section02 = () => {
                   </div>
 
                   {/* 포지션이름 모바일때는 숨김  */}
-                  <div className='hidden md:block ml-[28%] md:text-sm 1500size:text-lg uppercase'>{slide.position}</div>
+                  <div className='hidden md:block ml-[28%] md:ml-[10%] md:text-sm 1500size:text-lg uppercase'>{slide.position}</div>
                 </div>
 
                 {/* 내용 */}
