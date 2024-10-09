@@ -53,7 +53,7 @@ const modleName = [
           {/* 전체 + 패딩값을 줌 flex로 위 아래 나뉠 예정 */}
           <div className="w-full  flex flex-col items-center gap-[400px] md:gap-32 lg:gap-24 xl:gap-20 1500size:gap-12">
             {/* Q&A 공간감 */}
-            <div className="w-full md:w-[70%] z-10">
+            <div className="w-full md:w-[calc(94%-2px)] lg:w-[70%] z-10">
               {/* 상단 컨탠츠 영역 */}
               <div className="flex mt-[25vh] mb-[10%] relative ">
                 {/* 사각형 */}
@@ -225,12 +225,12 @@ const modleName = [
                     </div>
                 </div>
 
-                <div className='w-auto absolute md:relative md:top-0 md:left-0 left-24 top-[93px]  md:w-[55%] md:text-sm lg:text-lg 1500size:text-2xl md:text-right'>
+                <div className='w-auto absolute md:relative md:top-0 md:left-0 left-24 top-[93px] md:w-[45%] lg:w-[55%] md:text-sm lg:text-lg 1500size:text-2xl md:text-right'>
                     <p>Your personal expert in all crypto<br />
                     & blockchain related topics.</p>
                 </div>
 
-                <div className='hidden  w-[16%] md:flex justify-end items-center'>
+                <div className='hidden  w-[16%] md:w-[20%] md:flex justify-end items-center'>
                     {/* 링크 */}
                     <div className='md:text-sm lg:text-lg pr-6'>SCROLL</div>
                     <div

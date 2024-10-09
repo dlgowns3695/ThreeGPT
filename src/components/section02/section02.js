@@ -129,10 +129,10 @@ export const Section02 = () => {
              ref={slideRef} // 슬라이드 DOM 요소에 ref 설정,
              // 1:w-[calc(84%-8px)]  w-[calc(18.6%-10px)]  2: w-[calc(84%-7px)] w-[calc(18.6%-9px)] 3:w-[calc(84%-7px)] w-[calc(18.6%-9px)] 4: w-[calc(84%-6px)] w-[calc(18.6%-8px)] 
              key={slide.id}
-             className={` w-full md:border-t md:border-r md:border-b border-[#10101a] inline-block z-10 ${index === 0 ? '1500size:w-[calc(84%-8px)]' : index === 1 ? '1500size:w-[calc(84%-5px)]' : index === 2 ? '1500size:w-[calc(84%-6px)]' : '1500size:w-[calc(84%-5.5px)]'}`}
+             className={` w-full md:px-[5%]  lg:px-0 inline-block z-10 ${index === 0 ? '1500size:w-[calc(84%-8px)]' : index === 1 ? '1500size:w-[calc(84%-5px)]' : index === 2 ? '1500size:w-[calc(84%-6px)]' : '1500size:w-[calc(84%-5.5px)]'}`}
              >
               {/* 선 영역 + 컨텐츠 영역 */}
-              <div className='flex flex-col  justify-between min-h-[31rem] md:bg-[#f5f6f0] px-[5%] md:px-0 md:pl-[5%] 1500size:pl-[2%] '>
+              <div className='flex flex-col md:border-l lg:border-l-0 md:border-t md:border-r md:border-b border-[#cacac6] justify-between min-h-[31rem] md:bg-[#f5f6f0] px-[5%] md:px-0 md:pl-[5%] 1500size:pl-[2%] '>
                 {/* 상단 */}
                 <div className='flex-none md:flex  items-center border-[#cacac6] border-b md:border-none  bg-[#f5f6f0] md:bg-none'>
                   <div className={`flex ${index === 0 ? 'w-[calc(18.6%-10px)]' : index === 1 ? 'w-[calc(18.6%-8px)]' : index === 2 ? 'w-[calc(18.6%-8px)]' : 'w-[calc(18.6%-8px)]'} items-center gap-8 text-sm 1500size:text-lg`}>

@@ -12,7 +12,7 @@ const Opacity = ({ className, children, index }) => {
           if (entry.isIntersecting) {
             entry.target.style.opacity = '1'; // 요소가 화면에 들어오면 투명도 1
           } else {
-            entry.target.style.opacity = '0.5'; // 그 외에는 투명도 0.5
+            entry.target.style.opacity = '0.3'; // 그 외에는 투명도 0.5
           }
         });
       },

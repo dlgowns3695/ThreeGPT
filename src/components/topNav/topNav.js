@@ -48,7 +48,7 @@ const TopNav = ({ scrollToSection }) => {
             {titles.map((title, index) => (
               <li key={index} className={`text-sm 1200size:text-lg relative flex-1 flex justify-center group`}>
                 {index === 0 ? (
-                  <div className="relative flex items-center justify-center w-full px-6 border-r border-[#cacac6] box-border">
+                  <div className="relative flex items-center justify-center w-full md:px-4 px-6 border-l border-r border-[#cacac6] box-border">
                     {/* 아이콘 */}
                     <div className="relative w-[1rem] h-[1rem] mr-2 group-hover:rotate-45 group-hover:scale-125 transition-transform duration-200">
                       <div className="ourNavIcon top-left"></div>
@@ -123,8 +123,8 @@ const TopNav = ({ scrollToSection }) => {
         </div>
 
         {/* 수직선 */}
-        <div className="vertical-line vertical-line--left vertical-line-header hidden md:block"></div>
-        <div className="vertical-line vertical-line--right vertical-line-header hidden md:block"></div>
+        <div className=" vertical-line vertical-line--left vertical-line-header hidden lg:block"></div>
+        <div className=" vertical-line vertical-line--right vertical-line-header hidden lg:block"></div>
       </div>
     </div>
   );
