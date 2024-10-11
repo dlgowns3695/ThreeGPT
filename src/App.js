@@ -6,6 +6,9 @@ import Section01 from './components/section01/section01';
 import Section02 from './components/section02/section02';
 import Section03 from './components/section03/section03';
 import Section04 from './components/section04/section04';
+import Section00New from './components/model/model1';
+import { Model } from './components/robot/robotmodel';
+import Robot from './components/robot/robot';
 
 function App() {
   // 각 섹션에 대한 useRef 설정
@@ -45,7 +48,9 @@ function App() {
       {/* TopNav에 scrollToSection 함수를 전달 */}
       <TopNav scrollToSection={scrollToSection} />
 
+      <Robot />
       {/* 각 섹션을 useRef로 연결 */}
+      {/* <Section00New /> */}
       <div ref={sectionRefs[0]} id="section01">
         <Section01 />
       </div>
