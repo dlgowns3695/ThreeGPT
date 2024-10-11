@@ -117,13 +117,16 @@ export const Section02 = () => {
           </div>
         </Aos>
 
+
+        
         {/* 하단 (슬라이드 공간) */}
         <div 
           
           style={{ transform: `translateX(-${currentIndex * slideWidth}px)` }} // 슬라이드 너비에 맞춰 이동
           className='mt-[15vh] md:mt-0 transition-transform duration-500 ease-in-out whitespace-nowrap relative overflow-x-visible  h-auto'
         >
-
+          
+          <div className='1500size:w-[calc(16%+8px)] h-[calc(100%-3px)]  fixed left-[calc(84%-8px)] top-0 bg-[#fff] opacity-80 z-[999]'></div>
           {slidesData.map((slide, index) => (
             <div
              ref={slideRef} // 슬라이드 DOM 요소에 ref 설정,
@@ -131,9 +134,12 @@ export const Section02 = () => {
              key={slide.id}
              className={` w-full md:px-[5%]  lg:px-0 inline-block z-10 ${index === 0 ? '1500size:w-[calc(84%-8px)]' : index === 1 ? '1500size:w-[calc(84%-5px)]' : index === 2 ? '1500size:w-[calc(84%-6px)]' : '1500size:w-[calc(84%-5.5px)]'}`}
              >
+              
               {/* 선 영역 + 컨텐츠 영역 */}
+              
               <div className='flex flex-col md:border-l lg:border-l-0 md:border-t md:border-r md:border-b border-[#cacac6] justify-between min-h-[31rem] md:bg-[#f5f6f0] px-[5%] md:px-0 md:pl-[5%] 1500size:pl-[2%] '>
                 {/* 상단 */}
+                
                 <div className='flex-none md:flex  items-center border-[#cacac6] border-b md:border-none  bg-[#f5f6f0] md:bg-none'>
                   <div className={`flex ${index === 0 ? 'w-[calc(18.6%-10px)]' : index === 1 ? 'w-[calc(18.6%-8px)]' : index === 2 ? 'w-[calc(18.6%-8px)]' : 'w-[calc(18.6%-8px)]'} items-center gap-8 text-sm 1500size:text-lg`}>
                     <div className='hidden md:block'>{slide.title}</div>
@@ -208,36 +214,45 @@ export const Section02 = () => {
                   <div className='w-[1px] bg-[#10101a]'></div>
                   <div className='md:text-sm 1500size:text-lg violetFont'>Try for yourself <span>Click Here</span></div>
                 </div>
-              </div>
 
+              </div>
 
             </div>
           ))}
 
+          
+
+          
+
+          
 
 
         </div>
 
-          {/* 하단 화살표 top-[-35px] */}
-          <div className='hidden md:flex relative  gap-4 items-center md:mx-[5%] 1500size:mx-[2%] '>
-              <div
-                  onClick={handlePrev}
-                  className={`cursor-pointer ${currentIndex === 0 ? 'opacity-50' : 'opacity-100'}`}
-              >
-                  <svg className='md:w-[55px] md:h-[48px] 1500size:w-[72px] 1500size:h-[66px] rotate-180' width="72" height="66" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M26.8883 2.06276L35.7042 11.006C38.2274 13.438 40.2073 14.5596 42.7396 15.1829C44.1017 15.5181 45.1903 16.7226 45.189 18.2416C45.1876 19.9812 43.8964 21.4909 42.0785 21.4924C40.2606 21.4939 0.0683799 21.5265 0.0683799 21.5265C0.0319435 21.5266 0.00238228 21.556 0.00235337 21.5922L2.3295e-08 24.4567C-3.02655e-05 24.493 0.0294812 24.5223 0.0659162 24.5223L42.0761 24.4881C45.7736 24.4851 46.2055 29.9513 42.7102 30.793C40.0938 31.4231 38.0283 32.5723 35.3439 35.2438L26.8489 43.9378C26.824 43.9633 26.824 44.0038 26.8488 44.0292L28.7549 45.9802C28.7809 46.0068 28.8239 46.0066 28.8498 45.9798L51.9816 23.0712C52.0061 23.0457 52.0061 23.0055 51.9816 22.9802L28.8895 0.0200173C28.8637 -0.00663545 28.8207 -0.00667916 28.7947 0.0199268L26.8882 1.97114C26.8632 1.9967 26.8633 2.03736 26.8883 2.06276Z" fill="#10101a"/>
-                  </svg>
-              </div>
+        
 
-              <div
-                  onClick={handleNext}
-                  className={`cursor-pointer ${currentIndex === maxIndex ? 'opacity-50' : 'opacity-100'}`}
-              >
-                  <svg className='md:w-[55px] md:h-[48px] 1500size:w-[72px]  1500size:h-[66px]' width="72" height="66" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M26.8883 2.06276L35.7042 11.006C38.2274 13.438 40.2073 14.5596 42.7396 15.1829C44.1017 15.5181 45.1903 16.7226 45.189 18.2416C45.1876 19.9812 43.8964 21.4909 42.0785 21.4924C40.2606 21.4939 0.0683799 21.5265 0.0683799 21.5265C0.0319435 21.5266 0.00238228 21.556 0.00235337 21.5922L2.3295e-08 24.4567C-3.02655e-05 24.493 0.0294812 24.5223 0.0659162 24.5223L42.0761 24.4881C45.7736 24.4851 46.2055 29.9513 42.7102 30.793C40.0938 31.4231 38.0283 32.5723 35.3439 35.2438L26.8489 43.9378C26.824 43.9633 26.824 44.0038 26.8488 44.0292L28.7549 45.9802C28.7809 46.0068 28.8239 46.0066 28.8498 45.9798L51.9816 23.0712C52.0061 23.0457 52.0061 23.0055 51.9816 22.9802L28.8895 0.0200173C28.8637 -0.00663545 28.8207 -0.00667916 28.7947 0.0199268L26.8882 1.97114C26.8632 1.9967 26.8633 2.03736 26.8883 2.06276Z" fill="#10101a"/>
-                  </svg>
-              </div>
-          </div>
+       
+
+        {/* 하단 화살표 top-[-35px] */}
+        <div className='hidden md:flex relative  gap-4 items-center md:mx-[5%] 1500size:mx-[2%] '>
+            <div
+                onClick={handlePrev}
+                className={`cursor-pointer ${currentIndex === 0 ? 'opacity-50' : 'opacity-100'}`}
+            >
+                <svg className='md:w-[55px] md:h-[48px] 1500size:w-[72px] 1500size:h-[66px] rotate-180' width="72" height="66" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M26.8883 2.06276L35.7042 11.006C38.2274 13.438 40.2073 14.5596 42.7396 15.1829C44.1017 15.5181 45.1903 16.7226 45.189 18.2416C45.1876 19.9812 43.8964 21.4909 42.0785 21.4924C40.2606 21.4939 0.0683799 21.5265 0.0683799 21.5265C0.0319435 21.5266 0.00238228 21.556 0.00235337 21.5922L2.3295e-08 24.4567C-3.02655e-05 24.493 0.0294812 24.5223 0.0659162 24.5223L42.0761 24.4881C45.7736 24.4851 46.2055 29.9513 42.7102 30.793C40.0938 31.4231 38.0283 32.5723 35.3439 35.2438L26.8489 43.9378C26.824 43.9633 26.824 44.0038 26.8488 44.0292L28.7549 45.9802C28.7809 46.0068 28.8239 46.0066 28.8498 45.9798L51.9816 23.0712C52.0061 23.0457 52.0061 23.0055 51.9816 22.9802L28.8895 0.0200173C28.8637 -0.00663545 28.8207 -0.00667916 28.7947 0.0199268L26.8882 1.97114C26.8632 1.9967 26.8633 2.03736 26.8883 2.06276Z" fill="#10101a"/>
+                </svg>
+            </div>
+
+            <div
+                onClick={handleNext}
+                className={`cursor-pointer ${currentIndex === maxIndex ? 'opacity-50' : 'opacity-100'}`}
+            >
+                <svg className='md:w-[55px] md:h-[48px] 1500size:w-[72px]  1500size:h-[66px]' width="72" height="66" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26.8883 2.06276L35.7042 11.006C38.2274 13.438 40.2073 14.5596 42.7396 15.1829C44.1017 15.5181 45.1903 16.7226 45.189 18.2416C45.1876 19.9812 43.8964 21.4909 42.0785 21.4924C40.2606 21.4939 0.0683799 21.5265 0.0683799 21.5265C0.0319435 21.5266 0.00238228 21.556 0.00235337 21.5922L2.3295e-08 24.4567C-3.02655e-05 24.493 0.0294812 24.5223 0.0659162 24.5223L42.0761 24.4881C45.7736 24.4851 46.2055 29.9513 42.7102 30.793C40.0938 31.4231 38.0283 32.5723 35.3439 35.2438L26.8489 43.9378C26.824 43.9633 26.824 44.0038 26.8488 44.0292L28.7549 45.9802C28.7809 46.0068 28.8239 46.0066 28.8498 45.9798L51.9816 23.0712C52.0061 23.0457 52.0061 23.0055 51.9816 22.9802L28.8895 0.0200173C28.8637 -0.00663545 28.8207 -0.00667916 28.7947 0.0199268L26.8882 1.97114C26.8632 1.9967 26.8633 2.03736 26.8883 2.06276Z" fill="#10101a"/>
+                </svg>
+            </div>
+        </div>
 
 
         
