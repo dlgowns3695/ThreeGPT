@@ -15,6 +15,9 @@ IPv4 주소 -> IP주소(192......):포트번호(3000)
 
 https://framer.university/resources/text-scramble-override
 
+prettier
+https://yjg-lab.tistory.com/91
+
 clsx
 [glb파일 뽑기]
 먼저 뽑아줄 Mesh선택 - File - export - Gltf - Selected Objects 체크 - + Y up체크 - Export
