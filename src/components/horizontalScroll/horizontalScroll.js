@@ -1,10 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import '../../App.css';
-import './section04.css'; // CSS 파일 import
+import './horizontalScroll.css'; // CSS 파일 import
 import Encrypt from '../encrypt/encrypt'; // 섹션04에서 한 단계 위로 올라가서 encrypt 폴더를 찾음
 
+// 가로 스크롤 형식으로 가며, 마지막에 footer 삽입 >> https://openai.com/ 내용 그대로 , 레이아웃 https://www.chaingpt.org/ 그대로
 
-export const Section04 = () => {
+
+
+export const HorizontalScroll = () => {
   // 왼쪽 타이틀의 배열 - 챗 GPT 버전별 제목과 설명
   const leftTexts = [
     {
@@ -130,4 +133,4 @@ export const Section04 = () => {
     </>
   );
 };
-export default Section04;
+export default HorizontalScroll;

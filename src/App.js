@@ -5,7 +5,7 @@ import TopNav from './components/topNav/topNav'; // topNav.js 불러오기
 import Section01 from './components/section01/section01';
 import Section02 from './components/section02/section02';
 import Section03 from './components/section03/section03';
-import Section04 from './components/section04/section04';
+import HorizontalScroll from './components/horizontalScroll/horizontalScroll';
 import Section00New from './components/model/model1';
 import { Model } from './components/robot/robotmodel';
 import Robot from './components/robot/robot';
@@ -57,12 +57,18 @@ function App() {
       <div ref={sectionRefs[1]} id="section02">
         <Section02 />
       </div>
-      <div ref={sectionRefs[2]} id="section03">
+
+      <div ref={sectionRefs[2]} id="horizontalScroll">
+        <HorizontalScroll />
+      </div>
+
+      
+      <div ref={sectionRefs[3]} id="section03">
         <Section03 />
       </div>
-      <div ref={sectionRefs[3]} id="section04">
-        <Section04 />
-      </div>
+
+
+
     </>
   );
 }

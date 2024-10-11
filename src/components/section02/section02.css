@@ -17,7 +17,7 @@
 
 /* 오른쪽 아래 */
 .section2-title-bordered::after {
-    bottom: 76px;
+    bottom: 75px;
     right: -5px;
     transform: rotate(-45deg);
     transform-origin: bottom left;
