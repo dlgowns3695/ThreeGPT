@@ -36,7 +36,7 @@ export const Section02 = () => {
       number: '03',
       name: 'Ilya Sutskever',
       position: 'Chief Scientist of OpenAI',
-      quote: 'Our work in deep learning is transforming how machines understand and generate human language.',
+      quote: 'Our deep learning work is transforming how machines process and generate language.',
       imgSrc: `${process.env.PUBLIC_URL}/ilya.webp`,
     },
     {
@@ -80,7 +80,9 @@ export const Section02 = () => {
     <>
       {/* 전체 잡고 상단, 하단 col */}
       <div className="w-full h-[100vh]  flex flex-col justify-between relative overflow-x-clip">
-        
+
+        {/* 전체왼쪽 */}
+        <div className='w-full'>
         {/* 상단 */}
         <Aos dataAos="fade-up">
           <div className="hidden md:flex justify-between w-full  mt-[15vh] md:pl-[8%] 1500size:px-[2%] z-10 ">
@@ -116,8 +118,6 @@ export const Section02 = () => {
 
           </div>
         </Aos>
-
-
         
         {/* 하단 (슬라이드 공간) */}
         <div 
@@ -126,7 +126,7 @@ export const Section02 = () => {
           className='mt-[15vh] md:mt-0 transition-transform duration-500 ease-in-out whitespace-nowrap relative overflow-x-visible  h-auto'
         >
           
-          <div className='1500size:w-[calc(16%+8px)] h-[calc(100%-3px)]  fixed left-[calc(84%-8px)] top-0 bg-[#fff] opacity-80 z-[999]'></div>
+          {/* <div className='1500size:w-[calc(16%+8px)] h-[calc(100%-3px)]  fixed left-[calc(84%-8px)] top-0 bg-[#fff] opacity-80 z-[999]'></div> */}
           {slidesData.map((slide, index) => (
             <div
              ref={slideRef} // 슬라이드 DOM 요소에 ref 설정,
@@ -229,9 +229,6 @@ export const Section02 = () => {
 
         </div>
 
-        
-
-       
 
         {/* 하단 화살표 top-[-35px] */}
         <div className='hidden md:flex relative  gap-4 items-center md:mx-[5%] 1500size:mx-[2%] '>
@@ -253,6 +250,13 @@ export const Section02 = () => {
                 </svg>
             </div>
         </div>
+        </div>
+
+        <div className='w-[calc(16%+8px)] bg-[#f5f6f0] h-[calc(52%-1px)] absolute right-0 top-[50%] translate-y-[-35%]  opacity-80'>
+
+        </div>
+        
+
 
 
         
