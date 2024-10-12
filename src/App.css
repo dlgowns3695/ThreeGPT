@@ -1,39 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap");
 
 body {
-    margin: 0; 
-    padding: 0; 
-    background-color: #f5f6f0; /* 반전된 색상 */
-    color: #10101a; /* 반전된 색상 */
-    font-family:  'Roboto Mono', sans-serif;
-    box-sizing: border-box;
-  }
-  
-  /* 배경색 #f5f6f0 선색 #cacac6 >>> 우선 검정으로 작업 후, 나중에 색 교체 예정 0927 글자색 #1e101a */
-  
-  @font-face {
-    font-family: 'VioletSans';
-    src: url('../font/VioletSans-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  .violetFont {
-    font-family: 'VioletSans', sans-serif;
-  }
-  
-  .roboFont {
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  .lineColor {
-    border: 1px solid #cacac6; /* 반전된 색상 */
-  }
-  
+  margin: 0;
+  padding: 0;
+  background-color: #f5f6f0; /* 반전된 색상 */
+  color: #10101a; /* 반전된 색상 */
+  font-family: "Roboto Mono", sans-serif;
+  box-sizing: border-box;
+}
 
+/* 배경색 #f5f6f0 선색 #cacac6 >>> 우선 검정으로 작업 후, 나중에 색 교체 예정 0927 글자색 #1e101a */
 
+@font-face {
+  font-family: "VioletSans";
+  src: url("../font/VioletSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-  .roboMonoFont {
-      font-family: 'Roboto Mono', sans-serif;
-  }
+.violetFont {
+  font-family: "VioletSans", sans-serif;
+}
+
+.roboFont {
+  font-family: "Roboto", sans-serif;
+}
+
+.lineColor {
+  border: 1px solid #cacac6; /* 반전된 색상 */
+}
+
+.roboMonoFont {
+  font-family: "Roboto Mono", sans-serif;
+}

@@ -1,14 +1,15 @@
-import React, { useEffect, useRef } from 'react';
-import Lenis from '@studio-freight/lenis';
-import './App.css';
-import TopNav from './components/topNav/topNav'; // topNav.js 불러오기
-import Section01 from './components/section01/section01';
-import Section02 from './components/section02/section02';
-import Section03 from './components/section03/section03';
-import HorizontalScroll from './components/horizontalScroll/horizontalScroll';
-import Section00New from './components/model/model1';
-import { Model } from './components/robot/robotmodel';
-import Robot from './components/robot/robot';
+import React, { useEffect, useRef } from "react";
+import Lenis from "@studio-freight/lenis";
+import "./App.css";
+import TopNav from "./components/topNav/topNav"; // topNav.js 불러오기
+import Section01 from "./components/section01/section01";
+import Section02 from "./components/section02/section02";
+import Section03 from "./components/section03/section03";
+import HorizontalScroll from "./components/horizontalScroll/horizontalScroll";
+import Section00New from "./components/model/model1";
+import { Model } from "./components/robot/robotmodel";
+import Robot from "./components/robot/robot";
+import Footer from "./components/footer/footer";
 
 function App() {
   // 각 섹션에 대한 useRef 설정
@@ -40,7 +41,7 @@ function App() {
 
   // 스크롤 이동 함수
   const scrollToSection = (index) => {
-    sectionRefs[index]?.current?.scrollIntoView({ behavior: 'smooth' });
+    sectionRefs[index]?.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -62,13 +63,13 @@ function App() {
         <HorizontalScroll />
       </div>
 
-      
       <div ref={sectionRefs[3]} id="section03">
         <Section03 />
       </div>
 
-
-
+      <div>
+        <Footer />
+      </div>
     </>
   );
 }
