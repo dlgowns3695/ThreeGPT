@@ -1,13 +1,18 @@
-
 /* .topNav-gradient {
     기존  어두운 배경일 
     background-image: linear-gradient(90deg, #fc6756, #f8cf3e 38%, #26f4d0 52%, #724ce8);
   } */
 
-  .topNav-gradient {
-    background-image: linear-gradient(90deg, #0398a9, #0730c1 38%, #d90b2f 52%, #8db317);
-  }
-  
+.topNav-gradient {
+  background-image: linear-gradient(
+    90deg,
+    #0398a9,
+    #0730c1 38%,
+    #d90b2f 52%,
+    #8db317
+  );
+}
+
 /* topNav.css */
 .ourNavIcon {
   position: absolute;
@@ -43,8 +48,8 @@
   transform: translate(-0.125rem, -0.125rem);
 }
 
-.btn-primary { 
-  position: relative; 
+.btn-primary {
+  position: relative;
 }
 
 .btn-primary-lines.btn-primary-lines-2 {
@@ -52,7 +57,8 @@
   display: flex;
 }
 
-.btn-primary:before, .btn-primary:after {
+.btn-primary:before,
+.btn-primary:after {
   position: absolute;
   width: 10px;
   height: 1px;
@@ -64,7 +70,11 @@
   left: -3px;
   transform: rotate(-45deg);
   transform-origin: top right;
-  background: linear-gradient(to right, #0491ac 0%, #048bad 100%); /* 반전된 색상 */
+  background: linear-gradient(
+    to right,
+    #0491ac 0%,
+    #048bad 100%
+  ); /* 반전된 색상 */
 }
 
 .btn-primary:after {
@@ -72,10 +82,15 @@
   right: -3px;
   transform: rotate(-45deg);
   transform-origin: bottom left;
-  background: linear-gradient(to right, #8b1865 0%, #8b1865 100%); /* 반전된 색상 */
+  background: linear-gradient(
+    to right,
+    #8b1865 0%,
+    #8b1865 100%
+  ); /* 반전된 색상 */
 }
 
-.btn-primary-lines-1:before, .btn-primary-lines-1:after {
+.btn-primary-lines-1:before,
+.btn-primary-lines-1:after {
   position: absolute;
   width: calc(100% - 8px);
   height: 1px;
@@ -85,16 +100,25 @@
 .btn-primary-lines-1:before {
   top: 0;
   left: 7px;
-  background: linear-gradient(to right, #048bad 0%, #432597 100%); /* 반전된 색상 */
+  background: linear-gradient(
+    to right,
+    #048bad 0%,
+    #432597 100%
+  ); /* 반전된 색상 */
 }
 
 .btn-primary-lines-1:after {
   bottom: 0;
   right: 7px;
-  background: linear-gradient(to right, #9f8d1d 0%, #8b1865 100%); /* 반전된 색상 */
+  background: linear-gradient(
+    to right,
+    #9f8d1d 0%,
+    #8b1865 100%
+  ); /* 반전된 색상 */
 }
 
-.btn-primary-lines-2:before, .btn-primary-lines-2:after {
+.btn-primary-lines-2:before,
+.btn-primary-lines-2:after {
   position: absolute;
   width: 1px;
   content: "";
@@ -104,12 +128,20 @@
   bottom: 0;
   left: 0;
   height: 56%;
-  background: linear-gradient(to bottom, #91ad1a 0%, #9f8d1d 100%); /* 반전된 색상 */
+  background: linear-gradient(
+    to bottom,
+    #91ad1a 0%,
+    #9f8d1d 100%
+  ); /* 반전된 색상 */
 }
 
 .btn-primary-lines-2:after {
   height: calc(100% - 7px);
-  background: linear-gradient(to bottom, #432597 0%, #8b1865 100%); /* 반전된 색상 */
+  background: linear-gradient(
+    to bottom,
+    #432597 0%,
+    #8b1865 100%
+  ); /* 반전된 색상 */
   top: 0;
   right: 0;
 }
@@ -123,9 +155,14 @@
   position: relative;
 }
 
-.btn-primary-text:before { left: 0; }
-.btn-primary-text:after { left: 0.4375rem; }
-.btn-primary-text:before, .btn-primary-text:after {
+.btn-primary-text:before {
+  left: 0;
+}
+.btn-primary-text:after {
+  left: 0.4375rem;
+}
+.btn-primary-text:before,
+.btn-primary-text:after {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -150,11 +187,10 @@
   width: 100%;
   height: 1px;
   /* position: fixed; */
-  
 }
 
-.vertical-line.vertical-line--left.vertical-line-header, 
-.vertical-line.vertical-line--right.vertical-line-header { 
+.vertical-line.vertical-line--left.vertical-line-header,
+.vertical-line.vertical-line--right.vertical-line-header {
   /* display: block;  */
 }
 
@@ -175,42 +211,27 @@
   right: 16.42%;
 }
 
+/* 1500px 이하일 때  */
+@media (max-width: 1500px) {
+}
 
-  /* 1500px 이하일 때  */
-  @media (max-width: 1500px) {
-
-
-
-  }
-  
 /* 1024px 이하일 때  */
 @media (max-width: 1024px) {
-
   .vertical-line.vertical-line--left {
     /* z-index: 1; */
     left: 5%;
   }
-  
+
   .vertical-line.vertical-line--right {
     right: 5%;
   }
+}
 
+/* 768px 이하일 때 모바일  */
+@media (max-width: 768px) {
+}
 
-
-    }
-    
-
-  
-    /* 768px 이하일 때 모바일  */
-    @media (max-width: 768px) {
-        
-
-
-    }
-
-
-
-    /* 모바일 네비게이션 바에 애니메이션 추가 */
+/* 모바일 네비게이션 바에 애니메이션 추가 */
 .menu-enter {
   opacity: 0;
   transform: translateY(-20%);

@@ -87,12 +87,12 @@ export const HorizontalScroll = () => {
           ref={triggerRef}
           className="  w-[300vw] h-full border-t border-b border-black flex   "
         >
-          {/* 자식 반복문들 에게 x값 - 100 *(배열길이 - 1) */}
+          {/* 자식 반복문들 에게 x값 - 100 *(배열길이 - 1),, h-[80vh]  <> h-full */}
           {leftTexts.map((plan, index) => (
             <div
               key={index}
               ref={(el) => (sectionsRef.current[index] = el)} // ref 할당
-              className="w-[100vw] h-full flex px-[5%] md:px-0  md:mt-0  md:pl-[8%] lg:pl-[5%] 1500size:pl-[1%]   "
+              className="w-[100vw] h-[80vh] flex px-[5%] md:px-0  md:mt-0  md:pl-[8%] lg:pl-[5%] 1500size:pl-[1%]   "
             >
               {/* 컨텐츠 전체 calc(87% - 10px)   calc(84%-6px) */}
 
