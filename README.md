@@ -26,3 +26,5 @@ clsx
 터미널
 public/dancer.glb :: 본인 glb경로 -> js파일만들고 그 경로 src/components/Dancer.jsx
 npx gltfjsx public/models/robot.glb -o src/components/robot/robot.js
+
+로딩바
