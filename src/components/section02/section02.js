@@ -122,7 +122,7 @@ export const Section02 = () => {
           </Aos>
 
           {/* 하단 (슬라이드 공간) */}
-          
+
           <div
             style={{ transform: `translateX(-${currentIndex * slideWidth}px)` }} // 슬라이드 너비에 맞춰 이동
             className="mt-[15vh] md:mt-0 transition-transform duration-500 ease-in-out whitespace-nowrap relative overflow-x-visible  h-auto"
@@ -349,9 +349,9 @@ export const Section02 = () => {
           </div>
         </div>
 
-        <div className="hidden 1500size:block w-[calc(16%+8px)] bg-[#fff] h-full absolute right-0 top-[50%] translate-y-[-35%]  opacity-80"></div>
-
-        
+        <div className="border-l border-[#cacac6] w-full h-full">
+          <div className="hidden 1500size:block w-[calc(16%+8px)] bg-[#fff] h-full absolute right-0 top-[50%] translate-y-[-35%]  opacity-80"></div>
+        </div>
       </div>
     </>
   );

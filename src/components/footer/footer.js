@@ -10,7 +10,6 @@ const Footer = () => {
           title: "Our research",
           content: ["Overview", "Index"],
         },
-        
       ],
     },
     // 두번째
@@ -26,7 +25,6 @@ const Footer = () => {
             "Download",
           ],
         },
-        
       ],
     },
     // 네번째
@@ -90,7 +88,7 @@ const Footer = () => {
         <div className="w-full flex justify-between  md:items-end flex-col md:flex-row items-center gap-4 md:gap-0">
           {/* 왼쪽 */}
           <div>
-            <span class="flex text-sm mr-8 md:mr-0 mt-8 md:mt-0">
+            <span className="flex text-sm mr-8 md:mr-0 mt-8 md:mt-0">
               OpenAI © 2015–2024
             </span>
           </div>
