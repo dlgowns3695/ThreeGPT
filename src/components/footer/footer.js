@@ -10,17 +10,7 @@ const Footer = () => {
           title: "Our research",
           content: ["Overview", "Index"],
         },
-        {
-          title: "Latest advancements",
-          content: [
-            "OpenAI o1",
-            "OpenAI o1-mini",
-            "GPT-4",
-            "GPT-4o mini",
-            "DALL·E 3",
-            "Sora",
-          ],
-        },
+        
       ],
     },
     // 두번째
@@ -36,28 +26,7 @@ const Footer = () => {
             "Download",
           ],
         },
-        {
-          title: "API",
-          content: [
-            "Platform overview",
-            "Pricing",
-            "Documentation",
-            "API login",
-          ],
-        },
-        {
-          title: "Explore more",
-          content: ["OpenAI for business", "Stories"],
-        },
-      ],
-    },
-    // 세번째
-    {
-      subtitles: [
-        {
-          title: "Safety overview",
-          content: ["Safety overview"],
-        },
+        
       ],
     },
     // 네번째
@@ -92,20 +61,20 @@ const Footer = () => {
     },
   ];
   return (
-    <div className="flex justify-center items-center text-sm relative border-t border-[#cacac6] bg-[#fff] z-[99]">
+    <div className="flex justify-start md:justify-center px-[5%] items-center text-sm relative border-t border-[#cacac6] bg-[#fff] z-[99]">
       {/* 큰 전체 */}
       <div className="my-[3%] px-[5%] h-full">
         {/* 컨텐츠 전체 */}
-        <div className="flex gap-12 md:gap-14 lg:gap-20 flex-col md:flex-row ">
+        <div className="flex gap-8 md:gap-40 flex-col md:flex-row ">
           {footerContent.map((section, sectionIndex) => (
-            <div key={sectionIndex} className="flex flex-col gap-16">
+            <div key={sectionIndex} className="flex flex-col gap-8">
               {section.subtitles.map((subtitle, subtitleIndex) => (
-                <div key={subtitleIndex} className="flex flex-col gap-6">
+                <div key={subtitleIndex} className="flex flex-col gap-4">
                   <span>{subtitle.title}</span>
-                  <ul className="flex flex-col gap-3">
+                  <ul className="flex flex-col gap-1">
                     {subtitle.content.map((item, itemIndex) => (
                       <li key={itemIndex}>
-                        <a>{item}</a>
+                        <a className="text-xs md:text-sm">{item}</a>
                       </li>
                     ))}
                   </ul>

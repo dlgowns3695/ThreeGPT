@@ -131,19 +131,19 @@ const leftTexts = [
                 {/* 하단 컨텐츠 왼/ 오른쪽 */}
                 <div className='flex flex-col md:flex-row'>
                   {/* 왼쪽 */}
-                  <div className='md:w-[50%] lg:w-[calc(57%+5px)] 1500size:w-[62%] flex flex-col justify-between violetFont px-[3%] lg:px-0'>
+                  <div className='w-full md:w-[50%] lg:w-[calc(57%+5px)] 1500size:w-[62%] flex flex-col justify-between violetFont px-[3%] lg:px-0'>
                     <div className='flex flex-col justify-between md:min-h-[38vh]'>
                       <div className='absolute top-0 left-12 md:left-0 p-4 md:relative md:p-0 text-lg md:text-3xl 1500size:text-5xl'>
                         {/* 제목을 표시하는 Encrypt 컴포넌트 */}
                         <Encrypt className="mx-2 violetFont " text={leftText.title} />
                       </div>
-                      <div className='text-sm 1500size:text-xl w-[50%] pb-8'>
+                      <div className='w-3/4 text-sm 1500size:text-xl md:w-[50%] pb-8 mt-80 md:mt-0'>
                         <p>{leftText.description}</p>
                       </div>
                     </div>
                   </div>
                   {/* 오른쪽 */}
-                  <div className='md:w-[50%] lg:w-[calc(43%-1px)] 1500size:w-[calc(43%+4px)] roboMonoFont flex flex-col justify-between text-right text-sm 1500size:text-lg'>
+                  <div className='hidden md:w-[50%] lg:w-[calc(43%-1px)] 1500size:w-[calc(43%+4px)] roboMonoFont md:flex flex-col justify-between text-right text-sm 1500size:text-lg'>
                     {/* 위쪽 영역 */}
                     <div className='border-t border-[#10101a]'>
                       {rightTexts[index].top.map((rightText, idx) => (
