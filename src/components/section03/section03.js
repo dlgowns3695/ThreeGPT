@@ -73,17 +73,12 @@ const leftTexts = [
                           <div className="absolute top-[-20px] left-[15px] w-[0.3rem] h-[0.3rem] lg:w-[0.4rem] lg:h-[0.4rem] 1500size:w-[0.45rem] 1500size:h-[0.45rem] rounded-full bg-[#10101a]"></div>
 
                           {/* 텍스트 */}
-
-                        
                             <div className="text-5xl md:text-3xl lg:text-4xl 1500size:text-8xl md:p-2 1500size:p-4 text-center section3-title-bordered">
                                 <span className="section3-title-bordered-line-1">
                                 <Encrypt className="section3-title-bordered-line-2 mx-2 violetFont " text={'Research'} />
                                 {/* <span className="section3-title-bordered-line-2 mx-2 violetFont ">Research</span> */}
                                 </span>
                             </div>
-
-
-                        
 
                           <div className="text-5xl md:text-3xl lg:text-4xl 1500size:text-8xl p-4 text-left violetFont">
                             <Encrypt className="" text={'Model'} />
@@ -97,11 +92,11 @@ const leftTexts = [
             
 
           {/* 하단 반복문 */}
-          <div className='flex flex-col gap-10 md:w-full lg:w-[calc(84%-6px)] 1500size:w-[calc(84%-8px)] mt-24 md:px-[5%] lg:pr-0 h-auto 1500size:pl-[2%]'>
+          <div className='flex flex-col gap-10 md:w-full lg:w-[calc(84%-5px)] 1500size:w-[calc(84%-8px)] mt-24 md:pl-[0%] lg:pr-0 h-auto 1500size:pl-[0%]'>
             {/* leftTexts 배열을 반복하여 각 Q&A 항목을 렌더링 */}
             {leftTexts.map((leftText, index) => (
                // Opacity 컴포넌트를 사용하여 각 Q&A 항목에 대해 투명도 조절
-              <Opacity key={index} className='relative border-b border-[#10101a] mb-24' index={index}>
+              <Opacity key={index} className='relative border-b border-[#10101a] mb-24 md:px-[5%] lg:pl-[5%] lg:pr-0 1500size:pl-[2%] 1500size:pr-0' index={index}>
                 {/* 숫자 */}
                 <div className='p-4 relative md:text-sm mx-[3%] lg:mx-0 mb-6 violetFont'>0{index + 1}
                   <div className="absolute top-3 left-1">
@@ -131,7 +126,7 @@ const leftTexts = [
                 {/* 하단 컨텐츠 왼/ 오른쪽 */}
                 <div className='flex flex-col md:flex-row'>
                   {/* 왼쪽 */}
-                  <div className='w-full md:w-[50%] lg:w-[calc(57%+5px)] 1500size:w-[62%] flex flex-col justify-between violetFont px-[3%] lg:px-0'>
+                  <div className='w-full md:w-[50%] lg:w-[calc(58%+7px)] 1500size:w-[62%] flex flex-col justify-between violetFont px-[3%] lg:px-0'>
                     <div className='flex flex-col justify-between md:min-h-[38vh]'>
                       <div className='absolute top-0 left-12 md:left-0 p-4 md:relative md:p-0 text-lg md:text-3xl 1500size:text-5xl'>
                         {/* 제목을 표시하는 Encrypt 컴포넌트 */}
@@ -143,7 +138,7 @@ const leftTexts = [
                     </div>
                   </div>
                   {/* 오른쪽 */}
-                  <div className='hidden md:w-[50%] lg:w-[calc(43%-1px)] 1500size:w-[calc(43%+4px)] roboMonoFont md:flex flex-col justify-between text-right text-sm 1500size:text-lg'>
+                  <div className='hidden md:w-[50%] lg:w-[calc(43%-1px)] 1500size:w-[43%] roboMonoFont md:flex flex-col justify-between text-right text-sm 1500size:text-lg'>
                     {/* 위쪽 영역 */}
                     <div className='border-t border-[#10101a]'>
                       {rightTexts[index].top.map((rightText, idx) => (
