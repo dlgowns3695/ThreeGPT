@@ -11,8 +11,8 @@ const TopNav = ({ scrollToSection }) => {
   };
 
   return (
-    <div className="w-full h-auto text-lg border-b border-[#cacac6] fixed z-[9999] bg-[#f5f6f0]">
-      <div className="w-full h-full flex items-center justify-between py-[2%] md:py-0 px-[5%] md:px-[2%] relative bg-[#f5f6f0] z-[9999]">
+    <div className="w-full h-auto text-lg border-b border-[#cacac6] fixed z-[9999] bg-[#fff]">
+      <div className="w-full h-full flex items-center justify-between py-[2%] md:py-0 px-[5%] md:px-[2%] relative bg-[#fff] z-[9999]">
         {/* 왼쪽 로고 영역 */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} // 클릭 시 상단 스크롤
@@ -104,7 +104,7 @@ const TopNav = ({ scrollToSection }) => {
 
         {/* 모바일 네비게이션 */}
         <div
-          className={`bg-[#f5f6f0] mt-[10%] w-full absolute top-0 left-0 px-[5%] block md:hidden transition-all duration-500 ${
+          className={`bg-[#fff] mt-[10%] w-full absolute top-0 left-0 px-[5%] block md:hidden transition-all duration-500 ${
             isOpen ? "h-[100vh]" : "h-0"
           } overflow-hidden`}
         >

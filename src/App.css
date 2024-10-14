@@ -4,7 +4,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #f5f6f0; /* 반전된 색상 */
+  background-color: #fff; /* 반전된 색상 */
   color: #10101a; /* 반전된 색상 */
   font-family: "Roboto Mono", sans-serif;
   box-sizing: border-box;

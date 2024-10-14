@@ -85,19 +85,19 @@ export const HorizontalScroll = () => {
         {/* 자식 감싸는 부모 트리거!! */}
         <div
           ref={triggerRef}
-          className="  w-[300vw] h-full border-t border-b border-black flex   "
+          className="  w-[300vw] h-full border-t border-b md:border-black border-none flex   "
         >
           {/* 자식 반복문들 에게 x값 - 100 *(배열길이 - 1),, h-[80vh]  <> h-full */}
           {leftTexts.map((plan, index) => (
             <div
               key={index}
               ref={(el) => (sectionsRef.current[index] = el)} // ref 할당
-              className="w-[100vw] h-[80vh] flex px-[5%] md:px-0  md:mt-0  md:pl-[8%] lg:pl-[5%] 1500size:pl-[1%]   "
+              className="w-[100vw] h-[70vh] md:h-[80vh] flex px-[1.8%] md:px-0  md:mt-0  md:pl-[8%] lg:pl-[5%] 1500size:pl-[1%]   "
             >
               {/* 컨텐츠 전체 calc(87% - 10px)   calc(84%-6px) */}
 
               {/* <div className="bg-blue-400 lg:w-[calc(87% - 10px)] mt-[35vh] md:mt-[0] md:pt-[20vh] md:mb-[15vh] 1500size:w-[calc(97%-10px)] flex flex-col md:flex-row "> */}
-              <div className=" w-[calc(83%-13px)] mt-[35vh] md:mt-[0] md:pt-[20vh] md:mb-[15vh]  flex flex-col md:flex-row   ">
+              <div className=" w-[calc(83%-13px)] mt-[0vh] md:mt[35vh] md:mt-[0] md:pt-[20vh] md:mb-[15vh]  flex flex-col md:flex-row   ">
                 {/* 왼 w-[calc(59%-1px)],   w-[calc(47%+12px)] */}
                 <div className="w-full md:w-[calc(59%-1px)]">
                   {/* &CGPT */}
@@ -108,7 +108,7 @@ export const HorizontalScroll = () => {
                     <div className="relative">
                       {/* 왼쪽 타이틀 배열가져오기 */}
                       <Encrypt
-                        className=" text-nowrap md:text-wrap text-5xl md:text-3xl lg:text-4xl 1500size:text-6xl violetFont p-6 md:p-8"
+                        className=" text-nowrap md:text-wrap text-4xl md:text-3xl lg:text-4xl 1500size:text-6xl violetFont p-6 md:p-8"
                         text={plan.title}
                       />
 
@@ -117,8 +117,8 @@ export const HorizontalScroll = () => {
                         <svg
                           className={
                             index < 2
-                              ? "w-[12rem] md:w-[19rem] h-auto"
-                              : "w-[23rem] md:w-[30rem] h-auto"
+                              ? "w-[12.5rem] md:w-[19rem] h-auto"
+                              : "w-[19rem] md:w-[30rem] h-auto"
                           }
                           viewBox="0 0 302 79"
                           fill="none"
@@ -183,7 +183,7 @@ export const HorizontalScroll = () => {
                     </div>
                   </div>
                   {/* 왼쪽 배열 내용 */}
-                  <div className="w-full md:w-[50%] md:min-h-[40%] pt-28 pb-14 md:pb-0 px-[2%] text-sm">
+                  <div className="w-full md:w-[50%] md:min-h-[40%] pt-8 md:pt-28 pb-3 md:pb-0 px-[2%] text-sm">
                     {plan.dec}
                   </div>
                 </div>

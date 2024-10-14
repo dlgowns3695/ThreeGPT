@@ -92,11 +92,11 @@ const Footer = () => {
     },
   ];
   return (
-    <div className="flex justify-center items-center text-sm relative border-t border-[#cacac6] bg-[#f5f6f0] z-[99]">
+    <div className="flex justify-center items-center text-sm relative border-t border-[#cacac6] bg-[#fff] z-[99]">
       {/* 큰 전체 */}
-      <div className="my-[3%] h-full">
+      <div className="my-[3%] px-[5%] h-full">
         {/* 컨텐츠 전체 */}
-        <div className="flex gap-20">
+        <div className="flex gap-12 md:gap-14 lg:gap-20 flex-col md:flex-row ">
           {footerContent.map((section, sectionIndex) => (
             <div key={sectionIndex} className="flex flex-col gap-16">
               {section.subtitles.map((subtitle, subtitleIndex) => (
@@ -118,12 +118,14 @@ const Footer = () => {
         <div className="mb-[10%]"></div>
 
         {/* 콘텐츠 하단 */}
-        <div className="w-full flex justify-between  items-end">
+        <div className="w-full flex justify-between  md:items-end flex-col md:flex-row items-center gap-4 md:gap-0">
           {/* 왼쪽 */}
           <div>
-            <span class="flex text-sm mr-xs">OpenAI © 2015–2024</span>
+            <span class="flex text-sm mr-8 md:mr-0 mt-8 md:mt-0">
+              OpenAI © 2015–2024
+            </span>
           </div>
-          <div className="flex gap-8">
+          <div className="flex gap-8 ">
             {/* 첫번째 링크*/}
             <div>
               <a

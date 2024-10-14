@@ -144,10 +144,10 @@ export const Section02 = () => {
               >
                 {/* 선 영역 + 컨텐츠 영역 */}
 
-                <div className="flex flex-col md:border-l lg:border-l-0 md:border-t md:border-r md:border-b border-[#cacac6] justify-between min-h-[31rem] md:bg-[#f5f6f0] px-[5%] md:px-0 md:pl-[5%] 1500size:pl-[2%] ">
+                <div className="flex flex-col md:border-l lg:border-l-0 md:border-t md:border-r md:border-b border-[#cacac6] justify-between min-h-[31rem] md:bg-[#fff] px-[5%] md:px-0 md:pl-[5%] 1500size:pl-[2%] ">
                   {/* 상단 */}
 
-                  <div className="flex-none md:flex  items-center border-[#cacac6] border-b md:border-none  bg-[#f5f6f0] md:bg-none">
+                  <div className="flex-none md:flex  items-center border-[#cacac6] border-b md:border-none  bg-[#fff] md:bg-none">
                     <div
                       className={`flex ${
                         index === 0
@@ -348,7 +348,7 @@ export const Section02 = () => {
           </div>
         </div>
 
-        <div className="w-[calc(16%+8px)] bg-[#f5f6f0] h-[calc(52%-1px)] absolute right-0 top-[50%] translate-y-[-35%]  opacity-80"></div>
+        <div className="w-[calc(16%+8px)] bg-[#fff] h-[calc(53%-1px)] absolute right-0 top-[50%] translate-y-[-35%]  opacity-80"></div>
       </div>
     </>
   );
