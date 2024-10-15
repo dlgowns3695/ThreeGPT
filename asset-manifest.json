@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ThreeGPT/static/css/main.41bae08e.css",
+    "main.js": "/ThreeGPT/static/js/main.74523540.js",
+    "static/js/453.fef603d5.chunk.js": "/ThreeGPT/static/js/453.fef603d5.chunk.js",
+    "static/media/VioletSans-Regular.ttf": "/ThreeGPT/static/media/VioletSans-Regular.3a2615f471014042612c.ttf",
+    "index.html": "/ThreeGPT/index.html",
+    "main.41bae08e.css.map": "/ThreeGPT/static/css/main.41bae08e.css.map",
+    "main.74523540.js.map": "/ThreeGPT/static/js/main.74523540.js.map",
+    "453.fef603d5.chunk.js.map": "/ThreeGPT/static/js/453.fef603d5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.41bae08e.css",
+    "static/js/main.74523540.js"
+  ]
+}
