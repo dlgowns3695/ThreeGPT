@@ -11,8 +11,8 @@ export function Model(props) {
   const { scrollYProgress } = useScroll(); // 스크롤 진행도 정의
   const modelPath = process.env.PUBLIC_URL + "/models/robotY.glb";
 
-  const { nodes, animations } = useGLTF("/models/robotY.glb"); // 모델과 애니메이션 로드
-  // const { nodes, animations } = useGLTF(modelPath); // 모델과 애니메이션 로드
+  // const { nodes, animations } = useGLTF("/models/robotY.glb"); // 모델과 애니메이션 로드
+  const { nodes, animations } = useGLTF(modelPath); // 모델과 애니메이션 로드
   const robotRef = useRef(null); // 로봇 참조 변수
   const { actions } = useAnimations(animations, robotRef); // 애니메이션 사용 설정
 
@@ -33,9 +33,10 @@ export function Model(props) {
   const redMetalMaterial = useMemo(
     () =>
       new THREE.MeshStandardMaterial({
-        color: "#FF4500", // 오렌지색의 빨간색
-        metalness: 0.7,
-        roughness: 0.3,
+        color: "#454545",
+        // color: "#FF4500", // 오렌지색의 빨간색
+        metalness: 0.9,
+        roughness: 0.25,
       }),
     []
   );
@@ -135,13 +136,26 @@ export function Model(props) {
   return (
     <group ref={robotRef} {...props} position={position} dispose={null}>
       <PerspectiveCamera ref={cameraRef} makeDefault position={[0, 0, 0]} />
-      <group ref={characterGroupRef} position={[0, -0.4, 0]} scale={3}>
+      <group ref={characterGroupRef} position={[0, -1.8, 0]} scale={8} rotation={[-Math.PI/180 * 20, 0, 0]}>
         {/* 캐릭터 그룹 추가 */}
-        <mesh
-          name="sphere_body"
-          geometry={nodes.sphere_body.geometry}
-          material={redMetalMaterial} //  머티리얼 적용
-        />
+        <group name="sphere_body">
+          <mesh
+            geometry={nodes.sphere_body.geometry}
+            material={redMetalMaterial} //  머티리얼 적용
+          />
+          {/* 왼쪽 눈 */}
+          <mesh position={[-0.05, 0, 0.1]} scale={0.01}>
+            <sphereGeometry args={[1, 32, 32]} />
+            <meshStandardMaterial color="#000" />
+          </mesh>
+          {/* 오른쪽 눈 */}
+          <mesh position={[0.05, 0, 0.1]} scale={0.01}>
+            <sphereGeometry args={[1, 32, 32]} />
+            <meshStandardMaterial color="#000" />
+          </mesh>
+        </group>
+
+
       </group>
     </group>
   );
