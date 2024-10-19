@@ -1,6 +1,5 @@
 // src/components/encrypt/Encrypt.js
-import React, { useEffect, useRef } from 'react';
-
+import React, { useEffect, useRef } from "react";
 
 const Encrypt = ({ text, className, dataAos }) => {
   const titleRef = useRef(null);
@@ -8,7 +7,8 @@ const Encrypt = ({ text, className, dataAos }) => {
   const encryptTitle = (element) => {
     const originalText = element.textContent;
     const length = originalText.length;
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const chars =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     let index = 0;
 
@@ -17,8 +17,13 @@ const Encrypt = ({ text, className, dataAos }) => {
         clearInterval(interval);
         element.textContent = originalText; // 암호화 후 원래 텍스트로 복원
       } else {
-        const randomChar = chars.charAt(Math.floor(Math.random() * chars.length));
-        element.textContent = originalText.substring(0, index) + randomChar + originalText.substring(index + 1);
+        const randomChar = chars.charAt(
+          Math.floor(Math.random() * chars.length)
+        );
+        element.textContent =
+          originalText.substring(0, index) +
+          randomChar +
+          originalText.substring(index + 1);
         index++;
       }
     }, 30); // 50ms 간격으로 암호화
@@ -29,7 +34,7 @@ const Encrypt = ({ text, className, dataAos }) => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log(`${entry.target.textContent} 요소가 화면에 나타났습니다.`);
+            // console.log(`${entry.target.textContent} 요소가 화면에 나타났습니다.`);
             encryptTitle(entry.target); // 요소가 화면에 나타났을 때 암호화 적용
             observer.unobserve(entry.target); // 한 번 나타나면 관찰 중지
           }
@@ -46,7 +51,9 @@ const Encrypt = ({ text, className, dataAos }) => {
   }, []);
 
   return (
-    <h2 ref={titleRef} data-aos={dataAos} className={className}>  {/* className 적용 */}
+    <h2 ref={titleRef} data-aos={dataAos} className={className}>
+      {" "}
+      {/* className 적용 */}
       {text}
     </h2>
   );
