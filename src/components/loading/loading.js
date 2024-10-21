@@ -86,7 +86,7 @@ const Loading = () => {
         opacity: animationProgress === 100 ? 0 : 1,
         transition: "opacity 0.5s ease-in-out",
       }}
-      className="absolute top-0 left-0 w-full h-full bg-slate-950 z-[9999999] flex justify-center items-center"
+      className="fixed top-0 left-0 w-full h-full bg-slate-950 z-[9999999] flex justify-center items-center"
     >
       {/* 가운데 로딩텍스트 + 이모티콘 */}
       <div className="w-full z-10 flex justify-between px-6 md:px-24">
