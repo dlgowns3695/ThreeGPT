@@ -55,26 +55,21 @@ export function Model(props) {
     () => createMaterial("#e68a8a", 0.3, 0.6),
     []
   );
-
   const chatCircle01MetalMaterial = useMemo(
-    () => createMaterial("#ffcc00", 0.1, 0.8),
+    () => createMaterial("#f1c40f", 0.1, 0.8), // 더 따뜻한 노란색으로 변경
     []
   );
   const chatCircle02MetalMaterial = useMemo(
-    () => createMaterial("#66cc66", 0.1, 0.8),
+    () => createMaterial("#2ecc71", 0.1, 0.8), // 더 생동감 있는 초록색으로 변경
     []
   );
   const chatCircle03MetalMaterial = useMemo(
-    () => createMaterial("#cc3333", 0.1, 0.8),
+    () => createMaterial("#e74c3c", 0.1, 0.8), // 더욱 선명한 빨간색으로 변경
     []
   );
 
   const chatBodyMetalMaterial = useMemo(
-    () => createMaterial("#99ccff", 0.1, 0.75),
-    []
-  );
-  const voiceMetalMaterial = useMemo(
-    () => createMaterial("#9b59b6", 0.1, 0.8),
+    () => createMaterial("#3498db", 0.1, 0.75), // 부드러운 파란색으로 변경
     []
   );
 
@@ -82,7 +77,7 @@ export function Model(props) {
     () => createMaterial("#454545", 0.9, 0.25),
     []
   );
-  const eyesMaterial = useMemo(() => createMaterial("#87CEEB", 0, 0), []); // 기본값 사용 안함
+  // const eyesMaterial = useMemo(() => createMaterial("#87CEEB", 0, 0), []); // 기본값 사용 안함
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const leftEyeRef = useRef(null);
@@ -204,6 +199,7 @@ export function Model(props) {
     }
 
     // 스크롤 진행에 따른 투명도 설정
+
     if (scrollProgress <= 0.2) {
       setOpacity(0, 0, 0);
       if (cameraRef.current) {

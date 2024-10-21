@@ -182,16 +182,12 @@
   top: 0;
 }
 
-.horezontal-line {
+.horizontal-line {
   background-color: #cacac6; /* 반전된 색상 */
   width: 100%;
   height: 1px;
-  /* position: fixed; */
-}
-
-.vertical-line.vertical-line--left.vertical-line-header,
-.vertical-line.vertical-line--right.vertical-line-header {
-  /* display: block;  */
+  left: 0;
+  position: fixed;
 }
 
 .vertical-line.vertical-line--left.vertical-line-header {
@@ -203,12 +199,27 @@
 }
 
 .vertical-line.vertical-line--left {
-  /* z-index: 1; */
   left: 16.42%;
 }
 
 .vertical-line.vertical-line--right {
   right: 16.42%;
+}
+
+.horizontal-line.horizontal-line--top {
+  position: absolute;
+}
+
+.horizontal-line.horizontal-line--bottom {
+  position: absolute;
+}
+
+.horizontal-line.horizontal-line--top {
+  top: 40%;
+}
+
+.horizontal-line.horizontal-line--bottom {
+  top: 60%;
 }
 
 /* 1500px 이하일 때  */

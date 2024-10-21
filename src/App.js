@@ -10,6 +10,7 @@ import Section00New from "./components/model/model1";
 import { Model } from "./components/robot/robotmodel";
 import Robot from "./components/robot/robot";
 import Footer from "./components/footer/footer";
+import Loading from "./components/loading/loading";
 
 function App() {
   // 각 섹션에 대한 useRef 설정
@@ -47,6 +48,7 @@ function App() {
   return (
     <>
       {/* TopNav에 scrollToSection 함수를 전달 */}
+      <Loading></Loading>
       <TopNav scrollToSection={scrollToSection} />
 
       <Robot />
