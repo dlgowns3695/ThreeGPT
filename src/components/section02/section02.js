@@ -135,9 +135,9 @@ export const Section02 = () => {
                 key={slide.id}
                 className={` w-full md:px-[5%]  lg:px-0 inline-block z-10 ${
                   index === 0
-                    ? "1500size:w-[calc(84%-8px)]"
+                    ? "1500size:w-[calc(84%-7px)]"
                     : index === 1
-                    ? "1500size:w-[calc(84%-5px)]"
+                    ? "1500size:w-[calc(84%-5.5px)]"
                     : index === 2
                     ? "1500size:w-[calc(84%-6px)]"
                     : "1500size:w-[calc(84%-5.5px)]"
@@ -304,7 +304,7 @@ export const Section02 = () => {
           </div>
 
           {/* 하단 화살표 top-[-35px] */}
-          <div className="hidden md:flex relative  gap-4 items-center md:mx-[5%] 1500size:mx-[2%] ">
+          <div className="hidden md:flex relative  z-[9999999]  gap-4 items-center md:mx-[5%] 1500size:mx-[2%] ">
             <div
               onClick={handlePrev}
               className={`cursor-pointer ${
@@ -350,7 +350,7 @@ export const Section02 = () => {
         </div>
 
         <div className="border-l border-[#cacac6] w-full h-full">
-          <div className="hidden 1500size:block w-[calc(16%+8px)] bg-[#fff] h-full absolute right-0 top-[50%] translate-y-[-35%]  opacity-80"></div>
+          <div className="hidden 1500size:block w-[calc(16%+6.5px)] bg-[#fff] h-full absolute right-0 top-[50%] translate-y-[-35%]  opacity-80"></div>
         </div>
       </div>
     </>
