@@ -164,7 +164,7 @@ const Loading = () => {
               height="25"
               viewBox="0 0 15 15"
               fill="none"
-              ref={(el) => (flashRefs.current[index] = el)}
+              ref={(el) => (flashRefs.current[index + 2] = el)}
             >
               <path
                 d="M1 15V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H15"
@@ -185,7 +185,7 @@ const Loading = () => {
               height="25"
               viewBox="0 0 15 15"
               fill="none"
-              ref={(el) => (flashRefs.current[index + 2] = el)}
+              ref={(el) => (flashRefs.current[index + 4] = el)}
             >
               <path
                 d="M1 15V5.41421C1 5.149 1.10536 4.89464 1.29289 4.70711L4.70711 1.29289C4.89464 1.10536 5.149 1 5.41421 1H15"
