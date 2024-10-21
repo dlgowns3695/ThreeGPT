@@ -157,7 +157,7 @@ export function Model(props) {
   useFrame(() => {
     const actionKeys = Object.keys(actions); // 애니메이션 키 가져오기
     const scrollProgress = scrollYProgress.get();
-    console.log(scrollProgress + " < scrollProgress");
+    // console.log(scrollProgress + " < scrollProgress");
 
     // 그룹의 자식 요소들에 투명도와 transparent 적용하는 함수
     const setGroupOpacity = (groupRef, opacity) => {

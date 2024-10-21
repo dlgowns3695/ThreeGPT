@@ -53,13 +53,17 @@ const Loading = () => {
           );
 
           // 모든 프레임을 다 수행했으면 인터벌을 정리합니다.
-          if (currentFrame >= totalFrames) clearInterval(animationIntervalId);
+          if (currentFrame >= totalFrames) {
+            clearInterval(animationIntervalId);
+            // 깜빡이는 효과의 인터벌도 정리
+            clearInterval(blinkIntervalId); // 여기서 깜빡이는 인터벌을 정리합니다.
+          }
         }, animationInterval); // 설정한 간격으로 애니메이션 업데이트
       }
     };
 
     initializeAnimation(); // 애니메이션 초기화 함수 호출
-    console.log(flashRefs.current); // 콘솔에 현재 요소 출력 (디버깅 용도)
+
     // 깜빡이는 효과를 위한 인터벌 설정
     const blinkIntervalId = setInterval(() => {
       flashRefs.current.forEach((el) => {
