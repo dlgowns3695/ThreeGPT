@@ -106,7 +106,7 @@ const TopNav = ({ scrollToSection }) => {
         <div
           className={`bg-[#fff] mt-[10%] w-full absolute top-0 left-0 px-[5%] block md:hidden transition-all duration-500 ${
             isOpen ? "h-[100vh]" : "h-0"
-          } overflow-hidden`}
+          }  overflow-clip`} // overflow hidden
         >
           <ul className="flex flex-col text-[12px]">
             {titles.map((title, index) => (

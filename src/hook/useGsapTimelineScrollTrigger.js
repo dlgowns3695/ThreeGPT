@@ -22,11 +22,17 @@ export const useGsapTimelineScrollTrigger = (
 
     // 요소들의 Ref에서 현재 DOM 요소를 가져옴
     const elements = elementsRef.map((ref) => ref.current);
-    console.log(elements);
+    console.log(
+      "elementsRef:",
+      elementsRef.map((ref) => ref.current)
+    );
 
     // triggerRef나 elements 중 하나라도 없으면 애니메이션을 실행하지 않음
-    if (!triggerRef.current || elements.some((element) => !element)) return;
-
+    // Ref가 유효하지 않은 경우 오류 처리
+    if (!triggerRef.current || elements.some((element) => !element)) {
+      console.error("Trigger or element references are invalid.");
+      return;
+    }
     // ScrollTrigger 옵션을 적용한 GSAP 타임라인 생성
     const timeline = gsap.timeline({
       scrollTrigger: {
@@ -35,6 +41,8 @@ export const useGsapTimelineScrollTrigger = (
         ...scrollTriggerOptions, // 사용자로부터 전달받은 추가 옵션 (start, end 등)
       },
     });
+
+    console.log("Timeline created:", timeline); // 타임라인 생성 여부 체크
 
     // 각 요소에 대한 애니메이션을 설정
     elements.forEach((element, index) => {

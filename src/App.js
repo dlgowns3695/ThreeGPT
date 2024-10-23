@@ -51,22 +51,29 @@ function App() {
       {/* <Loading></Loading> */}
       <TopNav scrollToSection={scrollToSection} />
 
-      <Robot />
-      {/* 각 섹션을 useRef로 연결 */}
-      {/* <Section00New /> */}
-      <div ref={sectionRefs[0]} id="section01">
-        <Section01 />
-      </div>
-      <div ref={sectionRefs[1]} id="section02">
-        <Section02 />
-      </div>
+      <div className=" relative bg-red-500">
+        {/* 로봇 */}
+        <Robot />
 
-      <div ref={sectionRefs[2]} id="horizontalScroll">
-        <HorizontalScroll />
-      </div>
+        {/* 섹션div */}
+        <div className="">
+          {/* 각 섹션을 useRef로 연결 */}
+          {/* <Section00New /> */}
+          <div ref={sectionRefs[0]} id="section01">
+            <Section01 />
+          </div>
+          <div ref={sectionRefs[1]} id="section02">
+            <Section02 />
+          </div>
 
-      <div ref={sectionRefs[3]} id="section03">
-        <Section03 />
+          <div ref={sectionRefs[2]} id="horizontalScroll">
+            <HorizontalScroll />
+          </div>
+
+          <div ref={sectionRefs[3]} id="section03">
+            <Section03 />
+          </div>
+        </div>
       </div>
 
       <div>

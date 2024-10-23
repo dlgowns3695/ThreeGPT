@@ -120,8 +120,8 @@ export const Section01 = () => {
               <div className="w-full md:w-[calc(50%+4px)] ">
                 {/* 상단 보더 유지 */}
                 <div className="relative border border-[#10101a] w-full h-[66px] md:h-[165px] ">
-                  {/* 글귀들 담는 박스 Q&A hero-slider-inner */}
-                  <div className="relative h-[360px] overflow-hidden  ">
+                  {/* 글귀들 담는 박스 Q&A hero-slider-inner  overflow-hidden */}
+                  <div className="relative h-[360px] overflow-clip  ">
                     <Swiper
                       direction={"vertical"}
                       autoplay={{ delay: 3000, disableOnInteraction: false }} // 자동 재생 설정
