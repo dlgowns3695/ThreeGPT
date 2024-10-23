@@ -3,7 +3,8 @@ import { useGLTF, useAnimations, PerspectiveCamera } from "@react-three/drei";
 import { useThree, useFrame } from "@react-three/fiber";
 import { useScroll } from "framer-motion"; // 스크롤 관련 애니메이션 처리 라이브러리
 import * as THREE from "three"; // THREE.js 모듈 추가
-import { gsap } from "gsap";
+
+import { useGsapTimelineScrollTrigger } from "../../hook/useGsapTimelineScrollTrigger";
 
 export function Model(props) {
   const { viewport } = useThree(); // 뷰포트 정보를 가져옴
@@ -16,13 +17,15 @@ export function Model(props) {
   const voiceRef = useRef(null);
   const chatRef = useRef(null);
 
+  const position = props.position;
+  // console.log(position);
+
+  const sectionTriggerRef = props.triggerRef;
+  // console.log(sectionTriggerRef);
+
   // 모델 및 애니메이션 로드
   const { nodes, materials, animations } = useGLTF(modelPath);
   const { actions } = useAnimations(animations, characterGroupRef); // 부모 그룹에 애니메이션 연결
-
-  // console.log("actions:", actions);
-  // console.log("useAnimations에서 반환된 actions:", actions);
-  // console.log("애니메이션 배열:", animations);
 
   // 재질 생성 함수   **********************************
   const createMaterial = (color, metalness = 0.1, roughness = 0.8) => {
@@ -116,16 +119,29 @@ export function Model(props) {
     }
   });
 
-  // useEffect(() => {
-  //   Object.keys(nodes).forEach((nodeName) => {
-  //     const node = nodes[nodeName];
-  //     console.log(
-  //       `노드 이름: ${nodeName}, 부모: ${node.parent?.name || "없음"}, 자식:`,
-  //       node.children
-  //     );
-  //   });
+  // 애니메이션 옵션 설정
+  const animationOptions = [
+    {
+      type: "to",
+      vars: { x: 1.5, duration: 1 }, // x축으로 1.5만큼 이동
+      position: 0, // 애니메이션 시작 시점
+    },
+  ];
 
-  // }, [nodes, animations]);
+  // ScrollTrigger 옵션 설정
+  const scrollTriggerOptions = {
+    start: "70% center", // 스크롤 시작 시점
+    end: "bottom top", // 스크롤 끝 시점
+    scrub: true, // 스크롤에 따라 애니메이션이 부드럽게 진행
+    markers: true, // 마커 활성화 (디버그 용도)
+  };
+
+  useGsapTimelineScrollTrigger(
+    sectionTriggerRef,
+    [robotRef],
+    animationOptions,
+    scrollTriggerOptions
+  );
 
   useEffect(() => {
     const actionKeys = Object.keys(actions); // 애니메이션 키 가져오기
@@ -135,133 +151,15 @@ export function Model(props) {
     }
   }, [actions]);
 
-  useEffect(() => {
-    // 초기 스케일을 설정
-    gsap.set(robotRef, { scale: 1 });
-
-    // 애니메이션 설정
-    const scaleAnimation = gsap.to(robotRef, {
-      scale: 1.5, // 스케일을 1.5로 증가
-      duration: 0.1, // 1초 동안 애니메이션 진행
-      ease: "power1.inOut", // 부드러운 애니메이션을 위한 이징
-      repeat: -1, // 무한 반복
-      yoyo: true, // 애니메이션이 끝나면 반대로 돌아감
-    });
-
-    return () => {
-      // 컴포넌트가 언마운트 될 때 애니메이션 정리
-      scaleAnimation.kill();
-    };
-  }, []);
-
   useFrame(() => {
     const actionKeys = Object.keys(actions); // 애니메이션 키 가져오기
     const scrollProgress = scrollYProgress.get();
     // console.log(scrollProgress + " < scrollProgress");
 
-    // 그룹의 자식 요소들에 투명도와 transparent 적용하는 함수
-    const setGroupOpacity = (groupRef, opacity) => {
-      groupRef.current.children.forEach((child) => {
-        if (child.material) {
-          child.material.transparent = true;
-          child.material.opacity = opacity;
-        }
-      });
-    };
-
-    // 기본 투명도 설정
-    const setOpacity = (starOpacity, chatOpacity, voiceOpacity) => {
-      if (starRef.current) setGroupOpacity(starRef, starOpacity);
-      if (chatRef.current) setGroupOpacity(chatRef, chatOpacity);
-      if (voiceRef.current) setGroupOpacity(voiceRef, voiceOpacity);
-    };
-
-    // 애니메이션에 따른 투명도 및 스케일 설정
-    if (scrollProgress <= 0.08) {
-      gsap.to(characterGroupRef.current.scale, {
-        x: 8,
-        y: 8,
-        z: 8,
-        duration: 0.5, // 부드러운 전환
-        ease: "power1.inOut",
-      });
-    } else {
-      gsap.to(characterGroupRef.current.scale, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: 0.5, // 부드러운 전환
-        ease: "power1.inOut",
-      });
-
-      const firstActionName = actionKeys[0];
-      if (firstActionName) actions[firstActionName].stop(); // 첫 번째 애니메이션 멈춤
-    }
-
-    // 스크롤 진행에 따른 투명도 설정
-
-    if (scrollProgress <= 0.2) {
-      setOpacity(0, 0, 0);
-      if (cameraRef.current) {
-        cameraRef.current.position.z = 5 + (scrollProgress / 0.2) * 2; // 카메라 위치 설정
-      }
-    } else if (scrollProgress <= 0.52) {
-      setOpacity(0, 0, 0);
-    } else if (scrollProgress <= 0.64) {
-      setOpacity(0, 0, 0); // chat은 여전히 보이지 않음
-      gsap.to(characterGroupRef.current.scale, {
-        x: 8,
-        y: 8,
-        z: 8,
-        duration: 0.5, // 부드러운 전환
-        ease: "power1.inOut",
-      });
-    } else if (scrollProgress <= 0.87) {
-      setOpacity(0, 1, 0); // chat 보이게
-      gsap.to(characterGroupRef.current.scale, {
-        x: 8,
-        y: 8,
-        z: 8,
-        duration: 0.5, // 부드러운 전환
-        ease: "power1.inOut",
-      });
-    } else if (scrollProgress <= 0.94) {
-      setOpacity(1, 0, 0); // star 띄우기
-      gsap.to(characterGroupRef.current.scale, {
-        x: 8,
-        y: 8,
-        z: 8,
-        duration: 0.5, // 부드러운 전환
-        ease: "power1.inOut",
-      });
-    } else {
-      setOpacity(0, 0, 1); // voice 띄우기
-      gsap.to(characterGroupRef.current.scale, {
-        x: 8,
-        y: 8,
-        z: 8,
-        duration: 0.5, // 부드러운 전환
-        ease: "power1.inOut",
-      });
+    if (cameraRef.current) {
+      cameraRef.current.position.z = 5 + (scrollProgress / 0.2) * 2; // 카메라 위치 설정
     }
   });
-
-  // useEffect(() => {
-  //   if (!voiceRef.current) {
-  //     console.log("voiceRef 못가져옴");
-  //   } else {
-  //     console.log("voiceRef 가져옴:");
-  //     voiceRef.current.material.transparent = true;
-  //     voiceRef.current.material.opacity = 0;
-
-  //     // Star group의 투명도 출력
-  //     console.log(
-  //       "voiceRef transparent:",
-  //       voiceRef.current.material?.transparent
-  //     );
-  //     console.log("voiceRef opacity:", voiceRef.current.material?.opacity);
-  //   }
-  // }, []);
 
   // 뷰포트 크기에 따라 모델 크기 설정
   const scale = useMemo(
@@ -269,15 +167,8 @@ export function Model(props) {
     [viewport.width, viewport.height]
   );
 
-  // 메쉬가 존재하는지 확인 후 렌더링 >> 블렌더에서 로봇이름을 바꾸면 노드이름을 수정해줘야한다
-
-  // console.log("voice geometry 정보:", nodes.voice.geometry);
-  // console.log("Object_1 geometry 정보:", nodes.Object_1.geometry);
-  // console.log("star geometry 정보:", nodes.star.geometry);
-  const position = props.position;
-
   return (
-    <group ref={robotRef} {...props} position={position} dispose={null}>
+    <group ref={robotRef} position={position} dispose={null}>
       <PerspectiveCamera ref={cameraRef} makeDefault position={[0, 0, 0]} />
       <group
         ref={characterGroupRef}
@@ -289,7 +180,7 @@ export function Model(props) {
         <group name="robot">
           <mesh
             geometry={nodes.robot.geometry}
-            material={robotBodyMetalMaterial} //  머티리얼 적용
+            material={robotBodyMetalMaterial}
           />
 
           {/* 왼쪽 눈 */}
@@ -313,27 +204,27 @@ export function Model(props) {
             {/* 메쉬 4개 생성 */}
             <mesh
               name="blackMaterial"
-              geometry={nodes.blackMaterial.geometry} // geometry를 nodes에서 가져온다고 가정
+              geometry={nodes.blackMaterial.geometry}
               material={voiceBlackMetalMaterial}
-              rotation={[Math.PI / 2, Math.PI / 2, 0]} // x축으로 90도 회전
+              rotation={[Math.PI / 2, Math.PI / 2, 0]}
             />
             <mesh
               name="blueMaterial"
-              geometry={nodes.blueMaterial.geometry} // geometry를 nodes에서 가져온다고 가정
+              geometry={nodes.blueMaterial.geometry}
               material={voiceBlueMetalMaterial}
-              rotation={[Math.PI / 2, Math.PI / 2, 0]} // x축으로 90도 회전
+              rotation={[Math.PI / 2, Math.PI / 2, 0]}
             />
             <mesh
               name="redMaterial"
-              geometry={nodes.redMaterial.geometry} // geometry를 nodes에서 가져온다고 가정
+              geometry={nodes.redMaterial.geometry} //
               material={voiceRedMetalMaterial}
-              rotation={[Math.PI / 2, Math.PI / 2, 0]} // x축으로 90도 회전
+              rotation={[Math.PI / 2, Math.PI / 2, 0]}
             />
             <mesh
               name="whiteMaterial"
-              geometry={nodes.whiteMaterial.geometry} // geometry를 nodes에서 가져온다고 가정
+              geometry={nodes.whiteMaterial.geometry}
               material={voiceWhiteMetalMaterial}
-              rotation={[Math.PI / 2, Math.PI / 2, 0]} // x축으로 90도 회전
+              rotation={[Math.PI / 2, Math.PI / 2, 0]}
             />
           </group>
 

@@ -62,7 +62,7 @@ export const Section01 = () => {
     <>
       {/* 전체 */}
       <div
-        className="w-full h-[91.5vh] px-[5%] md:px-[2%] relative 
+        className="w-full h-[91.5vh] px-[5%] md:px-[2%] relative  
       "
       >
         {/* 전체 + 패딩값을 줌 flex로 위 아래 나뉠 예정 */}
@@ -229,7 +229,7 @@ export const Section01 = () => {
 
           {/* 하단 */}
           <div className="w-full flex items-end relative  md:pl-[5%]   ">
-            <div className=" ">
+            <div className=" z-10 ">
               <h4 className="text-lg roboFont ">GPT for Everyone</h4>
 
               <div className="violetFont relative">

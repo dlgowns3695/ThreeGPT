@@ -48,10 +48,10 @@ function App() {
   return (
     <>
       {/* TopNav에 scrollToSection 함수를 전달 */}
-      <Loading></Loading>
+      {/* <Loading></Loading> */}
       <TopNav scrollToSection={scrollToSection} />
 
-      {/* <Robot /> */}
+      <Robot />
       {/* 각 섹션을 useRef로 연결 */}
       {/* <Section00New /> */}
       <div ref={sectionRefs[0]} id="section01">

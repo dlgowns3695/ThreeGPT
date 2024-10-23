@@ -58,9 +58,9 @@ export const Section02 = () => {
     // 슬라이드 너비를 업데이트
     if (slideRef.current) {
       setSlideWidth(slideRef.current.offsetWidth);
-      console.log(slideWidth);
+      // console.log(slideWidth);
     }
-    console.log(currentIndex);
+    // console.log(currentIndex);
   }, [currentIndex]); // currentIndex가 변경될 때마다 업데이트
 
   // 왼쪽 화살표 클릭 핸들러
