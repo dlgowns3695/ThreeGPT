@@ -73,12 +73,11 @@ function App() {
           <div ref={sectionRefs[3]} id="section03">
             <Section03 />
           </div>
+          <Footer />
         </div>
       </div>
 
-      <div>
-        <Footer />
-      </div>
+      <div></div>
     </>
   );
 }

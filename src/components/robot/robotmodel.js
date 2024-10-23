@@ -15,6 +15,8 @@ export function Model(props) {
   const characterGroupRef = useRef(null); // 캐릭터 그룹 참조 변수
   const cameraRef = useRef(); // 카메라 참조 변수
   const { scrollYProgress } = useScroll(); // 스크롤 진행도 정의
+  // 스크롤 진행도를 상태로 관리
+  const [scrollProgress, setScrollProgress] = useState(0);
   const modelPath = process.env.PUBLIC_URL + "/test/robot1018(4).glb";
 
   const starRef = useRef(null);
@@ -112,24 +114,11 @@ export function Model(props) {
     }
   };
 
-  useFrame(() => {
-    const { x, y } = mousePosition;
-    updateEyePosition(leftEyeRef, x, y, -0.05);
-    updateEyePosition(rightEyeRef, x, y, 0.05);
-  });
-
-  // GSAP 애니메이션 설정
-  useEffect(() => {
-    const actionKeys = Object.keys(actions);
-
-    if (actionKeys.length > 0) {
-      const firstActionName = actionKeys[0]; // 첫 번째 애니메이션 이름 선택
-
-      // 페이지 로드 시 즉시 첫 번째 애니메이션 재생
-      actions[firstActionName].play();
-      console.log("즉시 첫 번째 애니메이션 재생");
+  // 스크롤 진행에 따른 업데이트 로직
+  const handleScrollProgress = (progress) => {
+    if (cameraRef.current) {
+      cameraRef.current.position.z = 5 + (progress / 0.2) * 2;
     }
-
     const setGroupOpacity = (groupRef, opacity) => {
       groupRef.current?.children.forEach((child) => {
         if (child.material) {
@@ -138,7 +127,6 @@ export function Model(props) {
         }
       });
     };
-
     const setOpacity = (starOpacity, chatOpacity, voiceOpacity) => {
       setGroupOpacity(starRef, starOpacity);
       setGroupOpacity(chatRef, chatOpacity);
@@ -149,49 +137,63 @@ export function Model(props) {
 
     const initialPosition = characterGroupRef.current.position.y;
 
-    const handleScrollProgress = (scrollProgress) => {
-      if (cameraRef.current)
-        cameraRef.current.position.z = 5 + (scrollProgress / 0.2) * 2;
+    if (progress <= 0.1) {
+      setOpacity(0, 0, 0);
+      gsap.to(characterGroupRef.current.position, {
+        y: initialPosition,
+        duration: 0.5,
+      });
+      gsap.to(characterGroupRef.current.rotation, { y: 0, duration: 1 });
+    } else if (progress > 0.1 && progress <= 0.52) {
+      gsap.to(characterGroupRef.current.position, { y: -12, duration: 0.5 });
+      actions[Object.keys(actions)[0]].stop();
+    } else if (progress > 0.52 && progress <= 0.86) {
+      setOpacity(0, 1, 0);
+      gsap
+        .timeline()
+        .to(characterGroupRef.current.position, { y: -1, duration: 1 })
+        .to(
+          characterGroupRef.current.rotation,
+          { y: Math.PI / -4, duration: 1 },
+          0
+        );
+    } else if (progress > 0.86 && progress <= 0.91) {
+      gsap.to(characterGroupRef.current.rotation, {
+        y: 2 * Math.PI + Math.PI / -4,
+        duration: 0.5,
+      });
+      setOpacity(1, 0, 0);
+    } else if (progress > 0.94 && progress <= 0.98) {
+      gsap.to(characterGroupRef.current.rotation, {
+        y: 2 * Math.PI + Math.PI / 4,
+        duration: 0.5,
+      });
+      setOpacity(0, 0, 1);
+    }
+  };
 
-      // 0.1 보다 작을때 (초기)
-      if (scrollProgress <= 0.1) {
-        setOpacity(0, 0, 0);
-        gsap.to(characterGroupRef.current.position, {
-          y: initialPosition,
-          duration: 0.5,
-        });
-        gsap.to(characterGroupRef.current.rotation, { y: 0, duration: 1 });
-        // 0.1 ~ 0.52보다 작을때
-      } else if (scrollProgress > 0.1 && scrollProgress <= 0.52) {
-        gsap.to(characterGroupRef.current.position, { y: -12, duration: 0.5 });
-        actions[Object.keys(actions)[0]].stop();
-        // 0.52 ~ 0.86보다 작을때
-      } else if (scrollProgress > 0.52 && scrollProgress <= 0.86) {
-        setOpacity(0, 1, 0);
-        gsap
-          .timeline()
-          .to(characterGroupRef.current.position, { y: -1, duration: 1 })
-          .to(
-            characterGroupRef.current.rotation,
-            { y: Math.PI / -4, duration: 1 },
-            0
-          );
-        // 0.86~ 0.91보다 작을때
-      } else if (scrollProgress > 0.86 && scrollProgress <= 0.91) {
-        gsap.to(characterGroupRef.current.rotation, {
-          y: 2 * Math.PI + Math.PI / -4,
-          duration: 0.5,
-        });
-        setOpacity(1, 0, 0);
-        // 0.94 ~ 0.98보다 작을때
-      } else if (scrollProgress > 0.94 && scrollProgress <= 0.98) {
-        gsap.to(characterGroupRef.current.rotation, {
-          y: 2 * Math.PI + Math.PI / 4,
-          duration: 0.5,
-        });
-        setOpacity(0, 0, 1);
-      }
-    };
+  // useFrame에서 마우스 위치 및 스크롤 상태 업데이트
+  useFrame(() => {
+    const { x, y } = mousePosition;
+    updateEyePosition(leftEyeRef, x, y, -0.05);
+    updateEyePosition(rightEyeRef, x, y, 0.05);
+
+    // 현재 스크롤 진행도에 따른 업데이트
+    handleScrollProgress(scrollProgress);
+  });
+
+  // GSAP 애니메이션 및 ScrollTrigger 설정
+  useEffect(() => {
+    const actionKeys = Object.keys(actions);
+
+    if (actionKeys.length > 0) {
+      const firstActionName = actionKeys[0]; // 첫 번째 애니메이션 이름 선택
+      actions[firstActionName].play(); // 첫 번째 애니메이션 재생
+    }
+
+    if (!characterGroupRef.current) return;
+
+    const initialPosition = characterGroupRef.current.position.y;
 
     const timeline = gsap.timeline({
       scrollTrigger: {
@@ -200,12 +202,9 @@ export function Model(props) {
         end: "bottom bottom",
         markers: true,
         scrub: 1,
-        onUpdate: () => handleScrollProgress(scrollYProgress.get()), // 스크롤업데이트
-        onEnterBack: () =>
-          gsap.to(characterGroupRef.current.position, {
-            y: initialPosition,
-            duration: 0.5,
-          }),
+        onUpdate: (self) => {
+          setScrollProgress(self.progress); // 스크롤 진행도 상태 업데이트
+        },
       },
     });
 
@@ -213,7 +212,7 @@ export function Model(props) {
       timeline.kill();
       ScrollTrigger.getAll().forEach((st) => st.kill());
     };
-  }, [actions]);
+  }, [actions]); // actions가 변경될 때마다 useEffect 실행
 
   // 뷰포트 크기에 따라 모델 크기 설정
   const scale = useMemo(
