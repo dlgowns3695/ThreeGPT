@@ -58,8 +58,9 @@ const Footer = () => {
       ],
     },
   ];
+  // footer bg-[#444]
   return (
-    <div className="flex justify-start md:justify-center px-[5%] items-center text-sm relative border-t border-[#cacac6] bg-[#444] z-[99]">
+    <div className="flex justify-start md:justify-center px-[5%] items-center text-sm relative border-t border-[#cacac6]  z-[99]">
       {/* 큰 전체 */}
       <div className="my-[3%] px-[5%] h-full">
         {/* 컨텐츠 전체 */}

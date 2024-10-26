@@ -1,26 +1,25 @@
-import React, { useRef } from "react"; // useRef import 추가
-import { Environment } from "@react-three/drei";
-import { Canvas, useThree } from "@react-three/fiber";
+// Robot.js
+import React from "react";
+import { Canvas } from "@react-three/fiber";
 import { Model } from "./robotmodel";
 import "./robot.css"; // CSS 파일 import
 
-// 캔버스
-
 const Robot = () => {
+  const lightIntensity = 0; // 조명 밝기  4
+  const lightPosition = [0, 0, 0]; // 조명 위치  0  2  10
+
   return (
-    <>
-      <section className="pointerNone  fixed h-full top-0 w-full z-[99]   flex items-end justify-center text-[rgba(211,211,211)]">
-        <div className=" w-full h-full ">
-          <Canvas>
-            {/* triggerRef={triggerRef}  */}
-            <Model position={[0, 0, 4]} />
-            {/* triggerRef 전달 */}
-            {/* 각도변환시 조절  intensity={10} position={[-10, 0, 4]} */}
-            <directionalLight intensity={4} position={[0, 2, 10]} />
-          </Canvas>
-        </div>
-      </section>
-    </>
+    <section className="pointerNone sticky top-0 z-[99]">
+      <div className="h-screen w-full">
+        <Canvas>
+          {/* Model에 조명 관련 props 전달 */}
+          <Model
+            lightIntensity={lightIntensity}
+            lightPosition={lightPosition}
+          />
+        </Canvas>
+      </div>
+    </section>
   );
 };
 

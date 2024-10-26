@@ -8,13 +8,15 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // import { useGsapTimelineScrollTrigger } from "../../hook/useGsapTimelineScrollTrigger";
-import { useGsapTimelineScrollTrigger } from "../../hook2/useGsapTimelineScrollTrigger";
+// import { useGsapTimelineScrollTrigger } from "../../hook2/useGsapTimelineScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 export function Model(props) {
   const { viewport } = useThree(); // 뷰포트 정보를 가져옴
   const characterGroupRef = useRef(null); // 캐릭터 그룹 참조 변수
   const cameraRef = useRef(); // 카메라 참조 변수
   const { scrollYProgress } = useScroll(); // 스크롤 진행도 정의
+  const [initialPosition, setInitialPosition] = useState(null); // 초기 위치 상태 설정
+
   // 스크롤 진행도를 상태로 관리
   const [scrollProgress, setScrollProgress] = useState(0);
   const modelPath = process.env.PUBLIC_URL + "/test/robot1018(4).glb";
@@ -26,6 +28,15 @@ export function Model(props) {
   const robotRef = useRef(null);
 
   const position = props.position;
+  // const lightIntensity = props.lightIntensity; // 밝기 기존 4
+  // const lightPosition = props.lightPosition; // 위치 기존  0 2 10
+  const {
+    lightIntensity: initialLightIntensity,
+    lightPosition: initialLightPosition,
+  } = props;
+
+  const [lightIntensity, setLightIntensity] = useState(initialLightIntensity);
+  const [lightPosition, setLightPosition] = useState(initialLightPosition);
 
   // const sectionTriggerRef = props.triggerRef;
 
@@ -100,6 +111,10 @@ export function Model(props) {
 
   // 마우스 이벤트 리스너 추가
   useEffect(() => {
+    // if (characterGroupRef.current) {
+    //   setInitialPosition(characterGroupRef.current.position.y); // 초기화된 후 위치 저장
+    // }
+
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
@@ -133,9 +148,13 @@ export function Model(props) {
       setGroupOpacity(voiceRef, voiceOpacity);
     };
 
-    if (!characterGroupRef.current) return;
+    if (!characterGroupRef.current) return; // 초기 위치가 설정되지 않았다면 종료
 
+    // 초기위치
     if (progress <= 0.1) {
+      setLightIntensity(4); // 조명 밝기 설정
+      setLightPosition([0, 2, 10]); // 조명 위치 설정
+      console.log("조명 켜짐, 밝기:", lightIntensity, "위치:", lightPosition);
       setOpacity(0, 0, 0);
       actions[Object.keys(actions)[0]].play();
       console.log("애니메이션 시작");
@@ -145,12 +164,18 @@ export function Model(props) {
       });
       console.log("애니메이션 y 1.8");
       gsap.to(characterGroupRef.current.rotation, { y: 0, duration: 1 });
-    } else if (progress > 0.1 && progress <= 0.52) {
+    }
+    // 로봇 아래로 내려가기 및 애니메이션 종료
+    else if (progress > 0.1 && progress <= 0.52) {
       gsap.to(characterGroupRef.current.position, { y: -12, duration: 0.5 });
-      console.log("애니메이션 y -12");
+      // console.log("애니메이션 y -12");
       actions[Object.keys(actions)[0]].stop();
       console.log("애니메이션 정지");
-    } else if (progress > 0.52 && progress <= 0.86) {
+    }
+    // 로봇 다시 나타나고 chat이미지 같이 나오기
+    else if (progress > 0.52 && progress <= 0.86) {
+      setLightIntensity(4); // 조명 밝기 설정
+      setLightPosition([-90, 1, 1]); // 조명 위치 설정
       setOpacity(0, 1, 0);
       gsap
         .timeline()
@@ -160,13 +185,17 @@ export function Model(props) {
           { y: Math.PI / -4, duration: 1 },
           0
         );
-    } else if (progress > 0.86 && progress <= 0.91) {
+    }
+    // star 이미지 같이 나오기
+    else if (progress > 0.86 && progress <= 0.91) {
       gsap.to(characterGroupRef.current.rotation, {
         y: 2 * Math.PI + Math.PI / -4,
         duration: 0.5,
       });
       setOpacity(1, 0, 0);
-    } else if (progress > 0.94 && progress <= 0.98) {
+    }
+    // voice 이미지 같이 나오기
+    else if (progress > 0.94) {
       gsap.to(characterGroupRef.current.rotation, {
         y: 2 * Math.PI + Math.PI / 4,
         duration: 0.5,
@@ -216,13 +245,14 @@ export function Model(props) {
   }, [actions]); // actions가 변경될 때마다 useEffect 실행
 
   // 뷰포트 크기에 따라 모델 크기 설정
-  const scale = useMemo(
-    () => Math.min(viewport.width, viewport.height) / 4,
-    [viewport.width, viewport.height]
-  );
+  // const scale = useMemo(
+  //   () => Math.min(viewport.width, viewport.height) / 4,
+  //   [viewport.width, viewport.height]
+  // );
 
   return (
     <group ref={triggerRef} position={position} dispose={null}>
+      <directionalLight intensity={lightIntensity} position={lightPosition} />
       <PerspectiveCamera ref={cameraRef} makeDefault position={[0, 0, 0]} />
       <group
         ref={characterGroupRef}
