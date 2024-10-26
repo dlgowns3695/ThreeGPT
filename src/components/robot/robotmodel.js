@@ -135,18 +135,21 @@ export function Model(props) {
 
     if (!characterGroupRef.current) return;
 
-    const initialPosition = characterGroupRef.current.position.y;
-
     if (progress <= 0.1) {
       setOpacity(0, 0, 0);
+      actions[Object.keys(actions)[0]].play();
+      console.log("애니메이션 시작");
       gsap.to(characterGroupRef.current.position, {
-        y: initialPosition,
+        y: -1.8,
         duration: 0.5,
       });
+      console.log("애니메이션 y 1.8");
       gsap.to(characterGroupRef.current.rotation, { y: 0, duration: 1 });
     } else if (progress > 0.1 && progress <= 0.52) {
       gsap.to(characterGroupRef.current.position, { y: -12, duration: 0.5 });
+      console.log("애니메이션 y -12");
       actions[Object.keys(actions)[0]].stop();
+      console.log("애니메이션 정지");
     } else if (progress > 0.52 && progress <= 0.86) {
       setOpacity(0, 1, 0);
       gsap
@@ -192,8 +195,6 @@ export function Model(props) {
     }
 
     if (!characterGroupRef.current) return;
-
-    const initialPosition = characterGroupRef.current.position.y;
 
     const timeline = gsap.timeline({
       scrollTrigger: {
