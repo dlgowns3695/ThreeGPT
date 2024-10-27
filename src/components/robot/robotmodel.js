@@ -154,15 +154,15 @@ export function Model(props) {
     if (progress <= 0.1) {
       setLightIntensity(4); // 조명 밝기 설정
       setLightPosition([0, 2, 10]); // 조명 위치 설정
-      console.log("조명 켜짐, 밝기:", lightIntensity, "위치:", lightPosition);
+      // console.log("조명 켜짐, 밝기:", lightIntensity, "위치:", lightPosition);
       setOpacity(0, 0, 0);
       actions[Object.keys(actions)[0]].play();
-      console.log("애니메이션 시작");
+      // console.log("애니메이션 시작");
       gsap.to(characterGroupRef.current.position, {
         y: -1.8,
         duration: 0.5,
       });
-      console.log("애니메이션 y 1.8");
+      // console.log("애니메이션 y 1.8");
       gsap.to(characterGroupRef.current.rotation, { y: 0, duration: 1 });
     }
     // 로봇 아래로 내려가기 및 애니메이션 종료
@@ -170,16 +170,17 @@ export function Model(props) {
       gsap.to(characterGroupRef.current.position, { y: -12, duration: 0.5 });
       // console.log("애니메이션 y -12");
       actions[Object.keys(actions)[0]].stop();
-      console.log("애니메이션 정지");
+      // console.log("애니메이션 정지");
     }
     // 로봇 다시 나타나고 chat이미지 같이 나오기
-    else if (progress > 0.52 && progress <= 0.86) {
-      setLightIntensity(4); // 조명 밝기 설정
-      setLightPosition([-90, 1, 1]); // 조명 위치 설정
+    else if (progress > 0.64 && progress <= 0.86) {
+      setLightIntensity(10); // 조명 밝기 설정
+      setLightPosition([-100, 10, 1]); // 조명 위치 설정
       setOpacity(0, 1, 0);
       gsap
         .timeline()
         .to(characterGroupRef.current.position, { y: -1, duration: 1 })
+        // .to(chatRef.current.position, { x: 0, duration: 1 })
         .to(
           characterGroupRef.current.rotation,
           { y: Math.PI / -4, duration: 1 },
@@ -196,6 +197,8 @@ export function Model(props) {
     }
     // voice 이미지 같이 나오기
     else if (progress > 0.94) {
+      setLightIntensity(4); // 조명 밝기 설정
+      setLightPosition([150, 25, 7]); // 조명 위치 설정
       gsap.to(characterGroupRef.current.rotation, {
         y: 2 * Math.PI + Math.PI / 4,
         duration: 0.5,
@@ -212,6 +215,7 @@ export function Model(props) {
 
     // 현재 스크롤 진행도에 따른 업데이트
     handleScrollProgress(scrollProgress);
+    // console.log(scrollProgress);
   });
 
   // GSAP 애니메이션 및 ScrollTrigger 설정
@@ -230,7 +234,7 @@ export function Model(props) {
         trigger: characterGroupRef.current.parentNode,
         start: "top top",
         end: "bottom bottom",
-        markers: true,
+        // markers: true,
         scrub: 1,
         onUpdate: (self) => {
           setScrollProgress(self.progress); // 스크롤 진행도 상태 업데이트
@@ -282,8 +286,9 @@ export function Model(props) {
           <group
             ref={voiceRef}
             name="voice"
-            position={[0.2, 0, 0]}
-            scale={0.04}
+            position={[-0.6, -0.15, 0.3]}
+            scale={0.07}
+            rotation={[0, 0.2, 0]}
           >
             {/* 메쉬 4개 생성 */}
             <mesh
@@ -316,7 +321,7 @@ export function Model(props) {
           <group
             ref={chatRef}
             name="chat"
-            position={[0.1, -0.09, 0.25]}
+            position={[0.47, -0.15, 0.2]}
             scale={0.15}
             rotation={[(90 * Math.PI) / 180, (-45 * Math.PI) / 180, 0]}
           >
@@ -355,8 +360,8 @@ export function Model(props) {
           <group
             ref={starRef}
             name="star"
-            position={[-0.08, -0.05, 0.25]}
-            scale={0.001}
+            position={[-0.1, -0.09, 0.23]}
+            scale={0.0015}
           >
             {/* obj01 메쉬 눈 */}
             <mesh

@@ -1,31 +1,30 @@
 import React, { useEffect, useRef } from "react";
+
 import Lenis from "@studio-freight/lenis";
 import "./App.css";
-import TopNav from "./components/topNav/topNav"; // topNav.js 불러오기
+import TopNav from "./components/topNav/topNav";
 import Section01 from "./components/section01/section01";
 import Section02 from "./components/section02/section02";
 import Section03 from "./components/section03/section03";
 import HorizontalScroll from "./components/horizontalScroll/horizontalScroll";
-import Section00New from "./components/model/model1";
-import { Model } from "./components/robot/robotmodel";
 import Robot from "./components/robot/robot";
 import Footer from "./components/footer/footer";
+import ScrollToTop from "./components/scrollToTop/scrollToTop";
 import Loading from "./components/loading/loading";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
-  // 각 섹션에 대한 useRef 설정
   const sectionRefs = [
     useRef(null), // Section01
     useRef(null), // Section02
     useRef(null), // Section03
-    useRef(null), // Section04
   ];
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2, // 스크롤 지속시간
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // 이징 함수
-      smooth: true, // 부드러운 스크롤 활성화
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
     });
 
     const raf = (time) => {
@@ -36,48 +35,39 @@ function App() {
     requestAnimationFrame(raf);
 
     return () => {
-      lenis.destroy(); // 컴포넌트 언마운트 시 Lenis 인스턴스 제거
+      lenis.destroy();
     };
   }, []);
 
-  // 스크롤 이동 함수
   const scrollToSection = (index) => {
     sectionRefs[index]?.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
-      {/* TopNav에 scrollToSection 함수를 전달 */}
-      {/* <Loading></Loading> */}
-      <TopNav scrollToSection={scrollToSection} />
-
-      {/* 로봇 */}
-
-      {/* 섹션div */}
-      {/* 로봇의 부모 */}
-      <div className="relative ">
-        <Robot />
-
-        {/* 각 섹션을 useRef로 연결 */}
-        <div className="mt-[-100vh]">
-          <div ref={sectionRefs[0]} id="section01" className="">
-            <Section01 />
-          </div>
-          <div ref={sectionRefs[1]} id="section02" className="">
-            <Section02 />
-          </div>
-
-          <div ref={sectionRefs[2]} id="horizontalScroll" className="">
-            <HorizontalScroll />
-          </div>
-
-          <div ref={sectionRefs[3]} id="section03" className="">
-            <Section03 />
+      <BrowserRouter>
+        <ScrollToTop />
+        <Loading />
+        <TopNav scrollToSection={scrollToSection} />
+        <div className="relative">
+          <Robot />
+          <div className="mt-[-100vh]">
+            <div ref={sectionRefs[0]} id="section01">
+              <Section01 />
+            </div>
+            <div ref={sectionRefs[1]} id="section02">
+              <Section02 />
+            </div>
+            <div ref={sectionRefs[2]} id="horizontalScroll">
+              <HorizontalScroll />
+            </div>
+            <div ref={sectionRefs[3]} id="section03">
+              <Section03 />
+            </div>
           </div>
         </div>
-      </div>
-
-      <Footer />
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }

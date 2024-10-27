@@ -146,8 +146,8 @@ const Loading = () => {
           <div
             className={`bg-[#fff] transition-all duration-700 ease-in-out absolute ${
               index === 0
-                ? "left-0 top-[30%] md:top-[40%] h-px"
-                : "right-0 top-[70%]  md:top-[60%] h-px"
+                ? "left-0 top-[30%] md:top-[35%] h-px"
+                : "right-0 top-[70%]  md:top-[65%] h-px"
             }`}
             ref={(el) => (horizontalLineRefs.current[index] = el)}
             key={index}
@@ -200,7 +200,7 @@ const Loading = () => {
         </div>
       ))}
 
-      <div className="absolute">
+      <div className="absolute ">
         <svg className="w-[200px] h-[200px]" viewBox="0 0 320 320">
           <path
             ref={pathRef}
