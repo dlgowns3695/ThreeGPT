@@ -66,9 +66,10 @@ export const HorizontalScroll = () => {
       scrollTrigger: {
         trigger: trigger, // 부모 요소
         start: "top 15%",
+        markers: true,
         pin: true,
         scrub: 1,
-        snap: 1 / (sections.length - 1),
+        // snap: 1 / (sections.length - 1),
         end: "300%",
       },
     });

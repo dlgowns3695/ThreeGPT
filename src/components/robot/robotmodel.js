@@ -119,8 +119,6 @@ export function Model(props) {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-
-
   const eyeMovementLimit = 0.01; // 눈이 움직이는 최대 범위 설정
 
   // 눈 위치 업데이트
@@ -168,29 +166,29 @@ export function Model(props) {
       gsap.to(characterGroupRef.current.rotation, { y: 0, duration: 1 });
     }
     // 로봇 아래로 내려가기 및 애니메이션 종료
-    else if (progress > 0.1 && progress <= 0.52) {
+    else if (progress > 0.1 && progress <= 0.7) {
       gsap.to(characterGroupRef.current.position, { y: -12, duration: 0.5 });
       // console.log("애니메이션 y -12");
       actions[Object.keys(actions)[0]].stop();
       // console.log("애니메이션 정지");
     }
     // 로봇 다시 나타나고 chat이미지 같이 나오기
-    else if (progress > 0.64 && progress <= 0.86) {
+    else if (progress > 0.7 && progress <= 0.8) {
       setLightIntensity(10); // 조명 밝기 설정
       setLightPosition([-100, 10, 1]); // 조명 위치 설정
       setOpacity(0, 1, 0);
       gsap
         .timeline()
         .to(characterGroupRef.current.position, { y: -1, duration: 1 })
-        // .to(chatRef.current.position, { x: 0, duration: 1 })
+
         .to(
           characterGroupRef.current.rotation,
-          { y: Math.PI / -4, duration: 1 },
+          { y: Math.PI / -4, duration: 0.5 },
           0
         );
     }
     // star 이미지 같이 나오기
-    else if (progress > 0.86 && progress <= 0.91) {
+    else if (progress > 0.8 && progress <= 0.89) {
       gsap.to(characterGroupRef.current.rotation, {
         y: 2 * Math.PI + Math.PI / -4,
         duration: 0.5,
@@ -198,11 +196,11 @@ export function Model(props) {
       setOpacity(1, 0, 0);
     }
     // voice 이미지 같이 나오기
-    else if (progress > 0.94) {
-      setLightIntensity(4); // 조명 밝기 설정
-      setLightPosition([150, 25, 7]); // 조명 위치 설정
+    else if (progress > 0.89) {
+      // setLightIntensity(4); // 조명 밝기 설정
+      // setLightPosition([150, 25, 7]); // 조명 위치 설정
       gsap.to(characterGroupRef.current.rotation, {
-        y: 2 * Math.PI + Math.PI / 4,
+        y: Math.PI / -4,
         duration: 0.5,
       });
       setOpacity(0, 0, 1);
@@ -217,7 +215,7 @@ export function Model(props) {
 
     // 현재 스크롤 진행도에 따른 업데이트
     handleScrollProgress(scrollProgress);
-    // console.log(scrollProgress);
+    console.log(scrollProgress);
   });
 
   // GSAP 애니메이션 및 ScrollTrigger 설정
@@ -288,7 +286,7 @@ export function Model(props) {
           <group
             ref={voiceRef}
             name="voice"
-            position={[-0.6, -0.15, 0.3]}
+            position={[-0.16, -0.075, 0.22]}
             scale={0.06}
             rotation={[0, 0.2, 0]}
           >
@@ -298,7 +296,7 @@ export function Model(props) {
               geometry={nodes.blackMaterial.geometry}
               material={voiceBlackMetalMaterial}
               rotation={[Math.PI / 2, Math.PI / 2, 0]}
-              scale={[1,8,1]}
+              scale={[1, 8, 1]}
             />
             <mesh
               name="blueMaterial"
@@ -324,7 +322,7 @@ export function Model(props) {
           <group
             ref={chatRef}
             name="chat"
-            position={[0.47, -0.15, 0.2]}
+            position={[-0.1, -0.07, 0.23]}
             scale={0.11}
             rotation={[(90 * Math.PI) / 180, (-45 * Math.PI) / 180, 0]}
           >
@@ -334,7 +332,7 @@ export function Model(props) {
               geometry={nodes.Object_1.geometry}
               material={chatBodyMetalMaterial}
               position={[0, -0.15, 0]}
-              scale={[1,8,1]}
+              scale={[1, 8, 1]}
             />
 
             {/* 노란버튼 */}

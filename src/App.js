@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import Lenis from "@studio-freight/lenis";
 import "./App.css";
@@ -14,12 +14,6 @@ import Loading from "./components/loading/loading";
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
-  const sectionRefs = [
-    useRef(null), // Section01
-    useRef(null), // Section02
-    useRef(null), // Section03
-  ];
-
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -39,9 +33,46 @@ function App() {
     };
   }, []);
 
+  const sectionRefs = [
+    useRef(null), // Section01
+    useRef(null), // Section02
+    useRef(null), // horizontalScroll
+    useRef(null), // Section03
+  ];
+
   const scrollToSection = (index) => {
-    sectionRefs[index]?.current?.scrollIntoView({ behavior: "smooth" });
+    // HorizontalScroll 섹션인지 확인
+    const targetElement = sectionRefs[index]?.current;
+
+    if (index === 2 && targetElement) {
+      // horizontalScroll 섹션은 top 15% 위치로 스크롤
+      const topPosition =
+        targetElement.getBoundingClientRect().top +
+        window.scrollY -
+        window.innerHeight * 0.15;
+      window.scrollTo({ top: topPosition, behavior: "smooth" });
+    } else {
+      // 다른 섹션은 기본 스크롤
+      targetElement?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isNowMobile = window.innerWidth <= 768;
+
+      // 모바일 상태에서 데스크탑 상태로 변경되거나 그 반대의 경우에 새로고침
+      if (isNowMobile !== isMobile) {
+        setIsMobile(isNowMobile);
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isMobile]);
 
   return (
     <>
