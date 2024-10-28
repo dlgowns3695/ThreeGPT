@@ -51,50 +51,50 @@ export function Model(props) {
 
   // 재질 정의 (컴포넌트로 빼지 않음)
   const voiceBlackMetalMaterial = useMemo(
-    () => createMaterial("#000000", 0.6, 0.35),
+    () => createMaterial("#ccc", 0.6, 0.35),
     []
   );
   const voiceBlueMetalMaterial = useMemo(
-    () => createMaterial("#0000ff", 0.6, 0.35),
+    () => createMaterial("#2e0061", 0.6, 0.35),
     []
   );
   const voiceRedMetalMaterial = useMemo(
-    () => createMaterial("#ff0000", 0.6, 0.35),
+    () => createMaterial("#c73333", 0.6, 0.35),
     []
   );
   const voiceWhiteMetalMaterial = useMemo(
-    () => createMaterial("#ffffff", 0.6, 0.35),
+    () => createMaterial("#000", 0.6, 0.35),
     []
   );
 
   const starBodyMetalMaterial = useMemo(
-    () => createMaterial("#ffcccc", 0.6, 0.35),
+    () => createMaterial("#aaa", 0.6, 0.35),
     []
   );
   const starEyeMetalMaterial = useMemo(
-    () => createMaterial("#e68a8a", 0.3, 0.6),
+    () => createMaterial("#3333c7", 0.3, 0.6),
     []
   );
   const chatCircle01MetalMaterial = useMemo(
-    () => createMaterial("#f1c40f", 0.1, 0.8), // 더 따뜻한 노란색으로 변경
+    () => createMaterial("#31940f", 0.1, 0.8), // 더 따뜻한 노란색으로 변경
     []
   );
   const chatCircle02MetalMaterial = useMemo(
-    () => createMaterial("#2ecc71", 0.1, 0.8), // 더 생동감 있는 초록색으로 변경
+    () => createMaterial("#2e0061", 0.1, 0.8), // 더 생동감 있는 초록색으로 변경
     []
   );
   const chatCircle03MetalMaterial = useMemo(
-    () => createMaterial("#e74c3c", 0.1, 0.8), // 더욱 선명한 빨간색으로 변경
+    () => createMaterial("#c73333", 0.1, 0.8), // 더욱 선명한 빨간색으로 변경
     []
   );
 
   const chatBodyMetalMaterial = useMemo(
-    () => createMaterial("#3498db", 0.1, 0.75), // 부드러운 파란색으로 변경
+    () => createMaterial("#aaa", 0.6, 0.75), // 부드러운 파란색으로 변경
     []
   );
 
   const robotBodyMetalMaterial = useMemo(
-    () => createMaterial("#454545", 0.9, 0.25),
+    () => createMaterial("#454545", 0.6, 0.25),
     []
   );
   // const eyesMaterial = useMemo(() => createMaterial("#87CEEB", 0, 0), []); // 기본값 사용 안함
@@ -118,6 +118,8 @@ export function Model(props) {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+
 
   const eyeMovementLimit = 0.01; // 눈이 움직이는 최대 범위 설정
 
@@ -287,7 +289,7 @@ export function Model(props) {
             ref={voiceRef}
             name="voice"
             position={[-0.6, -0.15, 0.3]}
-            scale={0.07}
+            scale={0.06}
             rotation={[0, 0.2, 0]}
           >
             {/* 메쉬 4개 생성 */}
@@ -296,6 +298,7 @@ export function Model(props) {
               geometry={nodes.blackMaterial.geometry}
               material={voiceBlackMetalMaterial}
               rotation={[Math.PI / 2, Math.PI / 2, 0]}
+              scale={[1,8,1]}
             />
             <mesh
               name="blueMaterial"
@@ -322,7 +325,7 @@ export function Model(props) {
             ref={chatRef}
             name="chat"
             position={[0.47, -0.15, 0.2]}
-            scale={0.15}
+            scale={0.11}
             rotation={[(90 * Math.PI) / 180, (-45 * Math.PI) / 180, 0]}
           >
             {/* 몸통 */}
@@ -330,7 +333,8 @@ export function Model(props) {
               name="Object_1"
               geometry={nodes.Object_1.geometry}
               material={chatBodyMetalMaterial}
-              position={[0, 0, 0]}
+              position={[0, -0.15, 0]}
+              scale={[1,8,1]}
             />
 
             {/* 노란버튼 */}
@@ -338,21 +342,18 @@ export function Model(props) {
               name="Object_1_2"
               geometry={nodes.Object_1_2.geometry}
               material={chatCircle02MetalMaterial}
-              position={[0, 0, 0]}
             />
             {/* 초록버튼 */}
             <mesh
               name="Object_1_1"
               geometry={nodes.Object_1_1.geometry}
               material={chatCircle03MetalMaterial}
-              position={[0, 0, 0]}
             />
             {/* 붉은버튼 */}
             <mesh
               name="Object_1_3"
               geometry={nodes.Object_1_3.geometry}
               material={chatCircle01MetalMaterial}
-              position={[0, 0, 0]}
             />
           </group>
 

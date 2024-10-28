@@ -16,14 +16,6 @@ const leftTexts = [
       description: 'GPT-4 is OpenAI’s most advanced system, producing safer and more useful responses. It is designed for a wide range of tasks, from natural language understanding to generation.',
     },
     {
-      title: 'GPT-4 Turbo',
-      description: 'A faster and more cost-efficient version of GPT-4, offering similar capabilities with reduced latency and improved performance for real-time applications.',
-    },
-    {
-      title: 'GPT-4 Mini',
-      description: 'A lightweight version of GPT-4, designed for smaller tasks and environments where resource efficiency is crucial.',
-    },
-    {
       title: 'DALL·E',
       description: 'DALL·E is an AI system capable of generating images from text prompts, offering creative and artistic possibilities through natural language input.',
     },

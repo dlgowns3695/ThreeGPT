@@ -81,7 +81,7 @@ export const HorizontalScroll = () => {
   return (
     <>
       {/* 가장 전체 */}
-      <div className="   h-full mt-[20vh] overflow-x-hidden  z-10   ">
+      <div className="   h-full mt-[20vh] overflow-x-clip  z-10   ">
         {/* 자식 감싸는 부모 트리거!! */}
         <div
           ref={triggerRef}
