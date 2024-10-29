@@ -10,7 +10,7 @@ const Robot = () => {
 
   return (
     <section className="pointerNone sticky top-0 z-[99]">
-      <div className="h-screen w-full">
+      <div className="pointerNone h-screen w-full">
         <Canvas>
           {/* Model에 조명 관련 props 전달 */}
           <Model

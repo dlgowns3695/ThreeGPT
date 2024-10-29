@@ -35,6 +35,20 @@ export function Model(props) {
     lightPosition: initialLightPosition,
   } = props;
 
+  // 디바이스에 따른 조명 각도 및 프로그래스 수치 설정
+  const isMobile = window.innerWidth <= 768;
+  const deviceLightPosition = isMobile ? [0, 8, 10] : [0, 2, 10]; // 조명 각도
+  const scale = isMobile ? 4 : 8;
+  const firstPosition = isMobile ? -0.8 : -1.8;
+
+  const progressThresholds = {
+    initial: isMobile ? 0.15 : 0.1,
+    descend: isMobile ? 0.66 : 0.72,
+    chat: isMobile ? 0.74 : 0.81,
+    star: isMobile ? 0.83 : 0.89,
+  };
+
+  // 상태 변수 초기화
   const [lightIntensity, setLightIntensity] = useState(initialLightIntensity);
   const [lightPosition, setLightPosition] = useState(initialLightPosition);
 
@@ -129,7 +143,6 @@ export function Model(props) {
     }
   };
 
-  // 스크롤 진행에 따른 업데이트 로직
   const handleScrollProgress = (progress) => {
     if (cameraRef.current) {
       cameraRef.current.position.z = 5 + (progress / 0.2) * 2;
@@ -150,55 +163,42 @@ export function Model(props) {
 
     if (!characterGroupRef.current) return; // 초기 위치가 설정되지 않았다면 종료
 
-    // 초기위치
-    if (progress <= 0.1) {
-      setLightIntensity(4); // 조명 밝기 설정
-      setLightPosition([0, 2, 10]); // 조명 위치 설정
-      // console.log("조명 켜짐, 밝기:", lightIntensity, "위치:", lightPosition);
-      setOpacity(0, 0, 0);
+    // 초기
+    if (progress <= progressThresholds.initial) {
+      setLightIntensity(4); // 조명수치
+      setLightPosition(deviceLightPosition); // 조명 각도
+
+      setOpacity(0, 0, 0); // 아이콘들 투명도
       actions[Object.keys(actions)[0]].play();
-      // console.log("애니메이션 시작");
       gsap.to(characterGroupRef.current.position, {
-        y: -1.8,
+        y: firstPosition,
         duration: 0.5,
       });
-      // console.log("애니메이션 y 1.8");
       gsap.to(characterGroupRef.current.rotation, { y: 0, duration: 1 });
     }
-    // 로봇 아래로 내려가기 및 애니메이션 종료
-    else if (progress > 0.1 && progress <= 0.7) {
+    // 로봇이 내려갈 수치
+    else if (progress <= progressThresholds.descend) {
       gsap.to(characterGroupRef.current.position, { y: -12, duration: 0.5 });
-      // console.log("애니메이션 y -12");
       actions[Object.keys(actions)[0]].stop();
-      // console.log("애니메이션 정지");
-    }
-    // 로봇 다시 나타나고 chat이미지 같이 나오기
-    else if (progress > 0.7 && progress <= 0.8) {
-      setLightIntensity(10); // 조명 밝기 설정
-      setLightPosition([-100, 10, 1]); // 조명 위치 설정
+    } else if (progress <= progressThresholds.chat) {
+      setLightIntensity(10);
+      setLightPosition([-100, 10, 1]);
       setOpacity(0, 1, 0);
       gsap
         .timeline()
-        .to(characterGroupRef.current.position, { y: -1, duration: 1 })
-
+        .to(characterGroupRef.current.position, { y: -1, duration: 0.5 })
         .to(
           characterGroupRef.current.rotation,
           { y: Math.PI / -4, duration: 0.5 },
           0
         );
-    }
-    // star 이미지 같이 나오기
-    else if (progress > 0.8 && progress <= 0.89) {
+    } else if (progress <= progressThresholds.star) {
       gsap.to(characterGroupRef.current.rotation, {
         y: 2 * Math.PI + Math.PI / -4,
         duration: 0.5,
       });
       setOpacity(1, 0, 0);
-    }
-    // voice 이미지 같이 나오기
-    else if (progress > 0.89) {
-      // setLightIntensity(4); // 조명 밝기 설정
-      // setLightPosition([150, 25, 7]); // 조명 위치 설정
+    } else {
       gsap.to(characterGroupRef.current.rotation, {
         y: Math.PI / -4,
         duration: 0.5,
@@ -206,6 +206,84 @@ export function Model(props) {
       setOpacity(0, 0, 1);
     }
   };
+
+  // 스크롤 진행에 따른 업데이트 로직
+  // const handleScrollProgress = (progress) => {
+  //   if (cameraRef.current) {
+  //     cameraRef.current.position.z = 5 + (progress / 0.2) * 2;
+  //   }
+  //   const setGroupOpacity = (groupRef, opacity) => {
+  //     groupRef.current?.children.forEach((child) => {
+  //       if (child.material) {
+  //         child.material.transparent = true;
+  //         child.material.opacity = opacity;
+  //       }
+  //     });
+  //   };
+  //   const setOpacity = (starOpacity, chatOpacity, voiceOpacity) => {
+  //     setGroupOpacity(starRef, starOpacity);
+  //     setGroupOpacity(chatRef, chatOpacity);
+  //     setGroupOpacity(voiceRef, voiceOpacity);
+  //   };
+
+  //   if (!characterGroupRef.current) return; // 초기 위치가 설정되지 않았다면 종료
+
+  //   // 초기위치
+  //   if (progress <= 0.1) {
+  //     setLightIntensity(4); // 조명 밝기 설정
+  //     setLightPosition([0, 2, 10]); // 조명 위치 설정
+  //     // console.log("조명 켜짐, 밝기:", lightIntensity, "위치:", lightPosition);
+  //     setOpacity(0, 0, 0);
+  //     actions[Object.keys(actions)[0]].play();
+  //     // console.log("애니메이션 시작");
+  //     gsap.to(characterGroupRef.current.position, {
+  //       y: -0.8,
+  //       duration: 0.5,
+  //     });
+  //     // console.log("애니메이션 y 1.8");
+  //     gsap.to(characterGroupRef.current.rotation, { y: 0, duration: 1 });
+  //   }
+  //   // 로봇 아래로 내려가기 및 애니메이션 종료
+  //   else if (progress > 0.1 && progress <= 0.7) {
+  //     gsap.to(characterGroupRef.current.position, { y: -12, duration: 0.5 });
+  //     // console.log("애니메이션 y -12");
+  //     actions[Object.keys(actions)[0]].stop();
+  //     // console.log("애니메이션 정지");
+  //   }
+  //   // 로봇 다시 나타나고 chat이미지 같이 나오기
+  //   else if (progress > 0.7 && progress <= 0.8) {
+  //     setLightIntensity(10); // 조명 밝기 설정
+  //     setLightPosition([-100, 10, 1]); // 조명 위치 설정
+  //     setOpacity(0, 1, 0);
+  //     gsap
+  //       .timeline()
+  //       .to(characterGroupRef.current.position, { y: -1, duration: 1 })
+
+  //       .to(
+  //         characterGroupRef.current.rotation,
+  //         { y: Math.PI / -4, duration: 0.5 },
+  //         0
+  //       );
+  //   }
+  //   // star 이미지 같이 나오기
+  //   else if (progress > 0.8 && progress <= 0.89) {
+  //     gsap.to(characterGroupRef.current.rotation, {
+  //       y: 2 * Math.PI + Math.PI / -4,
+  //       duration: 0.5,
+  //     });
+  //     setOpacity(1, 0, 0);
+  //   }
+  //   // voice 이미지 같이 나오기
+  //   else if (progress > 0.89) {
+  //     // setLightIntensity(4); // 조명 밝기 설정
+  //     // setLightPosition([150, 25, 7]); // 조명 위치 설정
+  //     gsap.to(characterGroupRef.current.rotation, {
+  //       y: Math.PI / -4,
+  //       duration: 0.5,
+  //     });
+  //     setOpacity(0, 0, 1);
+  //   }
+  // };
 
   // useFrame에서 마우스 위치 및 스크롤 상태 업데이트
   useFrame(() => {
@@ -234,7 +312,7 @@ export function Model(props) {
         trigger: characterGroupRef.current.parentNode,
         start: "top top",
         end: "bottom bottom",
-        // markers: true,
+        markers: false,
         scrub: 1,
         onUpdate: (self) => {
           setScrollProgress(self.progress); // 스크롤 진행도 상태 업데이트
@@ -248,12 +326,6 @@ export function Model(props) {
     };
   }, [actions]); // actions가 변경될 때마다 useEffect 실행
 
-  // 뷰포트 크기에 따라 모델 크기 설정
-  // const scale = useMemo(
-  //   () => Math.min(viewport.width, viewport.height) / 4,
-  //   [viewport.width, viewport.height]
-  // );
-
   return (
     <group ref={triggerRef} position={position} dispose={null}>
       <directionalLight intensity={lightIntensity} position={lightPosition} />
@@ -261,7 +333,7 @@ export function Model(props) {
       <group
         ref={characterGroupRef}
         position={[0, -1.8, 0]}
-        scale={8}
+        scale={scale}
         rotation={[(-Math.PI / 180) * 20, 0, 0]}
       >
         {/* 캐릭터 그룹 추가 */}

@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Pagination, Autoplay } from "swiper/modules";
 
-export const Section01 = () => {
+const Section01 = ({ goToNextSection }) => {
   // Q&A 데이터 배열
   const qaData = [
     {
@@ -353,6 +353,7 @@ export const Section01 = () => {
                 className="relative z-[99] md:top-[-20px] flex items-center justify-center md:w-[30px] w-[76px] md:h-[30px] h-[76px]"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+                onClick={goToNextSection} // 화살표 클릭 시 다음 섹션으로 이동
               >
                 <div className="absolute md:bottom-[-10px] bottom-[0px] md:left-[-20px] left-[0px] scale-y-[-1]">
                   <svg

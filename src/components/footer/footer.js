@@ -64,7 +64,7 @@ const Footer = () => {
       {/* 큰 전체 */}
       <div className="my-[3%] px-[5%] h-full">
         {/* 컨텐츠 전체 */}
-        <div className="flex gap-8 md:gap-40 flex-col md:flex-row ">
+        <div className="flex gap-8 md:gap-24 lg:gap-40 flex-col md:flex-row ">
           {footerContent.map((section, sectionIndex) => (
             <div key={sectionIndex} className="flex flex-col gap-8">
               {section.subtitles.map((subtitle, subtitleIndex) => (

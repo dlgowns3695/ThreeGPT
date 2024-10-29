@@ -14,6 +14,8 @@ import Loading from "./components/loading/loading";
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0); // 현재 섹션의 인덱스 추적
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -74,6 +76,12 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, [isMobile]);
 
+  // 다음 섹션으로 이동 함수
+  const goToNextSection = () => {
+    const nextIndex = (currentSectionIndex + 1) % sectionRefs.length;
+    scrollToSection(nextIndex);
+  };
+
   return (
     <>
       <BrowserRouter>
@@ -84,7 +92,8 @@ function App() {
           <Robot />
           <div className="mt-[-100vh]">
             <div ref={sectionRefs[0]} id="section01">
-              <Section01 />
+              <Section01 goToNextSection={goToNextSection} />{" "}
+              {/* 섹션에 함수 전달 */}
             </div>
             <div ref={sectionRefs[1]} id="section02">
               <Section02 />

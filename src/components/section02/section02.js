@@ -233,10 +233,10 @@ export const Section02 = () => {
                       </div>
 
                       {/* 하단 화살표 top-[-35px] */}
-                      <div className="flex md:hidden  absolute right-2 top-[50%] translate-y-[-50%] gap-2 items-center md:mx-[5%] 1500size:mx-[2%] ">
+                      <div className="flex md:hidden bg-red-500  absolute z-[99999] right-2 top-[50%] translate-y-[-50%] gap-2 items-center md:mx-[5%] 1500size:mx-[2%] ">
                         <div
                           onClick={handlePrev}
-                          className={`cursor-pointer ${
+                          className={` cursor-pointer ${
                             currentIndex === 0 ? "opacity-50" : "opacity-100"
                           }`}
                         >
@@ -257,7 +257,7 @@ export const Section02 = () => {
 
                         <div
                           onClick={handleNext}
-                          className={`cursor-pointer ${
+                          className={` cursor-pointer ${
                             currentIndex === maxIndex
                               ? "opacity-50"
                               : "opacity-100"
