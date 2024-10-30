@@ -1,3 +1,6 @@
 .pointerNone {
   pointer-events: none !important;
 }
+.pointerNone canvas {
+  pointer-events: none !important;
+}

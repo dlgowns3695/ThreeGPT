@@ -135,12 +135,12 @@ export const Section02 = () => {
                 key={slide.id}
                 className={` w-full md:px-[5%]  lg:px-0 inline-block z-10 ${
                   index === 0
-                    ? "1500size:w-[calc(84%-7px)]"
+                    ? "1500size:w-[calc(84%-8px)]"
                     : index === 1
                     ? "1500size:w-[calc(84%-5.5px)]"
                     : index === 2
-                    ? "1500size:w-[calc(84%-6px)]"
-                    : "1500size:w-[calc(84%-5.5px)]"
+                    ? "1500size:w-[calc(84%-5px)]"
+                    : "1500size:w-[calc(84%-6px)]"
                 }`}
               >
                 {/* 선 영역 + 컨텐츠 영역 */}
@@ -154,7 +154,7 @@ export const Section02 = () => {
                         index === 0
                           ? "w-[calc(18.6%-10px)]"
                           : index === 1
-                          ? "w-[calc(18.6%-8px)]"
+                          ? "w-[calc(18.6%-7.5px)]"
                           : index === 2
                           ? "w-[calc(18.6%-8px)]"
                           : "w-[calc(18.6%-8px)]"
@@ -195,7 +195,7 @@ export const Section02 = () => {
                       </div>
                     </div>
                     {/* 창시자, 이름 */}
-                    <div className="flex gap-2 md:gap-8 relative  border-t border-[#cacac6] border-r md:border-none">
+                    <div className=" relative z-[999] flex gap-2 md:gap-8   border-t border-[#cacac6] border-r md:border-none">
                       {/* 이미지 */}
                       <div>
                         <img
@@ -232,8 +232,8 @@ export const Section02 = () => {
                         </div>
                       </div>
 
-                      {/* 하단 화살표 top-[-35px] */}
-                      <div className="flex md:hidden bg-red-500  absolute z-[99999] right-2 top-[50%] translate-y-[-50%] gap-2 items-center md:mx-[5%] 1500size:mx-[2%] ">
+                      {/* 모바일용  화살표 top-[-35px] */}
+                      <div className="flex md:hidden   absolute z-[99999] right-2 top-[50%] translate-y-[-50%] gap-2 items-center md:mx-[5%] 1500size:mx-[2%] ">
                         <div
                           onClick={handlePrev}
                           className={` cursor-pointer ${
@@ -278,6 +278,7 @@ export const Section02 = () => {
                           </svg>
                         </div>
                       </div>
+
                     </div>
 
                     {/* 포지션이름 모바일때는 숨김  */}
