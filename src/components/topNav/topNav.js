@@ -3,7 +3,7 @@ import "../../App.css";
 import "./topNav.css"; // CSS 파일 import
 
 const TopNav = ({ scrollToSection }) => {
-  const titles = ["OUR ECOSYSTEM", "Home", "About GPT", "Products", "Research"];
+  const titles = ["GPT LEEHAEJUN", "Home", "About GPT", "Products", "Research"];
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
