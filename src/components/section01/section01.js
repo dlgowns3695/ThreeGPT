@@ -121,14 +121,14 @@ const Section01 = ({ goToNextSection }) => {
                 {/* 상단 보더 유지 */}
                 <div className="relative border border-[#10101a] w-full h-[66px] md:h-[165px] ">
                   {/* 글귀들 담는 박스 Q&A hero-slider-inner  overflow-hidden */}
-                  <div className="relative h-[360px] overflow-clip  ">
+                  <div className="relative h-[360px] overflow-clip  pointer-events-none ">
                     <Swiper
                       direction={"vertical"}
                       autoplay={{ delay: 3000, disableOnInteraction: false }} // 자동 재생 설정
                       loop={true} // 반복 재생 설정
                       modules={[Pagination, Autoplay]} // Autoplay
                       className="mySwiper"
-                      allowTouchMove={false} // 터치 이동 비활성화
+                      // allowTouchMove={false} // 터치 이동 비활성화
                       style={{ height: "100%" }} // Swiper 높이를 100%로 설정
                     >
                       {/* Q&A 합친 div박스 flex col */}
