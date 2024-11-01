@@ -97,11 +97,11 @@ const Footer = () => {
             {/* 첫번째 링크*/}
             <div>
               <a
-                href="https://x.com/OpenAI"
+                href="#"
                 className="transition ease-curve-a duration-250 text-small"
-                target="_blank"
-                rel="noreferrer"
+
                 aria-label="X"
+                onClick={(e) => e.preventDefault()} // 클릭 시 기본 동작 방지
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -122,11 +122,11 @@ const Footer = () => {
             {/* 두번째 링크*/}
             <div>
               <a
-                href="https://www.youtube.com/OpenAI"
+                href="#"
                 className="transition ease-curve-a duration-250 text-small"
-                target="_blank"
-                rel="noreferrer"
+
                 aria-label="YouTube"
+                onClick={(e) => e.preventDefault()} // 클릭 시 기본 동작 방지
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -147,11 +147,11 @@ const Footer = () => {
             {/* 세번째 링크 */}
             <div>
               <a
-                href="https://www.linkedin.com/company/openai"
+                href="#"
                 className="transition ease-curve-a duration-250 text-small"
-                target="_blank"
-                rel="noreferrer"
+
                 aria-label="LinkedIn"
+                onClick={(e) => e.preventDefault()} // 클릭 시 기본 동작 방지
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -172,11 +172,11 @@ const Footer = () => {
             {/* 네번째 링크 */}
             <div>
               <a
-                href="https://github.com/openai"
+                href="#"
                 className="transition ease-curve-a duration-250 text-small"
-                target="_blank"
-                rel="noreferrer"
+
                 aria-label="GitHub"
+                onClick={(e) => e.preventDefault()} // 클릭 시 기본 동작 방지
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -199,11 +199,11 @@ const Footer = () => {
             {/* 다섯번째 링크 */}
             <div>
               <a
-                href="https://www.instagram.com/openai/?hl=en"
+                href="#"
                 className="transition ease-curve-a duration-250 text-small"
-                target="_blank"
-                rel="noreferrer"
+
                 aria-label="Instagram"
+                onClick={(e) => e.preventDefault()} // 클릭 시 기본 동작 방지
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -222,11 +222,11 @@ const Footer = () => {
             {/* 여섯번째 링크 */}
             <div>
               <a
-                href="https://www.tiktok.com/@openai?lang=en"
+                href="#"
                 className="transition ease-curve-a duration-250 text-small"
-                target="_blank"
-                rel="noreferrer"
+
                 aria-label="TikTok"
+                onClick={(e) => e.preventDefault()} // 클릭 시 기본 동작 방지
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -247,11 +247,11 @@ const Footer = () => {
             {/* 일곱번째 링크 */}
             <div>
               <a
-                href="https://discord.gg/openai"
+                href="#"
                 className="transition ease-curve-a duration-250 text-small"
-                target="_blank"
-                rel="noreferrer"
+
                 aria-label="Discord"
+                onClick={(e) => e.preventDefault()} // 클릭 시 기본 동작 방지
               >
                 <svg
                   viewBox="0 0 18 18"

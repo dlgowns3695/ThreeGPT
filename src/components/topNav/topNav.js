@@ -166,10 +166,11 @@ const TopNav = ({ scrollToSection }) => {
         {/* 맨 오른쪽 버튼 */}
         <div className="flex-shrink-0 relative flex w-auto md:w-[15%] justify-end h-full">
           <a
-            rel="noopener noreferrer"
-            href="https://app.chaingpt.org/"
-            target="_blank"
+            
+            href="#"
+            
             className="btn-primary flex items-center"
+            onClick={(e) => e.preventDefault()} // 클릭 시 기본 동작 방지
           >
             <div className="btn-primary-lines btn-primary-lines-1"></div>
             <div className="btn-primary-lines btn-primary-lines-2"></div>
