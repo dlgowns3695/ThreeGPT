@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/ThreeGPT/static/css/main.86c9e2fd.css",
-    "main.js": "/ThreeGPT/static/js/main.cd4e8880.js",
+    "main.js": "/ThreeGPT/static/js/main.9f5aca83.js",
     "static/js/453.bd7dc15e.chunk.js": "/ThreeGPT/static/js/453.bd7dc15e.chunk.js",
     "static/media/VioletSans-Regular.ttf": "/ThreeGPT/static/media/VioletSans-Regular.3a2615f471014042612c.ttf",
     "index.html": "/ThreeGPT/index.html",
     "main.86c9e2fd.css.map": "/ThreeGPT/static/css/main.86c9e2fd.css.map",
-    "main.cd4e8880.js.map": "/ThreeGPT/static/js/main.cd4e8880.js.map",
+    "main.9f5aca83.js.map": "/ThreeGPT/static/js/main.9f5aca83.js.map",
     "453.bd7dc15e.chunk.js.map": "/ThreeGPT/static/js/453.bd7dc15e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.86c9e2fd.css",
-    "static/js/main.cd4e8880.js"
+    "static/js/main.9f5aca83.js"
   ]
 }
